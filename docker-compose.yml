@@ -7,8 +7,8 @@
 #   Automatic updates     enable the stack webhook, then copy the generated URL
 #                         into the PORTAINER_WEBHOOK_URL repository secret
 #
-# The Traefik entrypoint, network and certresolver names match the instance
-# already serving another stack. Every value carries a default, so the stack
+# The Traefik entrypoint, network and certresolver names match the reverse proxy
+# this stack is deployed behind. Every value carries a default, so the stack
 # still comes up if Portainer is not pointed at .stack.env — the env file
 # overrides, it is not a prerequisite. Labels use list syntax because Compose
 # only interpolates variables inside values, not inside mapping keys.

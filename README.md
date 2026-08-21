@@ -1,294 +1,199 @@
+<div align="center">
+
+<img src="src/assets/logo.svg" alt="" width="56" />
+
 # Rotaris website
 
-Marketing and download site for **Rotaris** — the desktop control plane for
+Marketing and download site for **Rotaris**, the desktop control plane for
 running and supervising a team of specialized coding agents.
 
-Built with React + Vite + TypeScript, styled with the Rotaris *Nocturne* design
-system, served by nginx, and deployed to Portainer behind Traefik.
+<img src="docs/screenshot.jpg" alt="The Rotaris homepage: download hero above a rendering of the application during an active run" width="880" />
+
+React · Vite · TypeScript · nginx · Portainer behind Traefik
+
+</div>
 
 ---
 
-## Local development
+## Development
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+npm run dev
 ```
 
-| Script              | Does                                              |
-| ------------------- | ------------------------------------------------- |
-| `npm run dev`       | Vite dev server with hot reload                   |
-| `npm run build`     | Typecheck, then emit the production bundle to `dist/` |
-| `npm run preview`   | Serve `dist/` locally                             |
-| `npm run typecheck` | Typecheck only                                    |
+| Script      | Does                                       |
+| ----------- | ------------------------------------------ |
+| `dev`       | Vite dev server on port 5173               |
+| `build`     | Typecheck, then emit the production bundle |
+| `preview`   | Serve `dist/` locally                      |
+| `typecheck` | Typecheck only                             |
 
-## Project layout
+## Layout
 
 ```
 src/
-  components/       one file per homepage section, in page order
-  pages/            Home, Imprint, Privacy, Terms, NotFound
-  data/release.ts   the single source of release metadata (version, artifacts, sizes)
-  data/routes.ts    route paths and the homepage anchors
-  hooks/            platform detection, channel state, reduced-motion
-  styles/
-    tokens/         colors · typography · spacing · effects  (design-system tokens)
-    base.css        element defaults
-    components.css  design-system primitives (.btn, .card, .tag, .table, .seg…)
-    motif.css       the grid and axis-mark brand motifs
-    site.css        page composition + responsive rules
+  components/   one file per homepage section, in page order
+  pages/        Home, the legal pages, NotFound
+  legal/        the published legal documents, as Markdown
+  data/         release metadata and route paths
+  hooks/        platform detection, channel state, reduced motion
+  styles/       design-system tokens and primitives, then page composition
 ```
 
-`src/styles/tokens/`, `base.css`, `components.css` and `motif.css` are carried
-over verbatim from the Rotaris design system. Treat them as vendored: change
-the design system first, then re-sync. Page-level styling belongs in
-`site.css`.
+`styles/tokens/`, `base.css`, `components.css` and `motif.css` come verbatim
+from the Rotaris design system. Treat them as vendored — change the design
+system first, then re-sync. Page styling belongs in `site.css`.
 
-### Updating the release
+Release version, artifact sizes and per-platform availability live in
+[`src/data/release.ts`](src/data/release.ts). A release bump touches that file
+and nothing else.
 
-Version numbers, artifact sizes, minimum OS versions and the "coming soon"
-state of each platform all live in [`src/data/release.ts`](src/data/release.ts).
-That is the only file a release bump should touch.
+## Legal pages
 
-### Pages and legal documents
+| Route             | Document                          | German slug                              |
+| ----------------- | --------------------------------- | ---------------------------------------- |
+| `/imprint`        | Impressum                         | `/impressum`                             |
+| `/privacy`        | Datenschutzerklärung              | `/datenschutz`, `/datenschutzerklaerung` |
+| `/terms`          | AGB — Rotaris Cloud               | `/agb`                                   |
+| `/eula`           | Endnutzerbedingungen              | `/endnutzerbedingungen`                  |
+| `/withdrawal`     | Widerrufsbelehrung                | `/widerruf`, `/widerrufsbelehrung`       |
+| `/acceptable-use` | Richtlinie zur zulässigen Nutzung | `/nutzungsrichtlinie`                    |
 
-| Route             | Document                                        | German aliases                           |
-| ----------------- | ----------------------------------------------- | ---------------------------------------- |
-| `/`               | the homepage                                     | —                                        |
-| `/imprint`        | Impressum — § 5 DDG, § 18 Abs. 2 MStV            | `/impressum`                             |
-| `/privacy`        | Datenschutzerklärung — Rotaris & Rotaris Cloud   | `/datenschutz`, `/datenschutzerklaerung` |
-| `/terms`          | AGB — Rotaris Cloud                              | `/agb`                                   |
-| `/eula`           | Endnutzerbedingungen — die kostenlose Anwendung  | `/endnutzerbedingungen`                  |
-| `/withdrawal`     | Widerrufsbelehrung + Muster-Widerrufsformular    | `/widerruf`, `/widerrufsbelehrung`       |
-| `/acceptable-use` | Richtlinie zur zulässigen Nutzung                | `/nutzungsrichtlinie`                    |
+The Markdown in [`src/legal/`](src/legal/) is copied from the company legal
+package, which is the canonical source and lives elsewhere. **To update a
+document, replace the file** — editing the text here makes the two drift, and
+the reviewed copy is the other one. Sections the package marks as internal are
+removed on import; the renderer strips them again as a safety net.
 
-#### Where the text comes from
+The documents stay in German. That is the contract language for the offering
+they cover, and a translated withdrawal notice would be a second wording
+readable against the first.
 
-The Markdown in [`src/legal/`](src/legal/) is a **verbatim copy** of
-the documents cleared for publication in the Concrete Dynamics legal package. That package is the canonical source and lives
-outside this repository.
+`[PRÜFEN]` and `[PLATZHALTER]` markers render as amber `OFFEN` boxes and are
+counted in each page's draft banner. They are the sentences that are not yet
+true, and they block publication.
 
-**To update a document, replace the file.** Do not edit the text here — the two
-copies would drift, and the one a lawyer reviewed is the other one.
-
-The documents stay in German. The contract language for a DACH B2C offering is
-German, and translating a withdrawal notice would create a second wording that
-could be read against the first. The page chrome around them is English.
-
-The Impressum is the exception: it is built from data in
+The Impressum is built from data in
 [`src/pages/Imprint.tsx`](src/pages/Imprint.tsx) rather than copied, because the
-package ships findings about the *existing* imprint rather than a replacement
-text. All six defects from the package's findings are corrected there — no tax
-number, § 5 DDG and § 18 Abs. 2 MStV, correct spelling of
-"(haftungsbeschränkt)", no data protection officer, one postcode, and the § 36
-VSBG statement instead of the retired EU ODR link.
+package ships findings about the existing imprint rather than a replacement.
 
-#### What the renderer does to the text
+## Crawlers
 
-[`LegalDocument.tsx`](src/components/LegalDocument.tsx) renders the Markdown
-as-is apart from three deliberate transformations:
+`robots.txt` and `sitemap.xml` are generated at build time from `SITE_URL`, the
+same value that stamps the canonical and Open Graph tags. Everything is allowed
+for every user agent.
 
-1. **Internal sections are cut.** A heading whose own text says
-   "nicht veröffentlichen" or "nicht Bestandteil" ends the public part of the
-   document; everything from there on is dropped. The package uses this for the
-   AI-Act classification note, the checkout implementation duties and the AGB
-   usage notes — all trailing sections.
-2. **Open items are made loud.** `[PRÜFEN: …]` and `[PLATZHALTER — …]` render as
-   amber `OFFEN` boxes, and the draft banner counts them. These are the
-   sentences that are not yet true; they must be resolved before launch.
-3. **Cross-references are rewritten.** Relative links like `agb.md` become site
-   routes. Links to documents that are not published render as plain text.
+Unknown paths return a real 404 carrying the designed 404 page. nginx therefore
+needs to know the client-side routes: the list lives in both `nginx.conf` and
+`src/data/routes.ts`, and CI checks they agree.
 
-Every page carries a "Publication draft" banner. The source package asks for one
-round of legal review before publication — the banner comes off with that
-review, in `LegalDocument.tsx`.
-
-### Crawlers
-
-`robots.txt` and `sitemap.xml` are generated at build time by a small plugin in
-`vite.config.ts`, from the same `SITE_URL` that stamps the canonical and Open
-Graph tags. `robots.txt` allows every user agent the whole site — the content is
-public marketing material with no account wall, so search, archival and AI
-crawlers are all welcome.
-
-Unknown paths return a real **HTTP 404** carrying the designed 404 page, rather
-than a soft 404. That means nginx has to know the client-side routes: the list
-lives in both `nginx.conf` and `src/data/routes.ts`, and the CI smoke test
-checks they agree.
-
----
-
-## Container image
+## Container
 
 ```bash
 docker build -t rotaris-website:local .
 docker run --rm -p 8080:8080 rotaris-website:local
-# → http://localhost:8080   (health probe at /healthz)
 ```
 
-The runtime stage is `nginxinc/nginx-unprivileged`: it listens on **8080** and
-runs as uid 101, so the container needs no root and runs with a read-only root
-filesystem in production.
-
----
+Runtime is `nginx-unprivileged` on port 8080 as uid 101, with a read-only root
+filesystem and a health probe at `/healthz`.
 
 ## Deployment
 
 ```
-push to main → GitHub Actions builds the image → pushes to GHCR
-             → POSTs the Portainer stack webhook → Portainer re-pulls and redeploys
+push to main  ->  build image  ->  push to GHCR  ->  smoke test
+              ->  POST the Portainer stack webhook  ->  redeploy
 ```
 
-### 1. Create the stack in Portainer
+**1. Create the stack.** Portainer, Stacks, Add stack, Repository. Point it at
+this repository, compose path `docker-compose.yml`, load variables from
+`.stack.env`, and enable the webhook under automatic updates.
 
-**Stacks → Add stack → Repository**
+**2. Add the secret.** `PORTAINER_WEBHOOK_URL`, set to the webhook URL from step
+one. Anyone holding that URL can trigger a redeploy, so it belongs in Actions
+secrets rather than in the repository.
 
-| Field                | Value                                                     |
-| -------------------- | --------------------------------------------------------- |
-| Repository URL       | `https://github.com/Concrete-Dynamics/Rotaris-website`     |
-| Reference            | `refs/heads/main`                                          |
-| Compose path         | `docker-compose.yml`                                       |
-| Environment variables| *Load variables from .env file* → `.stack.env`             |
-| Automatic updates    | **Webhook** — enable it and copy the generated URL         |
+Publishing to GHCR uses the built-in `GITHUB_TOKEN`. The package is created
+private on first push, so make it public or add a pull secret in Portainer
+before the host can pull it.
 
-The Traefik network named in `.stack.env` (`traefik_net`) must already exist on
-the host — it is the same external network the other stacks join.
+**3. Set `SITE_URL`.** An Actions *variable*, not a secret. It stamps the
+canonical URLs and the sitemap, and switches on the post-deploy check that polls
+the live site.
 
-### 2. Add the repository secret
+**4. Point `TRAEFIK_RULE` at the hostname.** Everything else in `.stack.env`
+matches the proxy this stack sits behind. Every value also has a default in
+`docker-compose.yml`, so the stack still comes up if Portainer is not reading
+the env file.
 
-**Settings → Secrets and variables → Actions → New repository secret**
+### Basic auth
 
-| Name                    | Value                                                         |
-| ----------------------- | ------------------------------------------------------------- |
-| `PORTAINER_WEBHOOK_URL` | the stack webhook URL from step 1 — e.g. `https://portainer.example.com/api/stacks/webhooks/<uuid>` |
-
-The URL is a secret: anyone holding it can trigger a redeploy.
-
-Publishing to GHCR uses the built-in `GITHUB_TOKEN` — no extra registry
-credentials are needed. The first push creates the package as private; make it
-public, or add a pull secret in Portainer, so the Docker host can pull it.
-
-### 3. Configure Traefik
-
-The network, entrypoint and certresolver names match the Traefik instance
-already serving another stack, so they should work as-is:
-
-| Variable               | Value                              | Note                                          |
-| ---------------------- | ---------------------------------- | --------------------------------------------- |
-| `TRAEFIK_NETWORK`      | `traefik_net`                      | external network Traefik watches               |
-| `TRAEFIK_ENTRYPOINT`   | `https`                            | Traefik already redirects plain HTTP, so this stack defines no HTTP router |
-| `TRAEFIK_CERTRESOLVER` | `simpleresolver`                   | ACME resolver                                  |
-| `TRAEFIK_ROUTER`       | `rotaris-website`                  | router/service/middleware name prefix          |
-| `TRAEFIK_RULE`         | **`Host(\`rotaris.example.com\`)`** | ← the one placeholder left                     |
-
-Set `TRAEFIK_RULE` to the real hostname before deploying. Add a `www` variant
-the same way another stack does:
-
-```
-TRAEFIK_RULE=Host(`rotaris.dev`) || Host(`www.rotaris.dev`)
-```
-
-Every one of these also has a default in `docker-compose.yml`, so the stack
-still comes up if Portainer is not pointed at `.stack.env` — the env file
-overrides, it is not a prerequisite.
-
-### 4. Set the public URL
-
-Add a repository **variable** `SITE_URL` (e.g. `https://rotaris.dev`). It is
-passed into the Docker build and stamps the canonical URL, the Open Graph tags,
-`robots.txt` and the sitemap. It also switches on the post-deploy verification
-job, which polls the live site and fails the run if it does not come back up.
-
-Keep `SITE_URL` and `TRAEFIK_RULE` in step — they describe the same hostname.
-
-### 5. Optional: gate the site with basic auth
-
-`.stack.env` carries a Traefik basic-auth middleware that fronts the whole site.
-Handy while the domain, the legal pages and the release artifacts are still
-unfinished.
+An optional Traefik gate in front of the whole site, for the period before
+launch.
 
 ```
 BASIC_AUTH=true
-BASIC_AUTH_REALM=Rotaris
-BASIC_AUTH_USERS=admin:$2y$05$…
+BASIC_AUTH_USERS=admin:$2y$05$...
 ```
 
-Toggle it with `BASIC_AUTH` alone and redeploy — no file edits. It must be
-exactly **`true`** or **`false`**: the value is spliced into the Traefik
-middleware name (`…-auth-true` / `…-auth-false`), which is the only way to make
-a Compose label conditional. `1`, `yes` or `True` will point the router at a
-middleware that does not exist and take the site down.
-
-Traefik requires the password to be **hashed** — plain text does not work.
-Use the helper, which prints the value ready to paste:
+Generate the value with the helper, which prints it ready to paste:
 
 ```bash
-./scripts/basic-auth.sh  admin 'your-password'    # bash
-./scripts/basic-auth.ps1 admin 'your-password'    # PowerShell
+./scripts/basic-auth.sh  admin 'your-password'
+./scripts/basic-auth.ps1 admin 'your-password'
 ```
 
-Put the result in **Portainer → your stack → Environment variables**, under
-`BASIC_AUTH_USERS`. Comma-separate the entries for several users.
+Put it in Portainer's environment-variable UI. It is deliberately absent from
+`.stack.env`: an empty value is not "no auth" but "no user may pass", and
+Portainer's env-file loading can overwrite what you typed.
 
-`BASIC_AUTH_USERS` is deliberately absent from `.stack.env`: if the key were
-present but empty, Portainer's env-file loading could overwrite the value you
-typed in the UI, and an empty value locks everyone out (see below). Keeping the
-credential out of git is the right default anyway.
+`BASIC_AUTH` must be exactly `true` or `false` — the value becomes part of a
+Traefik middleware name, so anything else points the router at a middleware that
+does not exist.
 
-#### Troubleshooting: the prompt keeps coming back
+<details>
+<summary>The prompt keeps reappearing after I enter the password</summary>
 
-A browser re-prompting after you type the password means Traefik got the
-credentials and rejected them. Two causes, both silent:
+Traefik received the credentials and rejected them. Two silent causes:
 
-**1. `BASIC_AUTH_USERS` is empty.** Traefik does not read that as "no auth" — it
-reads it as "no user may pass" and answers 401 to everything. Indistinguishable
-from a wrong password.
+1. **`BASIC_AUTH_USERS` is empty**, which Traefik reads as "nobody may pass".
+2. **The hash was truncated.** htpasswd hashes contain `$`, and in an env file
+   Compose reads `$2y$05$AbCd...` as a variable, leaving `admin:$2y$05`. Double
+   every `$` if the value must live in a file.
 
-**2. The hash was truncated by Compose.** htpasswd hashes contain `$`, and in an
-env file Compose reads `$2y$05$AbCd…` as a variable reference, leaving
-`admin:$2y$05`. Deploys cleanly; nobody can log in.
-
-Check what actually reached Traefik:
+Check what reached Traefik:
 
 ```bash
-docker inspect rotaris-website   --format '{{ index .Config.Labels "traefik.http.middlewares.rotaris-website-auth-true.basicauth.users" }}'
+docker inspect rotaris-website \
+  --format '{{ index .Config.Labels "traefik.http.middlewares.rotaris-website-auth-true.basicauth.users" }}'
 ```
 
-The output must be the complete `user:$2y$05$…` string. Empty or ending at
-`$05` confirms cause 1 or 2 respectively. You can check before deploying with:
+Or before deploying, which needs no Docker daemon:
 
 ```bash
 docker compose --env-file .stack.env config | grep basicauth.users
 ```
 
-That works without a running Docker daemon. `config` prints `$` doubled as `$$`
-— that is its own escaping, not a problem with your value.
+`config` prints `$` doubled as `$$`. That is its own escaping, not a fault in
+your value.
 
-If you keep hitting the `$` issue and would rather avoid it entirely, `htpasswd
--nbs` emits a `{SHA}…` hash with no `$` in it. Traefik accepts it, but SHA1 is
-unsalted and much weaker than bcrypt — reasonable for a temporary pre-launch
-gate over HTTPS, not for anything longer-lived.
-
-Traefik strips the `Authorization` header before forwarding, and the container's
-own health check is unaffected because Traefik probes the backend directly. The
-post-deploy verification job accepts `401` as proof the site is up.
+</details>
 
 ### Rollback
 
-Every build is also tagged `sha-<short-sha>`. To roll back, set `IMAGE_TAG` to
-that tag in the Portainer stack's environment and redeploy; revert it to `main`
-to resume automatic deploys.
-
----
+Every build is also tagged `sha-<short-sha>`. Set `IMAGE_TAG` to that tag in the
+stack environment and redeploy; set it back to `main` to resume automatic
+deploys.
 
 ## Workflows
 
-| Workflow                          | Trigger                          | Does                                                    |
-| --------------------------------- | -------------------------------- | ------------------------------------------------------- |
-| `.github/workflows/ci.yml`        | pull requests, non-main branches | typecheck, build, and build the image without pushing   |
-| `.github/workflows/deploy.yml`    | push to `main`, manual dispatch  | build + push to GHCR, then trigger the Portainer webhook |
+| Workflow     | Trigger                          | Does                                                 |
+| ------------ | -------------------------------- | ---------------------------------------------------- |
+| `ci.yml`     | pull requests, non-main branches | typecheck, build, build and smoke-test the image      |
+| `deploy.yml` | push to `main`, manual dispatch  | build, push to GHCR, smoke test, trigger the redeploy |
 
----
+Both smoke tests run the image and assert each route, `robots.txt`,
+`sitemap.xml` and a 404 on an unknown path.
 
 ## License
 
