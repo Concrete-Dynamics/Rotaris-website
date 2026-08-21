@@ -18,6 +18,17 @@ import SiteFooter from './SiteFooter'
  */
 let detectionUsed = false
 
+/**
+ * Spend the detection without running it.
+ *
+ * The /en alias redirects to `/`, where this layout would otherwise detect a
+ * German browser and forward to /de — the opposite of what asking for /en
+ * means.
+ */
+export function suppressDetection(): void {
+  detectionUsed = true
+}
+
 function detectLocale(): Locale {
   if (detectionUsed) return DEFAULT_LOCALE
   detectionUsed = true

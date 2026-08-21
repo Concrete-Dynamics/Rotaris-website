@@ -6,6 +6,8 @@
  * a screenshot would have carried in its alt text.
  */
 
+import { useTranslation } from 'react-i18next'
+
 const RAIL = [
   { icon: 'ph ph-gauge', label: 'Overview' },
   { icon: 'ph-fill ph-chats-circle', label: 'Workspace', active: true },
@@ -53,12 +55,17 @@ const TRANSCRIPT = [
 ]
 
 export default function WorkspaceMock() {
+  // The labels inside the mock stay English: they are the product's own
+  // interface, which is English. These two are prose read out to a visitor,
+  // so they follow the page instead.
+  const { t } = useTranslation('home')
+
   return (
     <div className="proof">
       <div
         className="mock"
         role="img"
-        aria-label="The Rotaris workspace during an active run: agent tree, live transcript, and the inspector for a running coding agent"
+        aria-label={t('hero.mock.label')}
       >
         <div className="mock-titlebar">
           <div className="mock-lights">
@@ -239,7 +246,7 @@ export default function WorkspaceMock() {
                 height="76"
                 viewBox="0 0 76 76"
                 role="img"
-                aria-label="Context window 71 percent full"
+                aria-label={t('hero.mock.context')}
               >
                 <circle
                   cx="38"

@@ -18,6 +18,12 @@ export const LOCALE_PREFIX: Record<Locale, string> = {
   de: '/de',
 }
 
+/** Open Graph writes a locale as language_TERRITORY, not as a bare language. */
+export const OG_LOCALES: Record<Locale, string> = {
+  en: 'en_US',
+  de: 'de_DE',
+}
+
 /** Language names, each written in its own language. */
 export const LOCALE_LABELS: Record<Locale, string> = {
   en: 'English',

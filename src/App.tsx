@@ -1,6 +1,6 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import ScrollToHash from './components/ScrollToHash'
-import LocaleLayout from './components/LocaleLayout'
+import LocaleLayout, { suppressDetection } from './components/LocaleLayout'
 import Home from './pages/Home'
 import Imprint from './pages/Imprint'
 import Privacy from './pages/Privacy'
@@ -46,6 +46,21 @@ function localeRoutes(release: Release, locale: Locale) {
   )
 }
 
+/**
+ * The explicit English URL. `/` sends a first-time visitor to their browser's
+ * language, so this is how someone with a German browser reaches English
+ * durably without the site storing a preference — which means the redirect has
+ * to disarm that detection first, or it would bounce them straight on to /de.
+ *
+ * The path below /en is kept, so /en/privacy lands on the privacy page.
+ */
+function EnglishAlias() {
+  const { pathname, search, hash } = useLocation()
+  suppressDetection()
+  const target = pathname.replace(/^\/en/, '') || '/'
+  return <Navigate to={`${target}${search}${hash}`} replace />
+}
+
 export default function App() {
   const release = useRelease()
 
@@ -63,12 +78,7 @@ export default function App() {
           </Route>
         ))}
 
-        {/*
-          The explicit English URL. `/` sends a first-time visitor to their
-          browser's language, so this is how someone with a German browser
-          reaches English durably without the site storing a preference.
-        */}
-        <Route path="/en/*" element={<Navigate to="/" replace />} />
+        <Route path="/en/*" element={<EnglishAlias />} />
       </Routes>
     </>
   )
