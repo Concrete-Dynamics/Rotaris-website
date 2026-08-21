@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import LegalDocument from '../components/LegalDocument'
-import { LEGAL_DOCUMENTS } from '../legal'
 
 const FACTS = ['storage', 'analytics', 'thirdParty', 'forms', 'detection', 'logs']
 
@@ -11,7 +10,6 @@ export default function Privacy() {
   return (
     <LegalDocument
       documentKey="privacy"
-      source={LEGAL_DOCUMENTS.privacy}
       intro={
         /* The package's privacy statement covers the product and the cloud
            service and explicitly excludes this website, so the website's own

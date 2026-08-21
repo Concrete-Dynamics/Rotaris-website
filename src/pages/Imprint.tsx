@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { SECURITY_POLICY_URL } from '../data/release'
 import { LEGAL_ROUTES } from '../data/routes'
@@ -15,23 +15,24 @@ import { usePageMeta } from '../hooks/usePageMeta'
  *     A tax number is not a substitute and does not belong here.
  *   - The current provisions are § 5 DDG and § 18 Abs. 2 MStV.
  *   - "(haftungsbeschränkt)" must read exactly as registered (§ 5a Abs. 1
- *     GmbHG).
+ *     GmbHG), in either language — it is part of the company name.
  *   - No data protection officer is named. None is required here, and naming a
  *     managing director would be a conflict under Art. 38(6) GDPR.
  *   - No link to the EU ODR platform, which closed on 20 July 2025. The § 36
  *     VSBG statement stands in its place.
  *
- * The body stays German in both locales: it is a statutory notice whose
- * required wording is German, for the same reason the documents in src/legal/
- * are not translated. Only the chrome around it follows the site language.
+ * The wording follows the page language, as the documents in src/legal/ now do.
+ * The German page carries the statutory notice; the English one states the same
+ * facts for a reader who does not read German. The data below stays as
+ * registered either way — a company name and a register entry are not
+ * translated.
  */
 
 const COMPANY = {
   name: 'Concrete Dynamics UG (haftungsbeschränkt)',
   street: 'Bahnhofstr. 15',
   city: '87435 Kempten (Allgäu)',
-  country: 'Deutschland',
-  directors: 'David Fischer und Philipp Geirhos',
+  directors: ['David Fischer', 'Philipp Geirhos'],
   court: 'Amtsgericht Kempten (Allgäu)',
   register: 'HRB 18115',
   email: 'info@concrete-dynamics.com',
@@ -54,6 +55,8 @@ export default function Imprint() {
 
   usePageMeta({ title: t('titles.imprint'), description: t('descriptions.imprint') })
 
+  const directors = COMPANY.directors.join(t('imprint.labels.and'))
+
   return (
     <main className="legal">
       <div className="wrap">
@@ -62,11 +65,11 @@ export default function Imprint() {
           {t('back')}
         </Link>
 
-        <h1 className="legal-title">Impressum</h1>
+        <h1 className="legal-title">{t('titles.imprint')}</h1>
         <p className="legal-german mono">{t('imprint.basis')}</p>
 
-        <article className="legal-doc" lang="de">
-          <h2>Anbieter</h2>
+        <article className="legal-doc">
+          <h2>{t('imprint.headings.provider')}</h2>
           <p>
             {COMPANY.name}
             <br />
@@ -74,75 +77,72 @@ export default function Imprint() {
             <br />
             {COMPANY.city}
             <br />
-            {COMPANY.country}
+            {t('imprint.labels.country')}
           </p>
 
-          <h2>Vertreten durch</h2>
-          <p>Die Geschäftsführer {COMPANY.directors}</p>
+          <h2>{t('imprint.headings.representedBy')}</h2>
+          <p>{t('imprint.labels.directors', { directors })}</p>
 
-          <h2>Kontakt</h2>
+          <h2>{t('imprint.headings.contact')}</h2>
           <p>
-            E-Mail: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+            {t('imprint.labels.email')}: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
             <br />
-            Telefon: <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}>{COMPANY.phone}</a>
+            {t('imprint.labels.phone')}:{' '}
+            <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}>{COMPANY.phone}</a>
           </p>
 
-          <h2>Registereintrag</h2>
+          <h2>{t('imprint.headings.register')}</h2>
           <p>
-            Registergericht: {COMPANY.court}
+            {t('imprint.labels.court')}: {COMPANY.court}
             <br />
-            Registernummer: {COMPANY.register}
+            {t('imprint.labels.number')}: {COMPANY.register}
           </p>
 
-          <h2>Umsatzsteuer-Identifikationsnummer</h2>
+          <h2>{t('imprint.headings.vat')}</h2>
           <p>
             <span className="legal-open">
-              OFFEN — USt-IdNr. nach § 27a UStG eintragen, sobald sie vorliegt. Bis dahin
-              bleibt diese Angabe leer; die Steuernummer gehört nicht ins Impressum.
+              {t('draft.openLabel')} — {t('imprint.vatOpen')}
             </span>
           </p>
 
-          <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+          <h2>{t('imprint.headings.responsible')}</h2>
           <p>
-            {COMPANY.directors}
+            {directors}
             <br />
-            Anschrift wie oben
+            {t('imprint.labels.addressAsAbove')}
           </p>
 
-          <h2>Datenschutz</h2>
+          <h2>{t('imprint.headings.dataProtection')}</h2>
           <p>
-            Einen Datenschutzbeauftragten haben wir nicht bestellt; die gesetzlichen
-            Voraussetzungen des Art. 37 DSGVO und des § 38 BDSG liegen bei uns nicht vor.
-            Anfragen zum Datenschutz richtest du an{' '}
-            <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>. Einzelheiten stehen
-            in der <Link to={localePath(LEGAL_ROUTES.privacy)}>Datenschutzerklärung</Link>.
+            <Trans
+              t={t}
+              i18nKey="imprint.dataProtection"
+              values={{ email: COMPANY.email }}
+              components={[
+                <a href={`mailto:${COMPANY.email}`} />,
+                <Link to={localePath(LEGAL_ROUTES.privacy)} />,
+              ]}
+            />
           </p>
 
-          <h2>Verbraucherstreitbeilegung</h2>
+          <h2>{t('imprint.headings.disputes')}</h2>
+          <p>{t('imprint.disputes')}</p>
+
+          <h2>{t('imprint.headings.security')}</h2>
           <p>
-            Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor
-            einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
+            <Trans
+              t={t}
+              i18nKey="imprint.security"
+              values={{ email: COMPANY.security }}
+              components={[
+                <a href={`mailto:${COMPANY.security}`} />,
+                <a href={SECURITY_POLICY_URL} className="mono" />,
+              ]}
+            />
           </p>
 
-          <h2>Sicherheitslücken</h2>
-          <p>
-            Meldungen zu Sicherheitslücken nimmt{' '}
-            <a href={`mailto:${COMPANY.security}`}>{COMPANY.security}</a> entgegen. Das
-            Verfahren steht in der{' '}
-            <a href={SECURITY_POLICY_URL}>
-              <code>SECURITY.md</code>
-            </a>{' '}
-            im Quellcode-Repository.
-          </p>
-
-          <h2>Haftung für Inhalte und Links</h2>
-          <p>
-            Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den
-            allgemeinen Gesetzen verantwortlich. Für die Inhalte externer Links sind
-            ausschließlich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung
-            waren keine Rechtsverstöße erkennbar; bei Bekanntwerden entfernen wir
-            entsprechende Links umgehend.
-          </p>
+          <h2>{t('imprint.headings.liability')}</h2>
+          <p>{t('imprint.liability')}</p>
         </article>
 
         <div className="legal-related">

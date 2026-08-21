@@ -2,10 +2,11 @@
   "back": "Back to Rotaris",
   "draft": {
     "title": "Publication draft.",
-    "body": "This is the text prepared for launch, in German — the contract language for the offering it covers. It has not yet had the legal review the source package asks for",
-    "openItems_one": ", and it still contains <0>{{count}} open item</0> marked <1>OFFEN</1> that has to be resolved before it goes live",
-    "openItems_other": ", and it still contains <0>{{count}} open items</0> marked <1>OFFEN</1> that have to be resolved before it goes live",
-    "germanNote": "The document below is in German and stays that way: German is the contract language for this offering, and a translated withdrawal notice or privacy statement would create a second wording that could be read against the first."
+    "body": "This is the text prepared for launch. It has not yet had the legal review the source package asks for",
+    "openItems_one": ", and it still contains <0>{{count}} open item</0> marked <1>OPEN</1> that has to be resolved before it goes live",
+    "openItems_other": ", and it still contains <0>{{count}} open items</0> marked <1>OPEN</1> that have to be resolved before it goes live",
+    "openLabel": "OPEN",
+    "languageNote": "This is a convenience translation. German is the contract language for this offering, so the <0>German version</0> is the one that binds — where the two differ, it prevails."
   },
   "titles": {
     "imprint": "Imprint",
@@ -44,8 +45,34 @@
     "authoritative": "This English list is a convenience translation. The German version on the German page is the authoritative wording."
   },
   "imprint": {
-    "basis": "Angaben gemäß § 5 DDG · § 18 Abs. 2 MStV",
+    "basis": "Information pursuant to § 5 DDG · § 18(2) MStV",
     "related": "Other legal documents",
-    "securityPolicy": "the SECURITY.md in the source repository"
+    "headings": {
+      "provider": "Provider",
+      "representedBy": "Represented by",
+      "contact": "Contact",
+      "register": "Register entry",
+      "vat": "VAT identification number",
+      "responsible": "Responsible for the content under § 18(2) MStV",
+      "dataProtection": "Data protection",
+      "disputes": "Consumer dispute resolution",
+      "security": "Security vulnerabilities",
+      "liability": "Liability for content and links"
+    },
+    "labels": {
+      "country": "Germany",
+      "directors": "The managing directors {{directors}}",
+      "and": " and ",
+      "email": "Email",
+      "phone": "Phone",
+      "court": "Register court",
+      "number": "Register number",
+      "addressAsAbove": "Address as above"
+    },
+    "vatOpen": "Enter the VAT identification number under § 27a UStG as soon as it has been issued. Until then this entry stays empty; the tax number does not belong in the imprint.",
+    "dataProtection": "We have not appointed a data protection officer; the statutory conditions of Art. 37 GDPR and § 38 BDSG are not met in our case. Send data protection enquiries to <0>{{email}}</0>. The details are set out in the <1>privacy policy</1>.",
+    "disputes": "We are neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG).",
+    "security": "Reports of security vulnerabilities go to <0>{{email}}</0>. The procedure is set out in the <1>SECURITY.md</1> in the source repository.",
+    "liability": "As a service provider we are responsible for our own content on these pages under the general laws. The operators of external links are solely responsible for their content. No infringements were apparent at the time of linking; we remove such links immediately once we learn of them."
   }
 }

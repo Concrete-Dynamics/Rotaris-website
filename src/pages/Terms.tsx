@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import LegalDocument from '../components/LegalDocument'
 import { LEGAL_ROUTES } from '../data/routes'
 import { useLocalePath } from '../hooks/useLocalePath'
-import { LEGAL_DOCUMENTS } from '../legal'
 
 export default function Terms() {
   const { t } = useTranslation('legal')
@@ -12,7 +11,6 @@ export default function Terms() {
   return (
     <LegalDocument
       documentKey="terms"
-      source={LEGAL_DOCUMENTS.terms}
       intro={
         <p>
           <Trans

@@ -2,10 +2,11 @@
   "back": "Zurück zu Rotaris",
   "draft": {
     "title": "Veröffentlichungsentwurf.",
-    "body": "Dies ist der für den Start vorbereitete Text, auf Deutsch — der Vertragssprache des Angebots, das er abdeckt. Die rechtliche Prüfung, die das Quellpaket verlangt, steht noch aus",
+    "body": "Dies ist der für den Start vorbereitete Text. Die rechtliche Prüfung, die das Quellpaket verlangt, steht noch aus",
     "openItems_one": ", und er enthält noch <0>{{count}} offenen Punkt</0>, gekennzeichnet mit <1>OFFEN</1>, der vor der Veröffentlichung zu klären ist",
     "openItems_other": ", und er enthält noch <0>{{count}} offene Punkte</0>, gekennzeichnet mit <1>OFFEN</1>, die vor der Veröffentlichung zu klären sind",
-    "germanNote": "Das nachstehende Dokument ist auf Deutsch und bleibt es: Deutsch ist die Vertragssprache dieses Angebots, und eine übersetzte Widerrufsbelehrung oder Datenschutzerklärung wäre eine zweite Fassung, die gegen die erste gelesen werden könnte."
+    "openLabel": "OFFEN",
+    "languageNote": "Dies ist die verbindliche Fassung: Deutsch ist die Vertragssprache dieses Angebots. Zur Orientierung gibt es eine <0>englische Übersetzung</0>, die im Zweifel hinter dieser Fassung zurücktritt."
   },
   "titles": {
     "imprint": "Impressum",
@@ -46,6 +47,32 @@
   "imprint": {
     "basis": "Angaben gemäß § 5 DDG · § 18 Abs. 2 MStV",
     "related": "Weitere Rechtsdokumente",
-    "securityPolicy": "der SECURITY.md im Quellcode-Repository"
+    "headings": {
+      "provider": "Anbieter",
+      "representedBy": "Vertreten durch",
+      "contact": "Kontakt",
+      "register": "Registereintrag",
+      "vat": "Umsatzsteuer-Identifikationsnummer",
+      "responsible": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+      "dataProtection": "Datenschutz",
+      "disputes": "Verbraucherstreitbeilegung",
+      "security": "Sicherheitslücken",
+      "liability": "Haftung für Inhalte und Links"
+    },
+    "labels": {
+      "country": "Deutschland",
+      "directors": "Die Geschäftsführer {{directors}}",
+      "and": " und ",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "court": "Registergericht",
+      "number": "Registernummer",
+      "addressAsAbove": "Anschrift wie oben"
+    },
+    "vatOpen": "USt-IdNr. nach § 27a UStG eintragen, sobald sie vorliegt. Bis dahin bleibt diese Angabe leer; die Steuernummer gehört nicht ins Impressum.",
+    "dataProtection": "Einen Datenschutzbeauftragten haben wir nicht bestellt; die gesetzlichen Voraussetzungen des Art. 37 DSGVO und des § 38 BDSG liegen bei uns nicht vor. Anfragen zum Datenschutz richtest du an <0>{{email}}</0>. Einzelheiten stehen in der <1>Datenschutzerklärung</1>.",
+    "disputes": "Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).",
+    "security": "Meldungen zu Sicherheitslücken nimmt <0>{{email}}</0> entgegen. Das Verfahren steht in der <1>SECURITY.md</1> im Quellcode-Repository.",
+    "liability": "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Für die Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar; bei Bekanntwerden entfernen wir entsprechende Links umgehend."
   }
 }
