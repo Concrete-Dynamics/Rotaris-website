@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.env.*
+!.stack.env
+!.stack.env.example
+
+# Local agent/tooling state
+.claude/

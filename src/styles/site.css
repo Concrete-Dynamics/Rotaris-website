@@ -1,0 +1,277 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Page styles for the Rotaris website. The design system in ./components.css
+   supplies the primitives (.btn, .card, .tag, .table, .seg, .status-dot); the
+   rules below are the page-level composition ported from the Claude Design
+   source, plus the responsive behaviour the static artboard did not need.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+html{scroll-behavior:smooth}
+section[id],div[id],header[id]{scroll-margin-top:72px}
+.btn{white-space:nowrap}
+@media (prefers-reduced-motion: reduce){.status-dot.is-pulsing{animation:none}}
+
+/* Hero dot grid, dialled back from the .rt-dot-grid-bg motif. */
+.rt-dot-grid-soft{
+  background-image:radial-gradient(oklch(48% 0 0 / 0.34) 1px, transparent 1px);
+  background-size:var(--rt-grid-unit) var(--rt-grid-unit);
+}
+
+/* ── shared layout ────────────────────────────────────────────────────────── */
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.section{border-bottom:1px solid var(--rt-border)}
+.section > .wrap{padding-top:88px;padding-bottom:88px}
+.section-lede{font-size:15px;color:var(--rt-text-secondary);max-width:620px;margin-bottom:40px;text-wrap:pretty}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:56px;align-items:center}
+.grid-cards{display:grid;gap:16px}
+.grid-cards.cols-sm{grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr))}
+.grid-cards.cols-md{grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))}
+.grid-cards.cols-lg{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.grid-cards.cols-xl{grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr))}
+.grid-cards.cols-security{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.grid-cards.cols-views{grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+.stack-16{display:flex;flex-direction:column;gap:16px}
+.icon-title{display:flex;align-items:center;gap:9px}
+.icon-title i{font-size:19px;color:var(--rt-accent-300)}
+.icon-title .card-title{font-size:15px}
+.card-stats{display:flex;gap:14px;font-size:11px;color:var(--rt-text-tertiary);border-top:1px solid var(--rt-border);padding-top:10px;margin-top:2px}
+.scroll-x{overflow-x:auto}
+.dim{color:var(--rt-text-tertiary)}
+.sep{color:var(--rt-border-strong)}
+
+/* ── 1 · navigation ───────────────────────────────────────────────────────── */
+.site-nav{position:sticky;top:0;z-index:50;background:var(--rt-bg);border-bottom:1px solid var(--rt-border)}
+.site-nav .wrap{height:60px;display:flex;align-items:center;gap:28px}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--rt-text)}
+.nav-brand img{height:22px;width:auto}
+.nav-brand span{font-family:var(--rt-font-display);font-weight:600;font-size:17px;letter-spacing:-0.01em}
+.nav-links{flex:1;display:flex;align-items:center;gap:4px;justify-content:flex-end}
+.nav-link{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--rt-text-secondary);font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:6px;transition:color var(--rt-duration-fast) var(--rt-ease-out),background var(--rt-duration-fast) var(--rt-ease-out)}
+.nav-link:hover{color:var(--rt-text);background:var(--rt-hover)}
+.nav-link i{font-size:15px}
+.nav-download{margin-left:10px;padding:6px 14px}
+
+/* ── 2 · download hero ────────────────────────────────────────────────────── */
+.hero{border-bottom:1px solid var(--rt-border);background-color:var(--rt-bg)}
+.hero .wrap{padding-top:72px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-logo{height:52px;width:auto;margin-bottom:20px}
+.hero-eyebrow{margin:0 0 10px;font-family:var(--rt-font-display);font-size:14px;color:var(--rt-accent-300);letter-spacing:0.01em}
+.hero h1{margin:0 0 14px;font-size:clamp(34px,5vw,46px)}
+.hero-sub{max-width:480px;font-size:13px;color:var(--rt-text-tertiary);margin:0 0 28px;text-wrap:pretty}
+.channel-switch{margin-bottom:18px;background:var(--rt-surface)}
+/* The segmented control is built from real <button>s so it is keyboard-operable;
+   these reset the UA styling without touching the .is-active treatment. */
+button.seg-opt{border:0;margin:0;font:inherit;font-size:var(--rt-text-xs);font-weight:600;background:transparent;color:var(--rt-text-secondary)}
+.seg > button.seg-opt + button.seg-opt{border-left:1px solid var(--rt-border-strong)}
+.btn-download-lg{font-size:15px;padding:13px 26px;border-radius:10px;gap:10px}
+.btn-download-lg i{font-size:19px}
+.download-soon{display:inline-flex;align-items:center;gap:10px;font-size:15px;padding:13px 26px;border-radius:10px;border:1px dashed var(--rt-border-strong);color:var(--rt-text-tertiary);font-family:var(--rt-font-body);font-weight:600}
+.download-soon i{font-size:19px}
+.release-line{font-size:11px;color:var(--rt-text-tertiary);margin-top:10px}
+.preview-warning{margin-top:12px;display:inline-flex;align-items:flex-start;gap:8px;max-width:560px;text-align:left;padding:7px 14px;border:1px solid var(--rt-axis-x-800);border-radius:8px;background:color-mix(in oklch, var(--rt-wait) 8%, transparent);font-size:12px;color:var(--rt-axis-x-200)}
+.preview-warning i{color:var(--rt-wait);flex:none;transform:translateY(3px)}
+.alt-platforms{display:flex;align-items:center;gap:8px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.alt-platforms > span:first-child{font-size:11px;color:var(--rt-text-tertiary);margin-right:2px}
+.alt-platforms .mono{font-size:10px;color:var(--rt-text-tertiary)}
+.platform-soon{border:1px dashed var(--rt-border-strong);background:transparent;color:var(--rt-text-tertiary);cursor:default}
+.meta-line{font-size:11px;color:var(--rt-text-tertiary);margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center}
+.meta-line i{vertical-align:-2px}
+
+.advanced{margin-top:16px;max-width:560px;width:100%;text-align:left}
+.advanced > summary{text-align:center;font-size:12px;color:var(--rt-text-tertiary);font-weight:600}
+.advanced-body{margin-top:12px;border:1px solid var(--rt-border);border-radius:10px;background:var(--rt-surface);padding:16px 18px}
+.advanced-body p{font-size:12px;color:var(--rt-text-secondary);margin:0 0 10px}
+.advanced-body pre{margin:0;font-size:12px;line-height:1.9;color:var(--rt-text-secondary);background:var(--rt-bg);border:1px solid var(--rt-border);border-radius:6px;padding:12px 14px;overflow-x:auto}
+
+details > summary{cursor:pointer;list-style:none}
+details > summary::-webkit-details-marker{display:none}
+
+/* ── 3 · product proof — the application mock ─────────────────────────────── */
+.proof{width:100%;margin-top:56px;overflow-x:auto}
+.mock{min-width:960px;max-width:1056px;margin:0 auto;border:1px solid var(--rt-border-strong);border-radius:16px 16px 0 0;border-bottom:none;background:var(--rt-bg);box-shadow:var(--rt-shadow-lg);overflow:hidden;text-align:left}
+.mock-titlebar{height:38px;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--rt-chrome);border-bottom:1px solid var(--rt-border)}
+.mock-lights{display:flex;gap:6px}
+.mock-lights span{width:10px;height:10px;border-radius:50%;background:var(--rt-surface-2)}
+.mock-app-name{font-family:var(--rt-font-display);font-weight:600;font-size:12px;margin-left:6px}
+.mock-path{font-size:10.5px;color:var(--rt-text-tertiary)}
+.mock-body{display:flex;height:508px}
+
+.mock-rail{width:62px;flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0;background:var(--rt-chrome);border-right:1px solid var(--rt-border)}
+.mock-rail-item{width:48px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 5px;border-radius:6px;color:var(--rt-text-tertiary);font-size:8px;font-weight:600}
+.mock-rail-item i{font-size:17px}
+.mock-rail-item.is-active{color:var(--rt-accent-300);background:var(--rt-accent-tint-10);border-left:2px solid var(--rt-accent)}
+
+.mock-side{width:212px;flex:none;border-right:1px solid var(--rt-border);background:var(--rt-chrome);padding:14px;overflow:hidden}
+.mock-worktree{padding:7px 9px;border-radius:6px;background:var(--rt-accent-tint-07);border:1px solid var(--rt-accent-900)}
+.mock-worktree-name{display:flex;align-items:center;gap:7px;font-size:11.5px}
+.mock-worktree-branch{font-size:10px;color:var(--rt-text-tertiary);margin-top:2px;padding-left:14px}
+.mock-tree{font-size:10.5px;line-height:2}
+.mock-tree-row{display:flex;align-items:center;gap:6px}
+.mock-tree-row > span:first-child{color:var(--rt-border-strong)}
+.mock-tree-row .agent{font-family:var(--rt-font-body);font-size:11px}
+.mock-todos{font-size:10.5px;line-height:1.9;color:var(--rt-text-secondary)}
+.mock-todos i{margin-right:5px}
+
+.mock-main{flex:1;min-width:0;display:flex;flex-direction:column}
+.mock-transcript{flex:1;overflow:hidden;padding:14px 18px;display:flex;flex-direction:column;font-size:11.5px}
+.mock-msg{display:flex;gap:10px;padding:6px 9px;border-radius:6px}
+.mock-msg.is-you{background:var(--rt-accent-tint-07)}
+.mock-msg-time{font-size:9.5px;color:var(--rt-text-tertiary);padding-top:2px;flex:none}
+.mock-msg-who{font-size:10px;font-weight:700;width:92px;flex:none;padding-top:1px}
+.mock-msg-text{color:var(--rt-text-secondary)}
+.mock-composer{flex:none;padding:10px 18px 14px;border-top:1px solid var(--rt-border);background:var(--rt-chrome)}
+.mock-composer-box{border:1px solid var(--rt-border-strong);border-radius:8px;background:var(--rt-bg);padding:9px 12px}
+.mock-composer-placeholder{font-size:11px;color:var(--rt-text-tertiary)}
+.mock-composer-row{display:flex;align-items:center;gap:6px;margin-top:9px}
+.mock-composer-row .tag{font-size:9.5px}
+
+.mock-inspector{width:236px;flex:none;border-left:1px solid var(--rt-border);background:var(--rt-chrome);padding:14px;overflow:hidden}
+.mock-inspector-agent{display:flex;align-items:center;gap:8px}
+.mock-inspector-agent .status-dot{width:8px;height:8px}
+.mock-inspector-agent span:last-child{font-size:12.5px;font-weight:600}
+.mock-inspector-meta{font-size:10px;color:var(--rt-text-tertiary);margin:2px 0 12px;padding-left:16px}
+.mock-context-caption{text-align:center;font-size:9.5px;color:var(--rt-text-tertiary);margin-bottom:12px}
+.mock-inspector-label{font-size:9.5px;color:var(--rt-text-tertiary);margin-bottom:4px}
+.mock-inspector .seg{width:100%;margin-bottom:12px}
+.mock-inspector .seg .seg-opt{font-size:10px;padding:4px 0}
+.mock-tools{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.mock-tool{padding:2px 7px;border:1px solid var(--rt-border);border-radius:4px;font-size:9.5px;color:var(--rt-text-tertiary)}
+.mock-tool.is-granted{border-color:var(--rt-accent-800);color:var(--rt-accent-300)}
+.mock-inspector-actions{display:flex;gap:6px}
+.mock-inspector-actions .btn{flex:1;font-size:10.5px}
+.mock-cascade-note{font-size:9px;color:var(--rt-text-tertiary);margin-top:5px;text-align:center}
+
+/* ── 4 · product definition ───────────────────────────────────────────────── */
+.definition-copy{max-width:720px}
+.definition-copy p{font-size:16px;color:var(--rt-text-secondary);max-width:640px;text-wrap:pretty}
+
+/* ── 5 · how it works ─────────────────────────────────────────────────────── */
+.pipeline{font-size:13px;color:var(--rt-text-secondary);display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:40px}
+.step-card .step-index{font-size:11px;color:var(--rt-text-tertiary)}
+.step-card .card-title{font-size:16px}
+
+/* ── 8 · traceability chain ───────────────────────────────────────────────── */
+.chain{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr 26px 1fr 26px 1fr;align-items:stretch;min-width:920px}
+.chain .card{padding:14px 16px}
+.chain-arrow{display:flex;align-items:center;justify-content:center;color:var(--rt-border-strong);font-size:16px}
+.chain-id{font-size:13px}
+.chain .card-body{font-size:11.5px;margin:0}
+.chain .card-body.mono{font-size:10.5px}
+.chain-first{border-left:2px solid var(--rt-accent-700)}
+.chain-last{border-left:2px solid var(--rt-accent-500)}
+
+.summary-card{background:var(--rt-surface);gap:0;padding:0;overflow:hidden}
+.summary-head{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--rt-border);background:var(--rt-chrome)}
+.summary-head i{font-size:20px;color:var(--rt-accent-300)}
+.summary-head > span:nth-child(2){font-family:var(--rt-font-display);font-weight:600;font-size:15px}
+.summary-grid{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:12.5px}
+.summary-row{display:flex;justify-content:space-between;gap:10px}
+.summary-actions{padding:12px 20px;border-top:1px solid var(--rt-border);display:flex;gap:8px}
+
+/* ── mid-page download band ───────────────────────────────────────────────── */
+.download-band{border-bottom:1px solid var(--rt-border);background:var(--rt-surface)}
+.download-band .wrap{padding-top:22px;padding-bottom:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.download-band strong{font-family:var(--rt-font-display);font-weight:600;font-size:15px}
+.download-band .band-note{font-size:13px;color:var(--rt-text-tertiary)}
+.download-band .btn{margin-left:auto}
+
+/* ── 9 · control & observability ──────────────────────────────────────────── */
+.panel-card{padding:0;gap:0;overflow:hidden}
+.panel-card > .card-kicker{padding:14px 20px 10px}
+.table-pad-first{padding-left:20px}
+.table-pad-last{padding-right:20px}
+.agent-cell{display:inline-flex;align-items:center;gap:7px}
+.context-meters{padding:14px 20px;display:flex;flex-direction:column;gap:9px}
+.meter-row{display:flex;align-items:center;gap:10px;font-size:11px}
+.meter-row .meter-name{width:104px;flex:none;color:var(--rt-text-secondary)}
+.meter-track{flex:1;height:5px;border-radius:3px;background:var(--rt-surface-2);overflow:hidden}
+.meter-fill{height:100%}
+.meter-row .meter-value{color:var(--rt-text-tertiary);flex:none}
+.meters-note{font-size:10px;color:var(--rt-text-tertiary)}
+.control-actions{display:flex;gap:8px;flex-wrap:wrap}
+.failure-card{border-left:2px solid var(--rt-danger-700)}
+.failure-head{display:flex;gap:10px;align-items:baseline;font-size:12.5px}
+.failure-recovery{display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--rt-text-secondary);flex-wrap:wrap}
+
+/* ── 10 · models & providers ──────────────────────────────────────────────── */
+.provider-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--rt-border);font-size:13px}
+.provider-row:last-child{border-bottom:none}
+.provider-row .provider-name{font-weight:600}
+.provider-row .provider-meta{margin-left:auto;font-size:11px;color:var(--rt-text-tertiary)}
+
+/* ── 11 · security ────────────────────────────────────────────────────────── */
+.security-card .icon-title i{font-size:18px}
+.security-card .icon-title .card-title{font-size:14px}
+.security-card .card-body{font-size:12.5px}
+.where-card{max-width:760px}
+.where-list{font-size:13px;color:var(--rt-text-secondary);display:flex;flex-direction:column;gap:8px}
+.where-list > div{display:flex;gap:10px}
+.where-list i{flex:none;transform:translateY(3px)}
+
+/* ── 12 · git workflow ────────────────────────────────────────────────────── */
+.worktree-list{padding:0 20px 6px;display:flex;flex-direction:column;gap:8px}
+.worktree-row{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:6px;border:1px solid var(--rt-border);font-size:12.5px}
+.worktree-row.is-active{background:var(--rt-accent-tint-07);border-color:var(--rt-accent-900)}
+.worktree-row .worktree-meta{margin-left:auto;font-size:10.5px;color:var(--rt-text-tertiary)}
+.commit-list{padding:0 20px 18px;font-size:11px;line-height:2.1;color:var(--rt-text-secondary)}
+.commit-row{display:flex;gap:10px}
+.commit-sha{color:var(--rt-accent-300)}
+.commit-subject{flex:1;font-family:var(--rt-font-body);font-size:12px}
+.commit-author{color:var(--rt-text-tertiary)}
+
+/* ── 14 · FAQ ─────────────────────────────────────────────────────────────── */
+.faq .wrap{max-width:760px}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-top:1px solid var(--rt-border);padding:16px 4px}
+.faq-item:last-child{border-bottom:1px solid var(--rt-border)}
+.faq-item > summary{font-family:var(--rt-font-display);font-weight:600;font-size:15px;display:flex;align-items:center;gap:10px}
+.faq-item > summary i{margin-left:auto;color:var(--rt-text-tertiary);transition:transform var(--rt-duration) var(--rt-ease)}
+.faq-item[open] > summary i{transform:rotate(45deg)}
+.faq-item p{font-size:13.5px;color:var(--rt-text-secondary);margin:10px 0 0;text-wrap:pretty}
+
+/* ── 15 · final download ──────────────────────────────────────────────────── */
+.final-download{border-bottom:1px solid var(--rt-border);background-color:var(--rt-bg)}
+.final-download .wrap{padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.final-download h2{margin-bottom:14px;text-wrap:pretty}
+.final-download > .wrap > p{font-size:15px;color:var(--rt-text-secondary);margin-bottom:28px}
+.final-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.final-actions .btn{font-size:14.5px;padding:12px 24px;border-radius:10px}
+
+/* ── 16 · footer ──────────────────────────────────────────────────────────── */
+.site-footer{background:var(--rt-chrome)}
+.site-footer .wrap{padding-top:56px;padding-bottom:32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.footer-brand img{height:19px;width:auto}
+.footer-brand span{font-family:var(--rt-font-display);font-weight:600;font-size:15px}
+.footer-tagline{font-size:12px;color:var(--rt-text-tertiary);max-width:280px;text-wrap:pretty}
+.footer-col{display:flex;flex-direction:column;gap:8px}
+.footer-col .card-kicker{margin-bottom:4px}
+.footer-col a{font-size:12.5px;color:var(--rt-text-secondary);text-decoration:none}
+.footer-col a:hover{color:var(--rt-text)}
+.footer-legal{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:11px;color:var(--rt-text-tertiary)}
+.footer-legal > span:last-child{margin-left:auto}
+
+/* ── responsive ───────────────────────────────────────────────────────────── */
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .summary-grid{grid-template-columns:1fr}
+  .split{gap:36px}
+}
+@media (max-width:720px){
+  .wrap{padding-left:20px;padding-right:20px}
+  .section > .wrap{padding-top:64px;padding-bottom:64px}
+  .site-nav .wrap{gap:12px}
+  /* Keep Download reachable on small screens; the in-page anchors are
+     duplicated by the footer, so they drop out rather than wrap the bar. */
+  .nav-link:not(.nav-link-keep){display:none}
+  .nav-download{margin-left:auto}
+  .final-download .wrap{padding-top:72px;padding-bottom:72px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-legal > span:last-child{margin-left:0}
+  .download-band .btn{margin-left:0}
+  .proof{margin-top:40px}
+}
+
+/* Data tables keep their column structure on narrow screens by scrolling
+   inside the card rather than pushing the page sideways (NFR-04). */
+.table-scroll{overflow-x:auto}

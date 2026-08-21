@@ -1,0 +1,14 @@
+/* Variable fonts come from the @fontsource-variable packages imported in main.tsx,
+   which self-host the same OFL families the design system ships. */
+:root{
+--rt-font-display:'Space Grotesk Variable','Space Grotesk',system-ui,sans-serif;
+--rt-font-body:'Manrope Variable','Manrope',system-ui,sans-serif;
+--rt-font-mono:'JetBrains Mono Variable','JetBrains Mono','Cascadia Mono',Menlo,Consolas,monospace;
+--rt-weight-display:600;
+--rt-weight-body:500;
+
+--rt-text-2xs:10px;--rt-text-xs:11px;--rt-text-sm:12.5px;--rt-text-base:14px;--rt-text-md:16px;
+--rt-h6:13px;--rt-h5:16px;--rt-h4:20px;--rt-h3:25px;--rt-h2:33px;--rt-h1:46px;
+--rt-tracking-tight:-0.02em;--rt-tracking-wide:0.06em;--rt-tracking-label:0.1em;
+--rt-leading-tight:1.14;--rt-leading-body:1.6;
+}
