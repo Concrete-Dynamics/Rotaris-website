@@ -28,10 +28,23 @@ jobs:
 
       - run: npm run build
 
-      # Catches nginx.conf mistakes before they reach the registry.
       - name: Build the image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: false
+          load: true
           tags: rotaris-website:ci
+
+      # Catches nginx.conf mistakes, which only surface when the server starts.
+      - name: Smoke-test the image
+        run: |
+          docker run --rm --detach --name smoke --publish 8080:8080 rotaris-website:ci
+          for attempt in $(seq 1 15); do
+            if curl -fsS http://127.0.0.1:8080/healthz > /dev/null; then break; fi
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:8080/healthz
+          curl -fsS http://127.0.0.1:8080/ | grep -q '<div id="root">'
+          docker logs smoke
+          docker stop smoke
