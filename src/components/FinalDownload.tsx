@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { LATEST_RELEASE_URL } from '../data/release'
+import { HOME_ANCHORS } from '../data/routes'
 import type { ReleaseState } from '../hooks/useRelease'
 
 export default function FinalDownload({ release }: { release: ReleaseState }) {
@@ -22,10 +24,10 @@ export default function FinalDownload({ release }: { release: ReleaseState }) {
               {platform.label}
             </a>
           )}
-          <a className="btn btn-secondary" href="#docs">
+          <Link className="btn btn-secondary" to={HOME_ANCHORS.docs}>
             <i className="ph ph-book-open" aria-hidden="true" />
             Read the documentation
-          </a>
+          </Link>
         </div>
 
         <div className="mono" style={{ fontSize: 11, color: 'var(--rt-text-tertiary)', marginTop: 18 }}>

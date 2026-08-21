@@ -27,7 +27,9 @@ npm run dev        # http://localhost:5173
 ```
 src/
   components/       one file per homepage section, in page order
+  pages/            Home, Imprint, Privacy, Terms, NotFound
   data/release.ts   the single source of release metadata (version, artifacts, sizes)
+  data/routes.ts    route paths and the homepage anchors
   hooks/            platform detection, channel state, reduced-motion
   styles/
     tokens/         colors · typography · spacing · effects  (design-system tokens)
@@ -47,6 +49,40 @@ the design system first, then re-sync. Page-level styling belongs in
 Version numbers, artifact sizes, minimum OS versions and the "coming soon"
 state of each platform all live in [`src/data/release.ts`](src/data/release.ts).
 That is the only file a release bump should touch.
+
+### Pages and legal placeholders
+
+| Route      | Page                                       | German aliases                              |
+| ---------- | ------------------------------------------ | ------------------------------------------- |
+| `/`        | the homepage                               | —                                           |
+| `/imprint` | Impressum — § 5 DDG, § 18 Abs. 2 MStV      | `/impressum`                                |
+| `/privacy` | Datenschutzerklärung — Art. 13, 14 GDPR    | `/datenschutz`, `/datenschutzerklaerung`    |
+| `/terms`   | AGB — §§ 305 ff. BGB                       | `/agb`                                      |
+
+The three legal pages **ship as scaffolding, not as legal text**. Each carries a
+visible "Draft — not yet legally binding" banner and lists the headings the
+document has to cover with a note on what belongs in each, so filling them in is
+mechanical. Replace the placeholders — and delete the banner in
+`src/components/LegalPage.tsx` — with text reviewed by qualified counsel before
+the site goes public. Nothing here is legal advice.
+
+The privacy page also carries a factual summary of what this build actually
+does (no cookies, no analytics, no third-party requests, self-hosted fonts),
+which is useful raw material for the finished text. Re-check it whenever the
+site changes.
+
+### Crawlers
+
+`robots.txt` and `sitemap.xml` are generated at build time by a small plugin in
+`vite.config.ts`, from the same `SITE_URL` that stamps the canonical and Open
+Graph tags. `robots.txt` allows every user agent the whole site — the content is
+public marketing material with no account wall, so search, archival and AI
+crawlers are all welcome.
+
+Unknown paths return a real **HTTP 404** carrying the designed 404 page, rather
+than a soft 404. That means nginx has to know the client-side routes: the list
+lives in both `nginx.conf` and `src/data/routes.ts`, and the CI smoke test
+checks they agree.
 
 ---
 
@@ -83,8 +119,8 @@ push to main → GitHub Actions builds the image → pushes to GHCR
 | Environment variables| *Load variables from .env file* → `.stack.env`             |
 | Automatic updates    | **Webhook** — enable it and copy the generated URL         |
 
-The Traefik network named in `.stack.env` (`traefik-proxy` by default) must
-already exist on the host and be the network the Traefik container watches.
+The Traefik network named in `.stack.env` (`traefik_net`) must already exist on
+the host — it is the same external network the other stacks join.
 
 ### 2. Add the repository secret
 
@@ -96,30 +132,42 @@ already exist on the host and be the network the Traefik container watches.
 
 The URL is a secret: anyone holding it can trigger a redeploy.
 
-Optionally add a repository **variable** `PUBLIC_URL` (e.g.
-`https://rotaris.example.com`) and the deploy workflow will poll the live site
-after the redeploy and fail if it does not come back up.
-
 Publishing to GHCR uses the built-in `GITHUB_TOKEN` — no extra registry
 credentials are needed. The first push creates the package as private; make it
 public, or add a pull secret in Portainer, so the Docker host can pull it.
 
 ### 3. Configure Traefik
 
-`.stack.env` ships with **placeholder** Traefik values. Before the first
-production deploy, set at least:
+The network, entrypoint and certresolver names match the Traefik instance
+already serving another stack, so they should work as-is:
 
-| Variable                  | Placeholder             | What it should become                         |
-| ------------------------- | ----------------------- | --------------------------------------------- |
-| `TRAEFIK_HOST`            | `rotaris.example.com`   | the real public hostname                       |
-| `TRAEFIK_NETWORK`         | `traefik-proxy`         | the Docker network Traefik watches             |
-| `TRAEFIK_ENTRYPOINT`      | `websecure`             | the HTTPS entrypoint name in Traefik's static config |
-| `TRAEFIK_ENTRYPOINT_HTTP` | `web`                   | the HTTP entrypoint name                       |
-| `TRAEFIK_CERTRESOLVER`    | `letsencrypt`           | the ACME resolver name                         |
-| `TRAEFIK_HSTS_SECONDS`    | `0`                     | `63072000` once the real hostname is live      |
+| Variable               | Value                              | Note                                          |
+| ---------------------- | ---------------------------------- | --------------------------------------------- |
+| `TRAEFIK_NETWORK`      | `traefik_net`                      | external network Traefik watches               |
+| `TRAEFIK_ENTRYPOINT`   | `https`                            | Traefik already redirects plain HTTP, so this stack defines no HTTP router |
+| `TRAEFIK_CERTRESOLVER` | `simpleresolver`                   | ACME resolver                                  |
+| `TRAEFIK_ROUTER`       | `rotaris-website`                  | router/service/middleware name prefix          |
+| `TRAEFIK_RULE`         | **`Host(\`rotaris.example.com\`)`** | ← the one placeholder left                     |
 
-`TRAEFIK_HSTS_SECONDS` starts at `0` on purpose — enabling HSTS against a
-placeholder hostname would pin a domain you do not control yet.
+Set `TRAEFIK_RULE` to the real hostname before deploying. Add a `www` variant
+the same way another stack does:
+
+```
+TRAEFIK_RULE=Host(`rotaris.dev`) || Host(`www.rotaris.dev`)
+```
+
+Every one of these also has a default in `docker-compose.yml`, so the stack
+still comes up if Portainer is not pointed at `.stack.env` — the env file
+overrides, it is not a prerequisite.
+
+### 4. Set the public URL
+
+Add a repository **variable** `SITE_URL` (e.g. `https://rotaris.dev`). It is
+passed into the Docker build and stamps the canonical URL, the Open Graph tags,
+`robots.txt` and the sitemap. It also switches on the post-deploy verification
+job, which polls the live site and fails the run if it does not come back up.
+
+Keep `SITE_URL` and `TRAEFIK_RULE` in step — they describe the same hostname.
 
 ### Rollback
 

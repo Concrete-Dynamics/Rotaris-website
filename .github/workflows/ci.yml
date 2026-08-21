@@ -44,7 +44,23 @@ jobs:
             if curl -fsS http://127.0.0.1:8080/healthz > /dev/null; then break; fi
             sleep 2
           done
-          curl -fsS http://127.0.0.1:8080/healthz
+
+          check() {  # path, expected status
+            actual=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:8080$1")
+            echo "  $1 -> $actual (want $2)"
+            [ "$actual" = "$2" ]
+          }
+
+          check /healthz 200
+          check / 200
+          check /imprint 200
+          check /privacy 200
+          check /terms 200
+          check /robots.txt 200
+          check /sitemap.xml 200
+          # Unknown paths must answer 404, not a soft 404.
+          check /no-such-page 404
+
           curl -fsS http://127.0.0.1:8080/ | grep -q '<div id="root">'
-          docker logs smoke
+          curl -fsS http://127.0.0.1:8080/robots.txt | grep -q '^Allow: /$'
           docker stop smoke

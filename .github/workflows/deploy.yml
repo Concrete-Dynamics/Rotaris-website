@@ -67,6 +67,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
+          build-args: |
+            SITE_URL=${{ vars.SITE_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -82,8 +84,25 @@ jobs:
             if curl -fsS http://127.0.0.1:8080/healthz > /dev/null; then break; fi
             sleep 2
           done
-          curl -fsS http://127.0.0.1:8080/healthz
+
+          check() {  # path, expected status
+            actual=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:8080$1")
+            echo "  $1 -> $actual (want $2)"
+            [ "$actual" = "$2" ]
+          }
+
+          check /healthz 200
+          check / 200
+          check /imprint 200
+          check /privacy 200
+          check /terms 200
+          check /robots.txt 200
+          check /sitemap.xml 200
+          # Unknown paths must answer 404, not a soft 404.
+          check /no-such-page 404
+
           curl -fsS http://127.0.0.1:8080/ | grep -q '<div id="root">'
+          curl -fsS http://127.0.0.1:8080/robots.txt | grep -q '^Allow: /$'
           docker stop smoke
 
   redeploy:
@@ -122,17 +141,17 @@ jobs:
     name: Verify the deployed site
     needs: redeploy
     runs-on: ubuntu-latest
-    # Optional: set the PUBLIC_URL repository variable to have CI confirm the
-    # new build is actually being served.
-    if: vars.PUBLIC_URL != ''
+    # Runs once the SITE_URL repository variable points at the live site;
+    # the same variable stamps the canonical URLs into the build.
+    if: vars.SITE_URL != ''
     steps:
       - name: Wait for the site to answer
         run: |
           for attempt in $(seq 1 20); do
-            status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 10 "${{ vars.PUBLIC_URL }}" || echo 000)
+            status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 10 "${{ vars.SITE_URL }}" || echo 000)
             echo "attempt $attempt: HTTP $status"
             [ "$status" = "200" ] && exit 0
             sleep 10
           done
-          echo "::error::${{ vars.PUBLIC_URL }} did not return 200 within ~200s"
+          echo "::error::${{ vars.SITE_URL }} did not return 200 within ~200s"
           exit 1

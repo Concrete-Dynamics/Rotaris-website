@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import { HOME_ANCHORS } from '../data/routes'
+
 const BOUNDARIES = [
   {
     icon: 'ph ph-folder-lock',
@@ -93,10 +96,10 @@ export default function Security() {
             </div>
           </div>
           <div style={{ marginTop: 6 }}>
-            <a href="#docs" style={{ fontSize: 12.5, fontWeight: 600 }}>
+            <Link to={HOME_ANCHORS.docs} style={{ fontSize: 12.5, fontWeight: 600 }}>
               Read the full security page — data flow, permissions, and vulnerability reporting{' '}
               <i className="ph ph-arrow-right" style={{ verticalAlign: -2 }} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

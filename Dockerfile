@@ -9,6 +9,11 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+
+# Feeds the canonical/Open Graph URLs, robots.txt and the sitemap. Keep in
+# step with TRAEFIK_RULE in .stack.env.
+ARG SITE_URL
+ENV SITE_URL=${SITE_URL}
 RUN npm run build
 
 # ── serve ────────────────────────────────────────────────────────────────────

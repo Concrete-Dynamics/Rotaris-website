@@ -1,33 +1,42 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import { RELEASES_URL, REPO_URL } from '../data/release'
+import { HOME_ANCHORS, LEGAL_ROUTES } from '../data/routes'
 
-const COLUMNS = [
+interface FooterLink {
+  label: string
+  href: string
+  /** Internal targets go through the router; external ones are plain anchors. */
+  internal?: boolean
+}
+
+const COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Documentation',
     links: [
-      { label: 'Installation guides', href: '#docs' },
-      { label: 'First-run guide', href: '#docs' },
-      { label: 'Provider setup', href: '#docs' },
-      { label: 'Architecture', href: '#docs' },
-      { label: 'Migration from geraet-ai', href: '#docs' },
+      { label: 'Installation guides', href: HOME_ANCHORS.docs, internal: true },
+      { label: 'First-run guide', href: HOME_ANCHORS.docs, internal: true },
+      { label: 'Provider setup', href: HOME_ANCHORS.docs, internal: true },
+      { label: 'Architecture', href: HOME_ANCHORS.docs, internal: true },
+      { label: 'Migration from geraet-ai', href: HOME_ANCHORS.docs, internal: true },
     ],
   },
   {
     title: 'Trust',
     links: [
-      { label: 'Security', href: '#security' },
-      { label: 'Privacy & diagnostics', href: '#docs' },
+      { label: 'Security', href: HOME_ANCHORS.security, internal: true },
       { label: 'Checksums', href: RELEASES_URL },
       { label: 'Release notes', href: RELEASES_URL },
+      { label: 'GitHub', href: REPO_URL },
     ],
   },
   {
-    title: 'Project',
+    title: 'Legal',
     links: [
-      { label: 'GitHub', href: REPO_URL },
-      { label: 'Previous versions', href: RELEASES_URL },
-      { label: 'Changelog', href: '#docs' },
-      { label: 'License · MIT', href: '#docs' },
+      { label: 'Imprint · Impressum', href: LEGAL_ROUTES.imprint, internal: true },
+      { label: 'Privacy · Datenschutz', href: LEGAL_ROUTES.privacy, internal: true },
+      { label: 'Terms · AGB', href: LEGAL_ROUTES.terms, internal: true },
+      { label: 'License · MIT', href: `${REPO_URL}/blob/main/LICENSE` },
     ],
   },
 ]
@@ -50,11 +59,17 @@ export default function SiteFooter() {
           {COLUMNS.map((column) => (
             <div className="footer-col" key={column.title}>
               <span className="card-kicker">{column.title}</span>
-              {column.links.map((link) => (
-                <a key={link.label} href={link.href}>
-                  {link.label}
-                </a>
-              ))}
+              {column.links.map((link) =>
+                link.internal ? (
+                  <Link key={link.label} to={link.href}>
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a key={link.label} href={link.href}>
+                    {link.label}
+                  </a>
+                ),
+              )}
             </div>
           ))}
         </div>

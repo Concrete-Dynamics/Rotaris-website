@@ -275,3 +275,35 @@ details > summary::-webkit-details-marker{display:none}
 /* Data tables keep their column structure on narrow screens by scrolling
    inside the card rather than pushing the page sideways (NFR-04). */
 .table-scroll{overflow-x:auto}
+
+/* ── legal pages (imprint · privacy · terms) ──────────────────────────────── */
+.legal .wrap{max-width:820px;padding-top:56px;padding-bottom:96px}
+.legal-back{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;text-decoration:none;margin-bottom:32px}
+.legal-title{font-size:clamp(28px,4vw,38px);margin:0 0 6px}
+.legal-german{font-size:12px;color:var(--rt-text-tertiary);margin:0 0 28px}
+
+.legal-draft{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;margin-bottom:32px;border:1px solid var(--rt-axis-x-800);border-radius:var(--rt-radius-md);background:color-mix(in oklch, var(--rt-wait) 8%, transparent);font-size:13px;color:var(--rt-axis-x-200)}
+.legal-draft i{font-size:18px;color:var(--rt-wait);flex:none;transform:translateY(2px)}
+.legal-draft strong{color:var(--rt-axis-x-100)}
+
+.legal-intro p{font-size:14.5px;color:var(--rt-text-secondary);text-wrap:pretty}
+.legal-facts{margin:20px 0 8px}
+.legal-facts-list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:var(--rt-text-secondary)}
+.legal-facts-list li::marker{color:var(--rt-accent-300)}
+
+.legal-sections{list-style:none;margin:36px 0 0;padding:0;display:flex;flex-direction:column}
+.legal-section{border-top:1px solid var(--rt-border);padding:22px 0}
+.legal-section:last-child{border-bottom:1px solid var(--rt-border)}
+.legal-section-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;font-size:17px;margin:0 0 8px}
+.legal-section-index{font-size:12px;color:var(--rt-text-tertiary);font-weight:400;letter-spacing:0}
+.legal-section-german{font-family:var(--rt-font-mono);font-size:11.5px;font-weight:400;color:var(--rt-text-tertiary);letter-spacing:0}
+.legal-hint{font-size:13.5px;color:var(--rt-text-secondary);text-wrap:pretty}
+.legal-todo{display:flex;align-items:center;gap:6px;margin:10px 0 0;font-size:11px;color:var(--rt-text-disabled)}
+
+/* ── 404 ──────────────────────────────────────────────────────────────────── */
+.notfound{background-color:var(--rt-bg)}
+.notfound .wrap{padding-top:120px;padding-bottom:120px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.notfound img{margin-bottom:20px}
+.notfound-code{font-size:12px;color:var(--rt-text-tertiary);letter-spacing:var(--rt-tracking-label);margin:0 0 8px}
+.notfound h1{font-size:clamp(26px,4vw,34px);margin:0 0 12px}
+.notfound-sub{font-size:14px;color:var(--rt-text-secondary);margin-bottom:28px;max-width:420px}
