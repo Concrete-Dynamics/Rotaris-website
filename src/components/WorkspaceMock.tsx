@@ -67,7 +67,7 @@ export default function WorkspaceMock() {
             <span />
           </div>
           <span className="mock-app-name">Rotaris</span>
-          <span className="mono mock-path">~/code/geraet-ai</span>
+          <span className="mono mock-path">~/code/rotaris</span>
           <div style={{ flex: 1 }} />
           <span className="tag tag-run">
             <span className="status-dot is-pulsing" style={{ background: 'var(--rt-run)' }} />
@@ -105,7 +105,7 @@ export default function WorkspaceMock() {
                 <span className="status-dot" style={{ background: 'var(--rt-run)' }} />
                 auth-flow-refactor
               </div>
-              <div className="mono mock-worktree-branch">geraet/auth-refactor ↑4</div>
+              <div className="mono mock-worktree-branch">rotaris/auth-refactor ↑4</div>
             </div>
 
             <hr className="rt-fade-rule" style={{ margin: '12px 0' }} />

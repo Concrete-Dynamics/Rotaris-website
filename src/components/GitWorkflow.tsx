@@ -3,10 +3,10 @@ const WORKTREES = [
     name: 'auth-flow-refactor',
     state: 'run',
     active: true,
-    meta: 'geraet/auth-refactor ↑4 · 3 dirty',
+    meta: 'rotaris/auth-refactor ↑4 · 3 dirty',
   },
-  { name: 'docs-sweep', state: 'wait', active: false, meta: 'geraet/docs-pass ↑1 ↓2' },
-  { name: 'config-v2', state: 'done', active: false, meta: 'geraet/config-v2 · clean' },
+  { name: 'docs-sweep', state: 'wait', active: false, meta: 'rotaris/docs-pass ↑1 ↓2' },
+  { name: 'config-v2', state: 'done', active: false, meta: 'rotaris/config-v2 · clean' },
 ]
 
 const COMMITS = [

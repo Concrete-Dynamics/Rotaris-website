@@ -1,16 +1,26 @@
-/** Canonical paths for the legal pages, plus the German slugs people type. */
+/** Canonical paths for the legal pages. */
 export const LEGAL_ROUTES = {
   imprint: '/imprint',
   privacy: '/privacy',
   terms: '/terms',
+  eula: '/eula',
+  withdrawal: '/withdrawal',
+  acceptableUse: '/acceptable-use',
 } as const
 
-/** German aliases, kept working because that is what German visitors guess. */
+/**
+ * German slugs, kept working because the documents themselves are German and
+ * that is what visitors will type. Also what other sites tend to link to.
+ */
 export const LEGAL_ALIASES: Record<string, string> = {
   '/impressum': LEGAL_ROUTES.imprint,
   '/datenschutz': LEGAL_ROUTES.privacy,
   '/datenschutzerklaerung': LEGAL_ROUTES.privacy,
   '/agb': LEGAL_ROUTES.terms,
+  '/endnutzerbedingungen': LEGAL_ROUTES.eula,
+  '/widerruf': LEGAL_ROUTES.withdrawal,
+  '/widerrufsbelehrung': LEGAL_ROUTES.withdrawal,
+  '/nutzungsrichtlinie': LEGAL_ROUTES.acceptableUse,
 }
 
 /** Homepage section anchors, absolute so they work from the legal pages too. */

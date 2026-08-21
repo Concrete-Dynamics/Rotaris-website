@@ -33,10 +33,13 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Legal',
     links: [
-      { label: 'Imprint · Impressum', href: LEGAL_ROUTES.imprint, internal: true },
-      { label: 'Privacy · Datenschutz', href: LEGAL_ROUTES.privacy, internal: true },
-      { label: 'Terms · AGB', href: LEGAL_ROUTES.terms, internal: true },
-      { label: 'License · MIT', href: `${REPO_URL}/blob/main/LICENSE` },
+      { label: 'Impressum', href: LEGAL_ROUTES.imprint, internal: true },
+      { label: 'Datenschutzerklärung', href: LEGAL_ROUTES.privacy, internal: true },
+      { label: 'AGB · Rotaris Cloud', href: LEGAL_ROUTES.terms, internal: true },
+      { label: 'Endnutzerbedingungen', href: LEGAL_ROUTES.eula, internal: true },
+      { label: 'Widerrufsbelehrung', href: LEGAL_ROUTES.withdrawal, internal: true },
+      { label: 'Zulässige Nutzung', href: LEGAL_ROUTES.acceptableUse, internal: true },
+      { label: 'Lizenz · MIT', href: `${REPO_URL}/blob/main/LICENSE` },
     ],
   },
 ]
@@ -79,7 +82,8 @@ export default function SiteFooter() {
         <div className="footer-legal">
           <span>© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT license</span>
           <span>
-            Rotaris is the desktop application powered by the geraet-ai orchestration engine.
+            Rotaris — vormals geraet-ai. Concrete Dynamics UG (haftungsbeschränkt),
+            Kempten (Allgäu).
           </span>
         </div>
       </div>

@@ -43,14 +43,13 @@ services:
         max-file: "3"
     labels:
       # ── Traefik ────────────────────────────────────────────────────────────
-      # TRAEFIK_RULE is the one value that still has to change before this is
-      # pointed at a real domain.
+      # TRAEFIK_RULE carries the host rule; see .stack.env.
       - "traefik.enable=${TRAEFIK_ENABLE:-true}"
       - "traefik.docker.network=${TRAEFIK_NETWORK:-traefik_net}"
 
       # Router. The `https` entrypoint terminates TLS; the Traefik instance
       # already redirects plain HTTP, so there is no second router here.
-      - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.rule=${TRAEFIK_RULE:-Host(`rotaris.example.com`)}"
+      - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.rule=${TRAEFIK_RULE:-Host(`rotaris.ai`)}"
       - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.entrypoints=${TRAEFIK_ENTRYPOINT:-https}"
       - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.tls=true"
       - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.tls.certresolver=${TRAEFIK_CERTRESOLVER:-simpleresolver}"

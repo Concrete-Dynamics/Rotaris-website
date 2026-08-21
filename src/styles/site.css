@@ -307,3 +307,34 @@ details > summary::-webkit-details-marker{display:none}
 .notfound-code{font-size:12px;color:var(--rt-text-tertiary);letter-spacing:var(--rt-tracking-label);margin:0 0 8px}
 .notfound h1{font-size:clamp(26px,4vw,34px);margin:0 0 12px}
 .notfound-sub{font-size:14px;color:var(--rt-text-secondary);margin-bottom:28px;max-width:420px}
+
+/* ── rendered legal documents ─────────────────────────────────────────────── */
+/* The Markdown comes verbatim from the legal package, so the styling has to
+   cope with whatever it contains: headings to h3, tables, blockquotes, and
+   long runs of numbered clauses. */
+.legal-doc{font-size:14px;color:var(--rt-text-secondary);line-height:1.75}
+.legal-doc > h1:first-child{font-size:clamp(26px,4vw,34px);color:var(--rt-text);margin:0 0 20px}
+.legal-doc h2{font-size:19px;color:var(--rt-text);margin:36px 0 10px;padding-top:20px;border-top:1px solid var(--rt-border)}
+.legal-doc h1 + h2,.legal-doc h2:first-child{border-top:0;padding-top:0;margin-top:24px}
+.legal-doc h3{font-size:15px;color:var(--rt-text);margin:24px 0 8px}
+.legal-doc p{margin:0 0 12px;text-wrap:pretty}
+.legal-doc ul,.legal-doc ol{margin:0 0 14px;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.legal-doc li::marker{color:var(--rt-text-tertiary)}
+.legal-doc strong{color:var(--rt-text)}
+.legal-doc code{font-family:var(--rt-font-mono);font-size:12.5px;background:var(--rt-surface);border:1px solid var(--rt-border);border-radius:4px;padding:1px 5px}
+.legal-doc blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--rt-accent-700);background:var(--rt-surface);border-radius:0 var(--rt-radius-sm) var(--rt-radius-sm) 0}
+.legal-doc blockquote p:last-child{margin-bottom:0}
+.legal-doc hr{border:0;height:1px;background:var(--rt-divider);margin:32px 0}
+.legal-doc table{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 16px}
+.legal-doc th{text-align:left;font-size:10px;letter-spacing:var(--rt-tracking-label);text-transform:uppercase;font-weight:700;color:var(--rt-text-tertiary);padding:8px;border-bottom:1px solid var(--rt-border);white-space:nowrap}
+.legal-doc td{padding:8px;border-bottom:1px solid var(--rt-border);vertical-align:top}
+.legal-doc em{color:var(--rt-text-tertiary)}
+
+/* Unresolved editorial markers from the source package. Loud on purpose —
+   these are the sentences that are not yet true. */
+.legal-open{display:inline-block;font-family:var(--rt-font-mono);font-size:12px;line-height:1.6;color:var(--rt-axis-x-200);background:color-mix(in oklch, var(--rt-wait) 10%, transparent);border:1px solid var(--rt-axis-x-800);border-radius:var(--rt-radius-sm);padding:3px 8px}
+.legal-open-inline{font-family:var(--rt-font-mono);font-size:11px;color:var(--rt-axis-x-200);border:1px solid var(--rt-axis-x-800);border-radius:4px;padding:0 5px}
+
+.legal-facts-note{margin-top:10px;font-size:11.5px;color:var(--rt-text-tertiary)}
+.legal-related{margin-top:44px;padding-top:20px;border-top:1px solid var(--rt-border)}
+.legal-related-links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:10px;font-size:13px}

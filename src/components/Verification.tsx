@@ -10,7 +10,7 @@ const SUMMARY = [
     ),
   },
   { label: 'Requirements', value: <>6 / 6 covered</> },
-  { label: 'Git', value: <>4 commits · geraet/auth-refactor</> },
+  { label: 'Git', value: <>4 commits · rotaris/auth-refactor</> },
   {
     label: 'Warnings',
     value: <span style={{ color: 'var(--rt-wait)' }}>1 unresolved</span>,

@@ -9,7 +9,7 @@ const QUESTIONS = [
   },
   {
     q: 'Does my code leave my computer?',
-    a: 'The application and engine run locally, and your repository is never uploaded. Prompts and the code context needed for a task are sent to the model providers you configure — with local models, nothing leaves the machine.',
+    a: 'The application and engine run locally, and your repository is never uploaded. Prompts and the code context needed for a task are sent to the model providers you configure — with local models, nothing leaves the machine. The only connection Rotaris makes on its own is the start-up update check against GitHub.',
   },
   {
     q: 'Which model providers can I use?',
@@ -32,8 +32,8 @@ const QUESTIONS = [
     a: 'Yes — a terminal interface is available for headless and scripted use, installed via pip. The desktop application is the primary product.',
   },
   {
-    q: 'What is the relationship between Rotaris and geraet-ai?',
-    a: 'Rotaris is the desktop application powered by the geraet-ai orchestration engine. The engine name still appears in repository paths and technical documentation.',
+    q: 'What happened to geraet-ai?',
+    a: 'It was renamed. Rotaris is the same orchestration engine and desktop application under its public name; the repository and the Python packages moved with it. Older links to geraet-ai still resolve.',
   },
   {
     q: 'How do I report a security issue?',

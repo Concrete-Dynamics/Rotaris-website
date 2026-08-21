@@ -50,26 +50,58 @@ Version numbers, artifact sizes, minimum OS versions and the "coming soon"
 state of each platform all live in [`src/data/release.ts`](src/data/release.ts).
 That is the only file a release bump should touch.
 
-### Pages and legal placeholders
+### Pages and legal documents
 
-| Route      | Page                                       | German aliases                              |
-| ---------- | ------------------------------------------ | ------------------------------------------- |
-| `/`        | the homepage                               | —                                           |
-| `/imprint` | Impressum — § 5 DDG, § 18 Abs. 2 MStV      | `/impressum`                                |
-| `/privacy` | Datenschutzerklärung — Art. 13, 14 GDPR    | `/datenschutz`, `/datenschutzerklaerung`    |
-| `/terms`   | AGB — §§ 305 ff. BGB                       | `/agb`                                      |
+| Route             | Document                                        | German aliases                           |
+| ----------------- | ----------------------------------------------- | ---------------------------------------- |
+| `/`               | the homepage                                     | —                                        |
+| `/imprint`        | Impressum — § 5 DDG, § 18 Abs. 2 MStV            | `/impressum`                             |
+| `/privacy`        | Datenschutzerklärung — Rotaris & Rotaris Cloud   | `/datenschutz`, `/datenschutzerklaerung` |
+| `/terms`          | AGB — Rotaris Cloud                              | `/agb`                                   |
+| `/eula`           | Endnutzerbedingungen — die kostenlose Anwendung  | `/endnutzerbedingungen`                  |
+| `/withdrawal`     | Widerrufsbelehrung + Muster-Widerrufsformular    | `/widerruf`, `/widerrufsbelehrung`       |
+| `/acceptable-use` | Richtlinie zur zulässigen Nutzung                | `/nutzungsrichtlinie`                    |
 
-The three legal pages **ship as scaffolding, not as legal text**. Each carries a
-visible "Draft — not yet legally binding" banner and lists the headings the
-document has to cover with a note on what belongs in each, so filling them in is
-mechanical. Replace the placeholders — and delete the banner in
-`src/components/LegalPage.tsx` — with text reviewed by qualified counsel before
-the site goes public. Nothing here is legal advice.
+#### Where the text comes from
 
-The privacy page also carries a factual summary of what this build actually
-does (no cookies, no analytics, no third-party requests, self-hosted fonts),
-which is useful raw material for the finished text. Re-check it whenever the
-site changes.
+The Markdown in [`src/legal/`](src/legal/) is a **verbatim copy** of
+the documents cleared for publication in the Concrete Dynamics legal package. That package is the canonical source and lives
+outside this repository.
+
+**To update a document, replace the file.** Do not edit the text here — the two
+copies would drift, and the one a lawyer reviewed is the other one.
+
+The documents stay in German. The contract language for a DACH B2C offering is
+German, and translating a withdrawal notice would create a second wording that
+could be read against the first. The page chrome around them is English.
+
+The Impressum is the exception: it is built from data in
+[`src/pages/Imprint.tsx`](src/pages/Imprint.tsx) rather than copied, because the
+package ships findings about the *existing* imprint rather than a replacement
+text. All six defects from the package's findings are corrected there — no tax
+number, § 5 DDG and § 18 Abs. 2 MStV, correct spelling of
+"(haftungsbeschränkt)", no data protection officer, one postcode, and the § 36
+VSBG statement instead of the retired EU ODR link.
+
+#### What the renderer does to the text
+
+[`LegalDocument.tsx`](src/components/LegalDocument.tsx) renders the Markdown
+as-is apart from three deliberate transformations:
+
+1. **Internal sections are cut.** A heading whose own text says
+   "nicht veröffentlichen" or "nicht Bestandteil" ends the public part of the
+   document; everything from there on is dropped. The package uses this for the
+   AI-Act classification note, the checkout implementation duties and the AGB
+   usage notes — all trailing sections.
+2. **Open items are made loud.** `[PRÜFEN: …]` and `[PLATZHALTER — …]` render as
+   amber `OFFEN` boxes, and the draft banner counts them. These are the
+   sentences that are not yet true; they must be resolved before launch.
+3. **Cross-references are rewritten.** Relative links like `agb.md` become site
+   routes. Links to documents that are not published render as plain text.
+
+Every page carries a "Publication draft" banner. The source package asks for one
+round of legal review before publication — the banner comes off with that
+review, in `LegalDocument.tsx`.
 
 ### Crawlers
 

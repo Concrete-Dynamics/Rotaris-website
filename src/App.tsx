@@ -6,6 +6,9 @@ import Home from './pages/Home'
 import Imprint from './pages/Imprint'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import Eula from './pages/Eula'
+import Withdrawal from './pages/Withdrawal'
+import AcceptableUse from './pages/AcceptableUse'
 import NotFound from './pages/NotFound'
 import { LEGAL_ALIASES, LEGAL_ROUTES } from './data/routes'
 import { useRelease } from './hooks/useRelease'
@@ -22,6 +25,9 @@ export default function App() {
         <Route path={LEGAL_ROUTES.imprint} element={<Imprint />} />
         <Route path={LEGAL_ROUTES.privacy} element={<Privacy />} />
         <Route path={LEGAL_ROUTES.terms} element={<Terms />} />
+        <Route path={LEGAL_ROUTES.eula} element={<Eula />} />
+        <Route path={LEGAL_ROUTES.withdrawal} element={<Withdrawal />} />
+        <Route path={LEGAL_ROUTES.acceptableUse} element={<AcceptableUse />} />
 
         {/* German slugs redirect to the canonical English paths. */}
         {Object.entries(LEGAL_ALIASES).map(([alias, target]) => (

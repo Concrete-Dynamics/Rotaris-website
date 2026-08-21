@@ -19,8 +19,8 @@ const BOUNDARIES = [
   },
   {
     icon: 'ph ph-key',
-    title: 'Protected token storage',
-    body: "Provider credentials are stored in the operating system's credential store, not in plain files.",
+    title: 'Restricted token storage',
+    body: 'Provider credentials stay on your machine in ~/.local/share/rotaris/tokens/, in files readable only by your own user account (mode 0600).',
   },
   {
     icon: 'ph ph-arrows-counter-clockwise',
@@ -86,12 +86,29 @@ export default function Security() {
                 aria-hidden="true"
               />
               <span>
-                No telemetry by default. Diagnostics modes are opt-in, documented, and stored
-                locally. Sessions and artifacts live in{' '}
+                No telemetry and no usage statistics. Sessions, logs, the response cache and
+                the Git worktrees live in{' '}
                 <span className="mono" style={{ fontSize: 12 }}>
                   .rotaris/
                 </span>{' '}
-                inside your workspace.
+                inside your workspace, configuration in{' '}
+                <span className="mono" style={{ fontSize: 12 }}>
+                  ~/.config/rotaris/
+                </span>
+                . None of it reaches us.
+              </span>
+            </div>
+            <div>
+              <i
+                className="ph ph-arrows-clockwise"
+                style={{ color: 'var(--rt-text-tertiary)' }}
+                aria-hidden="true"
+              />
+              <span>
+                The one connection Rotaris opens by itself is the start-up update check
+                against GitHub, which tells GitHub your IP address and client details.
+                Source installations never check, and an update installs only when the
+                download matches the published SHA-256 checksum.
               </span>
             </div>
           </div>

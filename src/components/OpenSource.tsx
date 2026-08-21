@@ -38,7 +38,7 @@ export default function OpenSource({ release }: { release: ReleaseState }) {
               repo
             </span>
             <a href={REPO_URL} className="mono" style={{ fontSize: 11 }}>
-              theUpsider/geraet-ai
+              theUpsider/Rotaris
             </a>
           </div>
         </div>

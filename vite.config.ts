@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
  * and the sitemap, so there is a single thing to change when the real hostname
  * lands — keep it in step with TRAEFIK_RULE in .stack.env.
  */
-const SITE_URL = (process.env.SITE_URL || 'https://rotaris.example.com').replace(/\/+$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://rotaris.ai').replace(/\/+$/, '')
 
 /** Routes worth listing for crawlers, in descending priority. */
 const ROUTES: { path: string; priority: string; changefreq: string }[] = [
@@ -14,6 +14,9 @@ const ROUTES: { path: string; priority: string; changefreq: string }[] = [
   { path: '/imprint', priority: '0.3', changefreq: 'yearly' },
   { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
+  { path: '/eula', priority: '0.3', changefreq: 'yearly' },
+  { path: '/withdrawal', priority: '0.3', changefreq: 'yearly' },
+  { path: '/acceptable-use', priority: '0.3', changefreq: 'yearly' },
 ]
 
 function robotsTxt(): string {

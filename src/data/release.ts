@@ -28,7 +28,7 @@ export interface ChannelRelease {
   releasedOn: string
 }
 
-export const REPO_URL = 'https://github.com/theUpsider/geraet-ai'
+export const REPO_URL = 'https://github.com/theUpsider/Rotaris'
 export const RELEASES_URL = `${REPO_URL}/releases`
 export const LATEST_RELEASE_URL = `${REPO_URL}/releases/latest`
 
