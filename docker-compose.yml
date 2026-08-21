@@ -55,7 +55,11 @@ services:
       - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.tls=true"
       - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.tls.certresolver=${TRAEFIK_CERTRESOLVER:-simpleresolver}"
       - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.service=${TRAEFIK_ROUTER:-rotaris-website}"
-      - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.middlewares=${TRAEFIK_ROUTER:-rotaris-website}-compress@docker"
+      # BASIC_AUTH is spliced into the middleware *name*, which is the only way
+      # to make a Compose label conditional: `true` selects the basicauth
+      # middleware, `false` selects the no-op below. Both are always defined, so
+      # the router never points at something that does not exist.
+      - "traefik.http.routers.${TRAEFIK_ROUTER:-rotaris-website}.middlewares=${TRAEFIK_ROUTER:-rotaris-website}-compress@docker,${TRAEFIK_ROUTER:-rotaris-website}-auth-${BASIC_AUTH:-false}@docker"
 
       # Service
       - "traefik.http.services.${TRAEFIK_ROUTER:-rotaris-website}.loadbalancer.server.port=${TRAEFIK_SERVICE_PORT:-8080}"
@@ -64,6 +68,18 @@ services:
 
       # Middlewares
       - "traefik.http.middlewares.${TRAEFIK_ROUTER:-rotaris-website}-compress.compress=true"
+
+      # ── HTTP basic auth ────────────────────────────────────────────────────
+      # Selected when BASIC_AUTH=true. Traefik needs htpasswd-hashed passwords;
+      # see BASIC_AUTH_USERS in .stack.env for how to generate one.
+      # removeheader stops the Authorization header from reaching nginx.
+      - "traefik.http.middlewares.${TRAEFIK_ROUTER:-rotaris-website}-auth-true.basicauth.users=${BASIC_AUTH_USERS:-}"
+      - "traefik.http.middlewares.${TRAEFIK_ROUTER:-rotaris-website}-auth-true.basicauth.realm=${BASIC_AUTH_REALM:-Rotaris}"
+      - "traefik.http.middlewares.${TRAEFIK_ROUTER:-rotaris-website}-auth-true.basicauth.removeheader=true"
+
+      # Selected when BASIC_AUTH=false. Setting a request header the app ignores
+      # is the cheapest middleware that does nothing.
+      - "traefik.http.middlewares.${TRAEFIK_ROUTER:-rotaris-website}-auth-false.headers.customrequestheaders.X-Rotaris-Auth=disabled"
 
       # ── Housekeeping ───────────────────────────────────────────────────────
       - "org.opencontainers.image.source=https://github.com/Concrete-Dynamics/Rotaris-website"

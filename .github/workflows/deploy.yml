@@ -150,8 +150,12 @@ jobs:
           for attempt in $(seq 1 20); do
             status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 10 "${{ vars.SITE_URL }}" || echo 000)
             echo "attempt $attempt: HTTP $status"
-            [ "$status" = "200" ] && exit 0
+            # 401 means Traefik and the container are both up and the basic-auth
+            # gate is doing its job, which is just as good a liveness signal.
+            case "$status" in
+              200|401) echo "Site is serving (HTTP $status)."; exit 0 ;;
+            esac
             sleep 10
           done
-          echo "::error::${{ vars.SITE_URL }} did not return 200 within ~200s"
+          echo "::error::${{ vars.SITE_URL }} did not answer 200 or 401 within ~200s"
           exit 1

@@ -169,6 +169,52 @@ job, which polls the live site and fails the run if it does not come back up.
 
 Keep `SITE_URL` and `TRAEFIK_RULE` in step — they describe the same hostname.
 
+### 5. Optional: gate the site with basic auth
+
+`.stack.env` carries a Traefik basic-auth middleware that fronts the whole site.
+Handy while the domain, the legal pages and the release artifacts are still
+unfinished.
+
+```
+BASIC_AUTH=true
+BASIC_AUTH_REALM=Rotaris
+BASIC_AUTH_USERS=admin:$2y$05$…
+```
+
+Toggle it with `BASIC_AUTH` alone and redeploy — no file edits. It must be
+exactly **`true`** or **`false`**: the value is spliced into the Traefik
+middleware name (`…-auth-true` / `…-auth-false`), which is the only way to make
+a Compose label conditional. `1`, `yes` or `True` will point the router at a
+middleware that does not exist and take the site down.
+
+Traefik requires the password to be **hashed** — plain text does not work.
+Generate a bcrypt entry without installing anything:
+
+```bash
+docker run --rm httpd:alpine htpasswd -nbB admin 'your-password'
+```
+
+Comma-separate the entries for several users.
+
+**Where you put the hash matters**, because it contains `$`:
+
+| Where                                        | How to write it                    |
+| -------------------------------------------- | ---------------------------------- |
+| Portainer → stack → Environment variables *(preferred)* | verbatim, exactly as `htpasswd` printed it |
+| `.stack.env` in this repo                     | double every `$` → `$$2y$$05$$…`   |
+
+With a single `$` in the env file, Compose reads the rest as a variable name and
+silently truncates the hash, so nobody can log in. Verified with
+`docker compose --env-file … config`, which is also the quickest way to check
+your own value renders intact.
+
+Putting a credential in the repo is worth avoiding anyway — prefer the Portainer
+UI.
+
+Traefik strips the `Authorization` header before forwarding, and the container's
+own health check is unaffected because Traefik probes the backend directly. The
+post-deploy verification job accepts `401` as proof the site is up.
+
 ### Rollback
 
 Every build is also tagged `sha-<short-sha>`. To roll back, set `IMAGE_TAG` to
