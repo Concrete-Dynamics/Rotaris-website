@@ -1,10 +1,11 @@
 /**
  * The published legal documents.
  *
- * The Markdown files in this directory are **verbatim copies** of
- * the documents cleared for publication in the Concrete Dynamics legal package. That package is the canonical source and lives
- * outside this repository; these are downstream copies. To update a document,
- * replace the file — do not edit the text here, or the two will drift.
+ * These are copies of the documents cleared for publication in the Concrete
+ * Dynamics legal package. That package is the canonical source and lives
+ * outside this repository; these are downstream copies, with the sections it
+ * marks as internal removed. To update a document, replace the file — do not
+ * edit the text here, or the two will drift.
  *
  * They stay in German on purpose. The contract language for a DACH B2C offering
  * is German, and translating a withdrawal notice or a privacy statement would
