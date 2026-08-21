@@ -66,16 +66,17 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            GIT_SHA=${{ github.sha }}
-            BUILD_TIME=${{ github.event.repository.updated_at }}
+          annotations: ${{ steps.meta.outputs.annotations }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       # Do not ask Portainer to redeploy an image that will not start.
       - name: Smoke-test the pushed image
         run: |
-          image="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}"
+          # github.repository preserves the owner's capitalisation; Docker
+          # references must be lowercase.
+          repo=$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
+          image="${{ env.REGISTRY }}/${repo}@${{ steps.build.outputs.digest }}"
           docker run --rm --detach --name smoke --publish 8080:8080 "$image"
           for attempt in $(seq 1 15); do
             if curl -fsS http://127.0.0.1:8080/healthz > /dev/null; then break; fi

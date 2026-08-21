@@ -23,12 +23,3 @@ EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --quiet --tries=1 --spider http://127.0.0.1:8080/healthz || exit 1
-
-# Baked in at build time so the running container can report what it is serving.
-ARG GIT_SHA=unknown
-ARG BUILD_TIME=unknown
-LABEL org.opencontainers.image.title="Rotaris website" \
-      org.opencontainers.image.source="https://github.com/Concrete-Dynamics/Rotaris-website" \
-      org.opencontainers.image.licenses="MIT" \
-      org.opencontainers.image.revision="${GIT_SHA}" \
-      org.opencontainers.image.created="${BUILD_TIME}"
