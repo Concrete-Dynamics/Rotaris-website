@@ -20,6 +20,9 @@ import './styles/components.css'
 import './styles/motif.css'
 import './styles/site.css'
 
+// Initialises i18next before the first render; the URL decides the language.
+import './i18n'
+
 import App from './App'
 
 createRoot(document.getElementById('root')!).render(

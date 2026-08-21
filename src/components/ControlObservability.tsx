@@ -1,10 +1,13 @@
+import { useTranslation } from 'react-i18next'
+
+/** Agent names and tool names are identifiers, so only `detail` is translated. */
 const ACTIVE = [
   {
     agent: 'orchestrator',
     state: 'run',
     pulsing: true,
     tool: 'wait_for_tasks',
-    detail: 'waiting on coding-agent-1, tester',
+    detail: 'orchestrator',
     elapsed: '26m 12s',
   },
   {
@@ -12,7 +15,7 @@ const ACTIVE = [
     state: 'run',
     pulsing: true,
     tool: 'haet_edit',
-    detail: 'src/api/session.py · 4 anchors verified',
+    detail: 'coder',
     elapsed: '14m 40s',
   },
   {
@@ -20,7 +23,7 @@ const ACTIVE = [
     state: 'run',
     pulsing: true,
     tool: 'shell',
-    detail: 'pytest tests/unit -x -q · 38s',
+    detail: 'tester',
     elapsed: '6m 03s',
   },
   {
@@ -28,7 +31,7 @@ const ACTIVE = [
     state: 'wait',
     pulsing: false,
     tool: '—',
-    detail: 'blocked · depends_on: coding-agent-1',
+    detail: 'blocked',
     elapsed: '—',
   },
 ]
@@ -40,28 +43,27 @@ const METERS = [
 ]
 
 export default function ControlObservability() {
+  const { t } = useTranslation('home')
+
   return (
     <section id="control" className="section">
       <div className="wrap">
-        <h6>Control &amp; observability</h6>
-        <h2 style={{ marginBottom: 14 }}>Supervised autonomy, not blind trust</h2>
-        <p className="section-lede">
-          Every agent&apos;s state, tools, elapsed time, context window, and model assignment stay
-          visible while the run is live — and every consequential action has a human handle.
-        </p>
+        <h6>{t('control.kicker')}</h6>
+        <h2 style={{ marginBottom: 14 }}>{t('control.title')}</h2>
+        <p className="section-lede">{t('control.lede')}</p>
 
         <div className="grid-cards cols-xl" style={{ alignItems: 'start' }}>
           <div className="card panel-card">
-            <div className="card-kicker">Active now</div>
+            <div className="card-kicker">{t('control.activeNow')}</div>
             <div className="table-scroll">
-              <table className="table" aria-label="Agents active right now">
+              <table className="table" aria-label={t('control.tableLabel')}>
                 <thead>
                   <tr>
-                    <th className="table-pad-first">Agent</th>
-                    <th>Tool</th>
-                    <th>Detail</th>
+                    <th className="table-pad-first">{t('control.table.agent')}</th>
+                    <th>{t('control.table.tool')}</th>
+                    <th>{t('control.table.detail')}</th>
                     <th className="table-pad-last" style={{ textAlign: 'right' }}>
-                      Elapsed
+                      {t('control.table.elapsed')}
                     </th>
                   </tr>
                 </thead>
@@ -81,7 +83,7 @@ export default function ControlObservability() {
                         {row.tool}
                       </td>
                       <td className="dim" style={{ fontSize: 11.5 }}>
-                        {row.detail}
+                        {t(`control.details.${row.detail}`)}
                       </td>
                       <td
                         className="mono table-pad-last"
@@ -108,65 +110,63 @@ export default function ControlObservability() {
                   <span className="mono meter-value">{meter.value}</span>
                 </div>
               ))}
-              <div className="meters-note">context windows · compress automatically at 80%</div>
+              <div className="meters-note">{t('control.metersNote')}</div>
             </div>
           </div>
 
           <div className="stack-16">
             <div className="card">
-              <span className="card-kicker">Human control</span>
+              <span className="card-kicker">{t('control.human.kicker')}</span>
               <p className="card-body" style={{ marginBottom: 6 }}>
-                Pause a run, steer an agent mid-task, change its model or reasoning strength, or
-                cancel — cancellation cascades to every descendant.
+                {t('control.human.body')}
               </p>
               <div className="control-actions">
                 <span className="btn btn-secondary btn-compact">
                   <i className="ph ph-pause" aria-hidden="true" />
-                  Pause run
+                  {t('control.human.pause')}
                 </span>
                 <span className="btn btn-secondary btn-compact">
                   <i className="ph ph-chat-teardrop-text" aria-hidden="true" />
-                  Steer agent
+                  {t('control.human.steer')}
                 </span>
                 <span className="btn btn-warning btn-compact">
                   <i className="ph ph-cpu" aria-hidden="true" />
-                  Change model
+                  {t('control.human.changeModel')}
                 </span>
                 <span
                   className="btn btn-danger btn-compact"
                   style={{ border: '1px solid var(--rt-danger-800)' }}
                 >
                   <i className="ph ph-x-circle" aria-hidden="true" />
-                  Cancel run
+                  {t('control.human.cancel')}
                 </span>
               </div>
             </div>
 
             {/* A real failure and its recovery, rather than the happy path only (UI-06). */}
             <div className="card failure-card">
-              <span className="card-kicker">When something fails</span>
+              <span className="card-kicker">{t('control.failure.kicker')}</span>
               <div className="failure-head">
                 <span className="tag tag-fail" style={{ flex: 'none' }}>
                   <i className="ph ph-x" aria-hidden="true" />
-                  failed
+                  {t('control.failure.tag')}
                 </span>
                 <div>
                   <span className="mono" style={{ fontSize: 12 }}>
                     test_session_timeout
                   </span>{' '}
-                  <span className="dim">— tester · pytest exit 1</span>
+                  <span className="dim">{t('control.failure.meta')}</span>
                 </div>
               </div>
               <p className="card-body" style={{ fontSize: 12, margin: '4px 0 8px' }}>
-                Failures surface as states, not buried logs. The orchestrator re-delegates the fix
-                with the failing evidence attached — and you can inspect or intervene at every step.
+                {t('control.failure.body')}
               </p>
               <div className="failure-recovery">
                 <i className="ph ph-arrow-bend-down-right dim" aria-hidden="true" />
                 fix-session-timeout → coding-agent-1
                 <span className="tag tag-run" style={{ marginLeft: 4 }}>
                   <span className="status-dot is-pulsing" style={{ background: 'var(--rt-run)' }} />
-                  re-running
+                  {t('control.failure.rerunning')}
                 </span>
               </div>
             </div>

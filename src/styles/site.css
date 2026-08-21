@@ -239,7 +239,7 @@ details > summary::-webkit-details-marker{display:none}
 /* ── 16 · footer ──────────────────────────────────────────────────────────── */
 .site-footer{background:var(--rt-chrome)}
 .site-footer .wrap{padding-top:56px;padding-bottom:32px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px}
 .footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px}
 .footer-brand img{height:19px;width:auto}
 .footer-brand span{font-family:var(--rt-font-display);font-weight:600;font-size:15px}
@@ -248,12 +248,16 @@ details > summary::-webkit-details-marker{display:none}
 .footer-col .card-kicker{margin-bottom:4px}
 .footer-col a{font-size:12.5px;color:var(--rt-text-secondary);text-decoration:none}
 .footer-col a:hover{color:var(--rt-text)}
+/* The language switch reads as a link, not as one of the section links. */
+.nav-lang{display:inline-flex;align-items:center;gap:6px}
+.nav-lang i{font-size:15px;color:var(--rt-text-tertiary)}
+.security-links{display:flex;flex-wrap:wrap;gap:8px 22px}
 .footer-legal{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:11px;color:var(--rt-text-tertiary)}
 .footer-legal > span:last-child{margin-left:auto}
 
 /* ── responsive ───────────────────────────────────────────────────────────── */
 @media (max-width:900px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .footer-grid{grid-template-columns:repeat(2,1fr);gap:28px}
   .summary-grid{grid-template-columns:1fr}
   .split{gap:36px}
 }
@@ -278,6 +282,8 @@ details > summary::-webkit-details-marker{display:none}
 
 /* ── legal pages (imprint · privacy · terms) ──────────────────────────────── */
 .legal .wrap{max-width:820px;padding-top:56px;padding-bottom:96px}
+/* Why the document below is in another language than the page chrome. */
+.legal-language-note{font-size:12.5px;color:var(--rt-text-tertiary);max-width:70ch;margin:0 0 28px;text-wrap:pretty}
 .legal-back{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;text-decoration:none;margin-bottom:32px}
 .legal-title{font-size:clamp(28px,4vw,38px);margin:0 0 6px}
 .legal-german{font-size:12px;color:var(--rt-text-tertiary);margin:0 0 28px}

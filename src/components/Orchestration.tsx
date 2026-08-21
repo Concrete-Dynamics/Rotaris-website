@@ -1,29 +1,18 @@
+import { useTranslation } from 'react-i18next'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const POINTS = [
-  {
-    icon: 'ph ph-flow-arrow',
-    lead: 'Dependency-aware parallelism.',
-    body: 'Fan-out where tasks are independent, strict ordering where they are not.',
-  },
-  {
-    icon: 'ph ph-clock-countdown',
-    lead: 'Bounded autonomy.',
-    body: 'Iteration limits, depth limits, fan-out limits, loop protection, and circuit breaking constrain every run.',
-  },
-  {
-    icon: 'ph ph-file-text',
-    lead: 'Structured reports.',
-    body: 'Each agent returns findings, changes, and evidence — not a wall of text.',
-  },
-  {
-    icon: 'ph ph-x-circle',
-    lead: 'Cancellation propagates.',
-    body: 'Stop a parent and every descendant stops with it — cleanly.',
-  },
+  { key: 'parallelism', icon: 'ph ph-flow-arrow' },
+  { key: 'bounded', icon: 'ph ph-clock-countdown' },
+  { key: 'reports', icon: 'ph ph-file-text' },
+  { key: 'cancellation', icon: 'ph ph-x-circle' },
 ]
 
-/** Ring positions for the seven specialists, matching the design's radial layout. */
+/**
+ * Ring positions for the seven specialists, matching the design's radial
+ * layout. The labels are agent identifiers, which the application uses
+ * verbatim in every language, so they are not translated.
+ */
 const NODES = [
   { x: 240, y: 60, state: 'run', label: 'implementer', tx: 240, ty: 42, delay: '0s' },
   { x: 349, y: 113, state: 'wait', label: 'verifier', tx: 360, ty: 99 },
@@ -35,22 +24,21 @@ const NODES = [
 ]
 
 const LEGEND = [
-  { x: 30, state: 'wait', label: 'waiting' },
-  { x: 105, state: 'run', label: 'running' },
-  { x: 182, state: 'done', label: 'done' },
+  { x: 30, state: 'wait' },
+  { x: 105, state: 'run' },
+  { x: 182, state: 'done' },
 ]
 
 export default function Orchestration() {
+  const { t } = useTranslation('home')
   const reducedMotion = usePrefersReducedMotion()
 
   return (
     <section id="orchestration" className="section">
       <div className="wrap split">
         <div>
-          <h6>Orchestration</h6>
-          <h2 style={{ marginBottom: 18, textWrap: 'pretty' }}>
-            A stable center. Specialists in motion.
-          </h2>
+          <h6>{t('orchestration.kicker')}</h6>
+          <h2 style={{ marginBottom: 18, textWrap: 'pretty' }}>{t('orchestration.title')}</h2>
           <p
             style={{
               fontSize: 15,
@@ -59,13 +47,11 @@ export default function Orchestration() {
               textWrap: 'pretty',
             }}
           >
-            Your orchestrator plans and delegates work to specialist agents. Independent tasks run
-            in parallel; dependent tasks wait; every child reports back in a structured format the
-            orchestrator can act on.
+            {t('orchestration.lede')}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {POINTS.map((point) => (
-              <div key={point.lead} style={{ display: 'flex', gap: 12, alignItems: 'baseline' }}>
+              <div key={point.key} style={{ display: 'flex', gap: 12, alignItems: 'baseline' }}>
                 <i
                   className={point.icon}
                   aria-hidden="true"
@@ -77,9 +63,11 @@ export default function Orchestration() {
                   }}
                 />
                 <div>
-                  <strong style={{ fontSize: 13.5 }}>{point.lead}</strong>{' '}
+                  <strong style={{ fontSize: 13.5 }}>
+                    {t(`orchestration.points.${point.key}.lead`)}
+                  </strong>{' '}
                   <span style={{ fontSize: 13.5, color: 'var(--rt-text-secondary)' }}>
-                    {point.body}
+                    {t(`orchestration.points.${point.key}.body`)}
                   </span>
                 </div>
               </div>
@@ -104,7 +92,7 @@ export default function Orchestration() {
             viewBox="0 0 480 420"
             style={{ maxWidth: 480 }}
             role="img"
-            aria-label="Radial diagram: the orchestrator at the center — shown as a small net spanning delegation intensity per agent — delegating to seven specialist agents arranged in an even ring, each colored by state — done, running, or waiting"
+            aria-label={t('orchestration.diagram.alt')}
           >
             <circle
               cx="240"
@@ -137,7 +125,7 @@ export default function Orchestration() {
               fill="var(--rt-accent-200)"
               style={{ fontFamily: 'var(--rt-font-display)', fontSize: 12, fontWeight: 600 }}
             >
-              orchestrator
+              {t('orchestration.diagram.center')}
             </text>
             <text
               x="240"
@@ -146,7 +134,7 @@ export default function Orchestration() {
               fill="var(--rt-text-tertiary)"
               style={{ fontFamily: 'var(--rt-font-mono)', fontSize: 8.5 }}
             >
-              plans · delegates
+              {t('orchestration.diagram.centerSub')}
             </text>
 
             {NODES.map((node) => (
@@ -176,10 +164,10 @@ export default function Orchestration() {
 
             <g style={{ fontFamily: 'var(--rt-font-mono)', fontSize: 9.5 }}>
               {LEGEND.map((item) => (
-                <g key={item.label}>
+                <g key={item.state}>
                   <circle cx={item.x} cy="392" r="4" fill={`var(--rt-${item.state})`} />
                   <text x={item.x + 10} y="396" fill="var(--rt-text-tertiary)">
-                    {item.label}
+                    {t(`orchestration.diagram.legend.${item.state}`)}
                   </text>
                 </g>
               ))}

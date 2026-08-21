@@ -1,16 +1,17 @@
+import { Trans, useTranslation } from 'react-i18next'
 import LegalDocument from '../components/LegalDocument'
 import { LEGAL_DOCUMENTS } from '../legal'
 
 export default function Withdrawal() {
+  const { t } = useTranslation('legal')
+
   return (
     <LegalDocument
-      title="Right of withdrawal"
+      documentKey="withdrawal"
       source={LEGAL_DOCUMENTS.withdrawal}
       intro={
         <p>
-          Die Widerrufsbelehrung betrifft kostenpflichtige Verträge über{' '}
-          <strong>Rotaris Cloud</strong>. Der Download und die Nutzung der
-          Rotaris-Anwendung sind kostenlos und begründen keinen solchen Vertrag.
+          <Trans t={t} i18nKey="intros.withdrawal" components={[<strong />]} />
         </p>
       }
     />

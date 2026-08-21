@@ -1,8 +1,11 @@
-import { useEffect, useMemo, type ReactNode } from 'react'
+import { useMemo, type ReactNode } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { DOCUMENT_LINKS } from '../legal'
+import { useLocalePath } from '../hooks/useLocalePath'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 /**
  * A heading whose own text says it is not for publication ends the public part
@@ -40,50 +43,53 @@ function publicPortion(markdown: string): { body: string; openItems: number } {
 }
 
 interface Props {
-  /** English title for the page chrome; the document keeps its own German one. */
-  title: string
+  /** Key under `titles`/`descriptions` in the legal namespace. */
+  documentKey: string
   source: string
   /** Rendered above the document, in the site's language. */
   intro?: ReactNode
 }
 
-export default function LegalDocument({ title, source, intro }: Props) {
+export default function LegalDocument({ documentKey, source, intro }: Props) {
+  const { t } = useTranslation('legal')
+  const localePath = useLocalePath()
   const { body, openItems } = useMemo(() => publicPortion(source), [source])
 
-  useEffect(() => {
-    document.title = `${title} — Rotaris`
-    return () => {
-      document.title = 'Rotaris — Download the agentic coding control plane'
-    }
-  }, [title])
+  usePageMeta({
+    title: t(`titles.${documentKey}`),
+    description: t(`descriptions.${documentKey}`),
+  })
 
   return (
     <main className="legal">
       <div className="wrap">
-        <Link to="/" className="legal-back">
+        <Link to={localePath('/')} className="legal-back">
           <i className="ph ph-arrow-left" aria-hidden="true" />
-          Back to Rotaris
+          {t('back')}
         </Link>
 
         <div className="legal-draft" role="note">
           <i className="ph-fill ph-warning-circle" aria-hidden="true" />
           <div>
-            <strong>Publication draft.</strong> This is the text prepared for launch, in
-            German — the contract language for the offering it covers. It has not yet had
-            the legal review the source package asks for
+            <strong>{t('draft.title')}</strong> {t('draft.body')}
             {openItems > 0 && (
-              <>
-                , and it still contains{' '}
-                <strong>
-                  {openItems} open item{openItems === 1 ? '' : 's'}
-                </strong>{' '}
-                marked <span className="legal-open-inline">OFFEN</span> that have to be
-                resolved before it goes live
-              </>
+              <Trans
+                t={t}
+                i18nKey="draft.openItems"
+                count={openItems}
+                components={[<strong />, <span className="legal-open-inline" />]}
+              />
             )}
             .
           </div>
         </div>
+
+        {/*
+          The documents are not translated on purpose — see the comment in
+          src/legal/index.ts. This says so, in the language of the page chrome,
+          rather than leaving a reader to wonder why the language changes.
+        */}
+        <p className="legal-language-note">{t('draft.germanNote')}</p>
 
         {intro && <div className="legal-intro">{intro}</div>}
 
@@ -95,7 +101,7 @@ export default function LegalDocument({ title, source, intro }: Props) {
               a({ href, children, ...rest }) {
                 const target = href ? DOCUMENT_LINKS[href.replace(/^.*\//, '')] : undefined
                 if (target) {
-                  return <Link to={target}>{children}</Link>
+                  return <Link to={localePath(target)}>{children}</Link>
                 }
                 if (href?.endsWith('.md')) {
                   // Points at an internal document that is not published.

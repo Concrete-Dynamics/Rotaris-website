@@ -9,3 +9,4 @@ dist/
 
 # Local agent/tooling state
 .claude/
+.serena/

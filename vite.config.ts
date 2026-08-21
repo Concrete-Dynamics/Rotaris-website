@@ -8,6 +8,15 @@ import react from '@vitejs/plugin-react'
  */
 const SITE_URL = (process.env.SITE_URL || 'https://rotaris.ai').replace(/\/+$/, '')
 
+/**
+ * Locales and their URL prefix. Keep in step with src/i18n/config.ts — the
+ * default locale has no prefix, so English stays at the root.
+ */
+const LOCALES = [
+  { code: 'en', prefix: '' },
+  { code: 'de', prefix: '/de' },
+]
+
 /** Routes worth listing for crawlers, in descending priority. */
 const ROUTES: { path: string; priority: string; changefreq: string }[] = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
@@ -18,6 +27,12 @@ const ROUTES: { path: string; priority: string; changefreq: string }[] = [
   { path: '/withdrawal', priority: '0.3', changefreq: 'yearly' },
   { path: '/acceptable-use', priority: '0.3', changefreq: 'yearly' },
 ]
+
+/** A canonical path addressed in one locale. */
+function localized(path: string, prefix: string): string {
+  if (!prefix) return path
+  return path === '/' ? prefix : `${prefix}${path}`
+}
 
 function robotsTxt(): string {
   // Everything is public marketing content with no account wall (TR-02), so
@@ -33,21 +48,33 @@ function robotsTxt(): string {
 
 function sitemapXml(): string {
   const lastmod = new Date().toISOString().slice(0, 10)
-  const urls = ROUTES.map(
-    (route) =>
+
+  // Every locale gets its own <url>, and each one lists all of them as
+  // alternates, so the two language versions are read as one page rather than
+  // as duplicates. x-default points at the unprefixed English path.
+  const urls = ROUTES.flatMap((route) =>
+    LOCALES.map((locale) =>
       [
         '  <url>',
-        `    <loc>${SITE_URL}${route.path}</loc>`,
+        `    <loc>${SITE_URL}${localized(route.path, locale.prefix)}</loc>`,
+        ...LOCALES.map(
+          (alternate) =>
+            `    <xhtml:link rel="alternate" hreflang="${alternate.code}"` +
+            ` href="${SITE_URL}${localized(route.path, alternate.prefix)}" />`,
+        ),
+        `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${route.path}" />`,
         `    <lastmod>${lastmod}</lastmod>`,
         `    <changefreq>${route.changefreq}</changefreq>`,
         `    <priority>${route.priority}</priority>`,
         '  </url>',
       ].join('\n'),
+    ),
   ).join('\n')
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     urls,
     '</urlset>',
     '',
@@ -88,6 +115,11 @@ function siteMetadata(): Plugin {
 
 export default defineConfig({
   plugins: [react(), siteMetadata()],
+  // usePageMeta stamps the canonical and hreflang tags per route, and needs the
+  // same origin the build stamps into index.html and the sitemap.
+  define: {
+    'import.meta.env.VITE_SITE_URL': JSON.stringify(SITE_URL),
+  },
   build: {
     // The site is one page; a single chunk beats waterfalled requests here.
     assetsInlineLimit: 2048,

@@ -1,17 +1,25 @@
+import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import LegalDocument from '../components/LegalDocument'
+import { LEGAL_ROUTES } from '../data/routes'
+import { useLocalePath } from '../hooks/useLocalePath'
 import { LEGAL_DOCUMENTS } from '../legal'
 
 export default function Terms() {
+  const { t } = useTranslation('legal')
+  const localePath = useLocalePath()
+
   return (
     <LegalDocument
-      title="Terms and conditions"
+      documentKey="terms"
       source={LEGAL_DOCUMENTS.terms}
       intro={
         <p>
-          Diese Bedingungen gelten für den kostenpflichtigen Dienst <strong>Rotaris
-          Cloud</strong>. Für die kostenlose Rotaris-Anwendung gelten allein die{' '}
-          <Link to="/eula">Endnutzerbedingungen</Link>.
+          <Trans
+            t={t}
+            i18nKey="intros.terms"
+            components={[<strong />, <Link to={localePath(LEGAL_ROUTES.eula)} />]}
+          />
         </p>
       }
     />

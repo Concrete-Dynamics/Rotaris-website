@@ -1,17 +1,15 @@
+import { useTranslation } from 'react-i18next'
 import LegalDocument from '../components/LegalDocument'
 import { LEGAL_DOCUMENTS } from '../legal'
 
 export default function Eula() {
+  const { t } = useTranslation('legal')
+
   return (
     <LegalDocument
-      title="End-user terms"
+      documentKey="eula"
       source={LEGAL_DOCUMENTS.eula}
-      intro={
-        <p>
-          Diese Bedingungen gelten für die kostenlose Rotaris-Anwendung — Desktop,
-          Kommandozeile und Terminaloberfläche.
-        </p>
-      }
+      intro={<p>{t('intros.eula')}</p>}
     />
   )
 }

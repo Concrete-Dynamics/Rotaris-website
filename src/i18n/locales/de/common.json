@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "titleSuffix": "Rotaris",
+    "home": {
+      "title": "Rotaris — Die Steuerungsebene für agentische Softwareentwicklung",
+      "description": "Ein Team spezialisierter Coding-Agenten aus einem Desktop-Arbeitsbereich steuern und überwachen. Kostenlos, MIT-lizenziert, ohne Konto."
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "description": "Diese Seite gibt es nicht. Alles über Rotaris steht auf einer einzigen Seite."
+    }
+  },
+  "language": {
+    "label": "Sprache",
+    "switchTo": "View in English",
+    "current": "Deutsch"
+  },
+  "nav": {
+    "product": "Produkt",
+    "howItWorks": "So funktioniert es",
+    "security": "Sicherheit",
+    "docs": "Doku",
+    "github": "GitHub",
+    "download": "Herunterladen"
+  },
+  "footer": {
+    "tagline": "Sichtbare, steuerbare und überprüfbare Softwareentwicklung mit mehreren Agenten.",
+    "columns": {
+      "product": "Produkt",
+      "documentation": "Dokumentation",
+      "trust": "Vertrauen",
+      "legal": "Rechtliches"
+    },
+    "product": {
+      "whatItIs": "Was es ist",
+      "howItWorks": "So funktioniert es",
+      "views": "Die sechs Ansichten",
+      "orchestration": "Orchestrierung",
+      "verification": "Verifikation",
+      "control": "Kontrolle und Einblick",
+      "models": "Modelle und Anbieter",
+      "git": "Git-Workflow",
+      "openSource": "Open Source",
+      "faq": "Häufige Fragen"
+    },
+    "documentation": {
+      "install": "Installationsanleitung",
+      "firstRun": "Erster Start",
+      "providers": "Anbieter einrichten",
+      "permissions": "Berechtigungen und Sicherheit",
+      "architecture": "Architektur",
+      "rename": "Was ist aus geraet-ai geworden?"
+    },
+    "trust": {
+      "security": "Sicherheit",
+      "securityPolicy": "Sicherheitsrichtlinie",
+      "checksums": "SHA-256-Prüfsummen",
+      "releaseNotes": "Release Notes",
+      "github": "GitHub"
+    },
+    "legal": {
+      "imprint": "Impressum",
+      "privacy": "Datenschutzerklärung",
+      "terms": "AGB · Rotaris Cloud",
+      "eula": "Endnutzerbedingungen",
+      "withdrawal": "Widerrufsbelehrung",
+      "acceptableUse": "Zulässige Nutzung",
+      "license": "Lizenz · MIT"
+    },
+    "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT-Lizenz",
+    "entity": "Rotaris — vormals geraet-ai. Concrete Dynamics UG (haftungsbeschränkt), Kempten (Allgäu)."
+  },
+  "notFound": {
+    "heading": "Diese Seite gibt es nicht.",
+    "sub": "Der Link ist womöglich veraltet. Alles über Rotaris steht auf einer einzigen Seite.",
+    "download": "Rotaris herunterladen",
+    "home": "Zurück zur Startseite"
+  }
+}

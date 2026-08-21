@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "titleSuffix": "Rotaris",
+    "home": {
+      "title": "Rotaris — Download the agentic coding control plane",
+      "description": "Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "This page does not exist. Everything about Rotaris lives on one page."
+    }
+  },
+  "language": {
+    "label": "Language",
+    "switchTo": "Auf Deutsch ansehen",
+    "current": "English"
+  },
+  "nav": {
+    "product": "Product",
+    "howItWorks": "How it works",
+    "security": "Security",
+    "docs": "Docs",
+    "github": "GitHub",
+    "download": "Download"
+  },
+  "footer": {
+    "tagline": "Visible, controllable, and verifiable multi-agent software development.",
+    "columns": {
+      "product": "Product",
+      "documentation": "Documentation",
+      "trust": "Trust",
+      "legal": "Legal"
+    },
+    "product": {
+      "whatItIs": "What it is",
+      "howItWorks": "How it works",
+      "views": "The six views",
+      "orchestration": "Orchestration",
+      "verification": "Verification",
+      "control": "Control and observability",
+      "models": "Models and providers",
+      "git": "Git workflow",
+      "openSource": "Open source",
+      "faq": "FAQ"
+    },
+    "documentation": {
+      "install": "Installation guide",
+      "firstRun": "First run",
+      "providers": "Provider setup",
+      "permissions": "Permissions and security",
+      "architecture": "Architecture",
+      "rename": "What happened to geraet-ai?"
+    },
+    "trust": {
+      "security": "Security",
+      "securityPolicy": "Security policy",
+      "checksums": "SHA-256 checksums",
+      "releaseNotes": "Release notes",
+      "github": "GitHub"
+    },
+    "legal": {
+      "imprint": "Imprint",
+      "privacy": "Privacy policy",
+      "terms": "Terms · Rotaris Cloud",
+      "eula": "End-user terms",
+      "withdrawal": "Right of withdrawal",
+      "acceptableUse": "Acceptable use",
+      "license": "License · MIT"
+    },
+    "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT license",
+    "entity": "Rotaris — formerly geraet-ai. Concrete Dynamics UG (haftungsbeschränkt), Kempten (Allgäu)."
+  },
+  "notFound": {
+    "heading": "This page does not exist.",
+    "sub": "The link may be out of date. Everything about Rotaris lives on one page.",
+    "download": "Download Rotaris",
+    "home": "Back to the homepage"
+  }
+}

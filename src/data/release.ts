@@ -25,12 +25,33 @@ export interface PlatformRelease {
 
 export interface ChannelRelease {
   version: string
+  /** ISO date. Rendered in the page's language, so it is not written out here. */
   releasedOn: string
 }
 
 export const REPO_URL = 'https://github.com/theUpsider/Rotaris'
 export const RELEASES_URL = `${REPO_URL}/releases`
 export const LATEST_RELEASE_URL = `${REPO_URL}/releases/latest`
+export const SECURITY_POLICY_URL = `${REPO_URL}/security/policy`
+
+/**
+ * Blob links resolve through `HEAD` rather than a branch name, so renaming the
+ * default branch does not silently turn them into 404s.
+ */
+export const LICENSE_URL = `${REPO_URL}/blob/HEAD/LICENSE`
+export const ARCHITECTURE_URL = `${REPO_URL}/blob/HEAD/docs/architecture.md`
+
+/**
+ * Headings in the repository README, which is the documentation until a docs
+ * site exists. The fragments are GitHub's slugs for those headings — they break
+ * if a heading is reworded, so check them when the README changes.
+ */
+export const README_ANCHORS = {
+  quickStart: `${REPO_URL}#quick-start`,
+  firstRun: `${REPO_URL}#1-register-a-provider`,
+  providers: `${REPO_URL}#providers-auth-and-models`,
+  permissions: `${REPO_URL}#permissions-and-security`,
+} as const
 
 export const PLATFORMS: Record<PlatformId, PlatformRelease> = {
   'windows-x64': {
@@ -58,8 +79,8 @@ export const PLATFORMS: Record<PlatformId, PlatformRelease> = {
 }
 
 export const CHANNELS: Record<Channel, ChannelRelease> = {
-  stable: { version: '0.5.0', releasedOn: 'July 8, 2026' },
-  preview: { version: '0.6.0-beta.2', releasedOn: 'July 19, 2026' },
+  stable: { version: '0.5.0', releasedOn: '2026-07-08' },
+  preview: { version: '0.6.0-beta.2', releasedOn: '2026-07-19' },
 }
 
 export const DEFAULT_PLATFORM: PlatformId = 'windows-x64'

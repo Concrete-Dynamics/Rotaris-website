@@ -1,0 +1,51 @@
+{
+  "back": "Zurück zu Rotaris",
+  "draft": {
+    "title": "Veröffentlichungsentwurf.",
+    "body": "Dies ist der für den Start vorbereitete Text, auf Deutsch — der Vertragssprache des Angebots, das er abdeckt. Die rechtliche Prüfung, die das Quellpaket verlangt, steht noch aus",
+    "openItems_one": ", und er enthält noch <0>{{count}} offenen Punkt</0>, gekennzeichnet mit <1>OFFEN</1>, der vor der Veröffentlichung zu klären ist",
+    "openItems_other": ", und er enthält noch <0>{{count}} offene Punkte</0>, gekennzeichnet mit <1>OFFEN</1>, die vor der Veröffentlichung zu klären sind",
+    "germanNote": "Das nachstehende Dokument ist auf Deutsch und bleibt es: Deutsch ist die Vertragssprache dieses Angebots, und eine übersetzte Widerrufsbelehrung oder Datenschutzerklärung wäre eine zweite Fassung, die gegen die erste gelesen werden könnte."
+  },
+  "titles": {
+    "imprint": "Impressum",
+    "privacy": "Datenschutzerklärung",
+    "terms": "AGB — Rotaris Cloud",
+    "eula": "Endnutzerbedingungen",
+    "withdrawal": "Widerrufsbelehrung",
+    "acceptableUse": "Richtlinie zur zulässigen Nutzung"
+  },
+  "descriptions": {
+    "imprint": "Anbieterkennzeichnung für Rotaris nach § 5 DDG und § 18 Abs. 2 MStV.",
+    "privacy": "Wie Rotaris, Rotaris Cloud und diese Website mit personenbezogenen Daten umgehen.",
+    "terms": "Allgemeine Geschäftsbedingungen für den kostenpflichtigen Dienst Rotaris Cloud.",
+    "eula": "Endnutzerbedingungen für die kostenlose Rotaris-Anwendung für Desktop, CLI und Terminal.",
+    "withdrawal": "Widerrufsrecht für kostenpflichtige Verträge über Rotaris Cloud.",
+    "acceptableUse": "Wofür Rotaris und Rotaris Cloud genutzt werden dürfen und wofür nicht."
+  },
+  "intros": {
+    "terms": "Diese Bedingungen gelten für den kostenpflichtigen Dienst <0>Rotaris Cloud</0>. Für die kostenlose Rotaris-Anwendung gelten allein die <1>Endnutzerbedingungen</1>.",
+    "eula": "Diese Bedingungen gelten für die kostenlose Rotaris-Anwendung — Desktop, Kommandozeile und Terminaloberfläche.",
+    "withdrawal": "Die Widerrufsbelehrung betrifft kostenpflichtige Verträge über <0>Rotaris Cloud</0>. Der Download und die Nutzung der Rotaris-Anwendung sind kostenlos und begründen keinen solchen Vertrag.",
+    "acceptableUse": "Diese Richtlinie ist Bestandteil der <0>AGB</0> und der <1>Endnutzerbedingungen</1>."
+  },
+  "privacy": {
+    "kicker": "Diese Website",
+    "lead": "Die nachstehende Erklärung gilt für die Rotaris-Anwendung und Rotaris Cloud. Für diese Website selbst gilt Folgendes — sie ist statisch und verarbeitet nichts über den Seitenabruf hinaus:",
+    "facts": {
+      "storage": "Keine Cookies, kein Local Storage, kein Session Storage.",
+      "analytics": "Keine Analyse- oder Trackingdienste.",
+      "thirdParty": "Keine Ressourcen von Dritten zur Laufzeit — Schriften und Symbole werden von derselben Domain ausgeliefert, es geht keine Anfrage an ein CDN oder an Google Fonts.",
+      "forms": "Kein Konto, kein Formular, keine Übermittlung von Eingaben.",
+      "detection": "Die Erkennung des Betriebssystems für die Download-Empfehlung wertet die Browserkennung ausschließlich lokal aus.",
+      "logs": "Es bleiben die Zugriffsprotokolle des Webservers (IP-Adresse, Zeitpunkt, angefragter Pfad, Statuscode) auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Verantwortlicher und Betroffenenrechte wie unter Ziffer 1 und 9."
+    },
+    "note": "Diese Aufstellung beschreibt den heutigen Stand dieser Website und ist bei jeder Änderung zu prüfen. Sie ist der Platz für die gesonderte Website-Datenschutzerklärung, auf die die nachstehende Erklärung in ihrem einleitenden Absatz verweist, und ersetzt deren anwaltliche Prüfung nicht.",
+    "authoritative": ""
+  },
+  "imprint": {
+    "basis": "Angaben gemäß § 5 DDG · § 18 Abs. 2 MStV",
+    "related": "Weitere Rechtsdokumente",
+    "securityPolicy": "der SECURITY.md im Quellcode-Repository"
+  }
+}

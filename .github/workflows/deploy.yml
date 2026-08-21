@@ -95,6 +95,11 @@ jobs:
           check / 200
           check /imprint 200
           check /privacy 200
+          # The German locale, and the explicit English alias.
+          check /de 200
+          check /de/privacy 200
+          check /de/impressum 200
+          check /en 200
           check /terms 200
           check /robots.txt 200
           check /sitemap.xml 200

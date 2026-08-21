@@ -1,79 +1,73 @@
 import { Fragment } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface ViewCard {
+  key: string
   icon: string
-  title: string
-  body: string
-  stats: { label: string; dot?: string }[]
+  /** Keys under `views.stats`; `dot` colours the state marker. */
+  stats: { key: string; dot?: string }[]
 }
 
 const VIEWS: ViewCard[] = [
   {
+    key: 'overview',
     icon: 'ph ph-gauge',
-    title: 'Overview',
-    body: 'Sessions, provider limits, token usage, and everything currently running — at a glance.',
-    stats: [{ label: '3 live', dot: 'var(--rt-run)' }, { label: '612k tok' }, { label: '412/1,500 premium' }],
+    stats: [{ key: 'live', dot: 'var(--rt-run)' }, { key: 'tokens' }, { key: 'premium' }],
   },
   {
+    key: 'workspace',
     icon: 'ph ph-chats-circle',
-    title: 'Workspace',
-    body: 'The live transcript, the delegation tree, and the inspector — where you talk to the orchestrator.',
-    stats: [{ label: 'transcript' }, { label: 'agent tree' }, { label: 'inspector' }],
+    stats: [{ key: 'transcript' }, { key: 'agentTree' }, { key: 'inspector' }],
   },
   {
+    key: 'mission',
     icon: 'ph ph-tree-structure',
-    title: 'Mission',
-    body: 'The full task hierarchy: dependencies, per-agent models, tool counts, elapsed time, and state.',
-    stats: [{ label: '9 tasks' }, { label: '2 blocked', dot: 'var(--rt-wait)' }, { label: 'depth ≤ 2' }],
+    stats: [{ key: 'tasks' }, { key: 'blocked', dot: 'var(--rt-wait)' }, { key: 'depth' }],
   },
   {
+    key: 'git',
     icon: 'ph ph-git-branch',
-    title: 'Git',
-    body: 'Worktrees, branch context, changed files, diffs, and local commits made by agents — reviewable before anything leaves the machine.',
-    stats: [{ label: '3 worktrees' }, { label: '↑4' }, { label: '+214 −96' }],
+    stats: [{ key: 'worktrees' }, { key: 'ahead' }, { key: 'diff' }],
   },
   {
+    key: 'library',
     icon: 'ph ph-books',
-    title: 'Library',
-    body: 'Requirements, agent reports, skills, and artifacts — the persistent knowledge a mission produces and consumes.',
-    stats: [{ label: '6 requirements' }, { label: '4 skills' }, { label: '11 artifacts' }],
+    stats: [{ key: 'requirements' }, { key: 'skills' }, { key: 'artifacts' }],
   },
   {
+    key: 'settings',
     icon: 'ph ph-gear',
-    title: 'Settings',
-    body: 'Providers, per-persona model routing, reasoning strength, MCP servers, and workspace security — dropdowns, not slash commands.',
-    stats: [{ label: '4 providers' }, { label: '5 personas' }, { label: '3 MCP servers' }],
+    stats: [{ key: 'providers' }, { key: 'personas' }, { key: 'mcpServers' }],
   },
 ]
 
 export default function SixViews() {
+  const { t } = useTranslation('home')
+
   return (
     <section id="views" className="section">
       <div className="wrap">
-        <h6>The interface</h6>
-        <h2 style={{ marginBottom: 14 }}>Six views. One workspace.</h2>
-        <p className="section-lede">
-          Everything the harness knows — sessions, agents, requirements, worktrees, artifacts,
-          configuration — has one visible home.
-        </p>
+        <h6>{t('views.kicker')}</h6>
+        <h2 style={{ marginBottom: 14 }}>{t('views.title')}</h2>
+        <p className="section-lede">{t('views.lede')}</p>
 
         <div className="grid-cards cols-views">
           {VIEWS.map((view) => (
-            <div className="card" key={view.title}>
+            <div className="card" key={view.key}>
               <div className="icon-title">
                 <i className={view.icon} aria-hidden="true" />
-                <span className="card-title">{view.title}</span>
+                <span className="card-title">{t(`views.cards.${view.key}.title`)}</span>
               </div>
-              <p className="card-body">{view.body}</p>
+              <p className="card-body">{t(`views.cards.${view.key}.body`)}</p>
               <div className="mono card-stats">
                 {view.stats.map((stat) => (
-                  <span key={stat.label}>
+                  <span key={stat.key}>
                     {stat.dot && (
                       <Fragment>
                         <span style={{ color: stat.dot }}>●</span>{' '}
                       </Fragment>
                     )}
-                    {stat.label}
+                    {t(`views.stats.${stat.key}`)}
                   </span>
                 ))}
               </div>

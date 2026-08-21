@@ -1,9 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import type { Channel } from '../data/release'
 
-const OPTIONS: { id: Channel; label: string }[] = [
-  { id: 'stable', label: 'Stable' },
-  { id: 'preview', label: 'Preview' },
-]
+const OPTIONS: Channel[] = ['stable', 'preview']
 
 interface Props {
   channel: Channel
@@ -16,18 +14,20 @@ interface Props {
  * by colour alone (NFR-03).
  */
 export default function ChannelSwitch({ channel, onChange }: Props) {
+  const { t } = useTranslation('home')
+
   return (
-    <div className="seg channel-switch" role="radiogroup" aria-label="Release channel">
+    <div className="seg channel-switch" role="radiogroup" aria-label={t('channel.label')}>
       {OPTIONS.map((option) => (
         <button
-          key={option.id}
+          key={option}
           type="button"
           role="radio"
-          aria-checked={channel === option.id}
-          className={`seg-opt${channel === option.id ? ' is-active' : ''}`}
-          onClick={() => onChange(option.id)}
+          aria-checked={channel === option}
+          className={`seg-opt${channel === option ? ' is-active' : ''}`}
+          onClick={() => onChange(option)}
         >
-          {option.label}
+          {t(`channel.${option}`)}
         </button>
       ))}
     </div>

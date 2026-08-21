@@ -7,17 +7,21 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run check:anchors && tsc -b && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b --noEmit"
+    "typecheck": "tsc -b --noEmit",
+    "check:anchors": "node scripts/check-anchors.mjs"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.2.5",
     "@fontsource-variable/manrope": "^5.2.5",
     "@fontsource-variable/space-grotesk": "^5.2.5",
     "@phosphor-icons/web": "^2.1.1",
+    "i18next": "^25.10.10",
+    "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^16.6.6",
     "react-markdown": "^9.1.0",
     "react-router-dom": "^7.18.2",
     "remark-gfm": "^4.0.1"

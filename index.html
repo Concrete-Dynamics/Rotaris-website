@@ -11,7 +11,13 @@
       name="description"
       content="Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required."
     />
+    <!-- Canonical and hreflang are set per route by src/hooks/usePageMeta.ts.
+         These are the values for "/", so a crawler that does not run the
+         script still sees a correct pair for the homepage. -->
     <link rel="canonical" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="en" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="de" href="%SITE_URL%/de" />
+    <link rel="alternate" hreflang="x-default" href="%SITE_URL%/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Rotaris" />
@@ -31,9 +37,10 @@
         "name": "Rotaris",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Windows, Linux",
+        "_comment": "softwareVersion duplicates CHANNELS.stable.version in src/data/release.ts — bump both.",
         "softwareVersion": "0.5.0",
         "license": "https://opensource.org/licenses/MIT",
-        "downloadUrl": "https://github.com/theUpsider/geraet-ai/releases/latest",
+        "downloadUrl": "https://github.com/theUpsider/Rotaris/releases/latest",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "description": "Desktop control plane for running and supervising a team of specialized coding agents."
       }

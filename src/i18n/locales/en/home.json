@@ -1,0 +1,436 @@
+{
+  "platforms": {
+    "windows-x64": {
+      "label": "Download for Windows",
+      "sub": "x64 · installer (.exe)",
+      "minOs": "Windows 10 1809 or later"
+    },
+    "macos": {
+      "label": "macOS build coming soon",
+      "sub": "Apple Silicon and Intel",
+      "size": "not yet released",
+      "minOs": "in development"
+    },
+    "linux-x64": {
+      "label": "Download for Linux",
+      "sub": "x64 · AppImage · deb · rpm",
+      "minOs": "glibc 2.31+"
+    }
+  },
+  "channel": {
+    "label": "Release channel",
+    "stable": "Stable",
+    "preview": "Preview"
+  },
+  "hero": {
+    "eyebrow": "Beyond the terminal. Into the era of agentic software development.",
+    "title": "Download Rotaris",
+    "sub": "Agentic coding has outgrown the command line. Rotaris gives multi-agent development the interface it deserves.",
+    "macosSoon": "macOS build coming soon",
+    "watchRepo": "Watch the repo for the macOS release",
+    "previewWarning": "Preview builds may be unstable. They use a separate configuration and can be reported on GitHub. You can return to Stable at any time.",
+    "alsoAvailable": "Also available for",
+    "windows": "Windows",
+    "linux": "Linux",
+    "macos": "macOS",
+    "macosTag": "coming soon",
+    "released": "released {{date}}",
+    "mitLicensed": "MIT licensed",
+    "releaseNotes": "Release notes",
+    "checksums": "SHA-256 checksums",
+    "signed": "signed",
+    "advanced": "Advanced installation",
+    "advancedBody": "CLI-only and Python package installation, for headless or scripted use. The desktop application above bundles everything — no Python required.",
+    "advancedComment": "# Python 3.12+ · terminal interface"
+  },
+  "product": {
+    "kicker": "Agentic coding control plane",
+    "title": "The control plane for agentic software engineering",
+    "lede": "Rotaris turns a high-level mission into coordinated work across planning, implementation, testing, documentation, Git, and verification. See what every agent is doing, intervene when necessary, and review the evidence before accepting the result.",
+    "closing": "You get an inspectable software-engineering team — not one opaque coding agent.",
+    "pillars": {
+      "orchestration": {
+        "title": "Orchestration",
+        "body": "Specialist agents — architect, coders, tester, verifier — coordinated as an engineering team."
+      },
+      "control": {
+        "title": "Control",
+        "body": "Inspect, pause, redirect, approve, or stop work at any point in the run."
+      },
+      "verification": {
+        "title": "Verification",
+        "body": "Completion depends on requirements, tests, and explicit gates — not on an agent's say-so."
+      },
+      "traceability": {
+        "title": "Traceability",
+        "body": "Requirements, implementation, tests, agent actions, and artifacts remain connected."
+      }
+    }
+  },
+  "howItWorks": {
+    "kicker": "How it works",
+    "title": "From mission to verified change",
+    "pipeline": {
+      "define": "Define",
+      "plan": "Plan",
+      "delegate": "Delegate",
+      "execute": "Execute",
+      "inspect": "Inspect",
+      "verify": "Verify"
+    },
+    "youControl": "You control:",
+    "steps": {
+      "define": {
+        "title": "Define the mission",
+        "body": "Describe the change and its acceptance criteria. The requirements engineer turns them into persistent, numbered requirements.",
+        "control": "scope, acceptance criteria"
+      },
+      "plan": {
+        "title": "Review the plan",
+        "body": "The orchestrator decomposes the mission. Inspect tasks, dependencies, assigned agents, and models before anything runs.",
+        "control": "approve, edit, or reject the plan"
+      },
+      "delegate": {
+        "title": "Delegate to specialists",
+        "body": "Work is routed to purpose-specific agents — analyst, architect, coding agents, tester, librarian — each with its own model and tools.",
+        "control": "model routing per role"
+      },
+      "run": {
+        "title": "Run the team",
+        "body": "Independent tasks execute concurrently; dependent work waits for its prerequisites. Iteration, depth, and fan-out limits bound every run.",
+        "control": "pause, steer, cancel"
+      },
+      "control": {
+        "title": "Stay in control",
+        "body": "Inspect any agent's transcript, tools, and context. Change configuration mid-run or respond to a failure with the recovery in view.",
+        "control": "everything, live"
+      },
+      "verify": {
+        "title": "Verify the result",
+        "body": "A verifier checks completed work against the requirements before the task is declared finished. Review the evidence, then accept.",
+        "control": "the final accept"
+      }
+    }
+  },
+  "views": {
+    "kicker": "The interface",
+    "title": "Six views. One workspace.",
+    "lede": "Everything the harness knows — sessions, agents, requirements, worktrees, artifacts, configuration — has one visible home.",
+    "cards": {
+      "overview": {
+        "title": "Overview",
+        "body": "Sessions, provider limits, token usage, and everything currently running — at a glance."
+      },
+      "workspace": {
+        "title": "Workspace",
+        "body": "The live transcript, the delegation tree, and the inspector — where you talk to the orchestrator."
+      },
+      "mission": {
+        "title": "Mission",
+        "body": "The full task hierarchy: dependencies, per-agent models, tool counts, elapsed time, and state."
+      },
+      "git": {
+        "title": "Git",
+        "body": "Worktrees, branch context, changed files, diffs, and local commits made by agents — reviewable before anything leaves the machine."
+      },
+      "library": {
+        "title": "Library",
+        "body": "Requirements, agent reports, skills, and artifacts — the persistent knowledge a mission produces and consumes."
+      },
+      "settings": {
+        "title": "Settings",
+        "body": "Providers, per-persona model routing, reasoning strength, MCP servers, and workspace security — dropdowns, not slash commands."
+      }
+    },
+    "stats": {
+      "live": "3 live",
+      "tokens": "612k tok",
+      "premium": "412/1,500 premium",
+      "transcript": "transcript",
+      "agentTree": "agent tree",
+      "inspector": "inspector",
+      "tasks": "9 tasks",
+      "blocked": "2 blocked",
+      "depth": "depth ≤ 2",
+      "worktrees": "3 worktrees",
+      "ahead": "↑4",
+      "diff": "+214 −96",
+      "requirements": "6 requirements",
+      "skills": "4 skills",
+      "artifacts": "11 artifacts",
+      "providers": "4 providers",
+      "personas": "5 personas",
+      "mcpServers": "3 MCP servers"
+    }
+  },
+  "orchestration": {
+    "kicker": "Orchestration",
+    "title": "A stable center. Specialists in motion.",
+    "lede": "Your orchestrator plans and delegates work to specialist agents. Independent tasks run in parallel; dependent tasks wait; every child reports back in a structured format the orchestrator can act on.",
+    "points": {
+      "parallelism": {
+        "lead": "Dependency-aware parallelism.",
+        "body": "Fan-out where tasks are independent, strict ordering where they are not."
+      },
+      "bounded": {
+        "lead": "Bounded autonomy.",
+        "body": "Iteration limits, depth limits, fan-out limits, loop protection, and circuit breaking constrain every run."
+      },
+      "reports": {
+        "lead": "Structured reports.",
+        "body": "Each agent returns findings, changes, and evidence — not a wall of text."
+      },
+      "cancellation": {
+        "lead": "Cancellation propagates.",
+        "body": "Stop a parent and every descendant stops with it — cleanly."
+      }
+    },
+    "diagram": {
+      "alt": "Radial diagram: the orchestrator at the center — shown as a small net spanning delegation intensity per agent — delegating to seven specialist agents arranged in an even ring, each colored by state — done, running, or waiting",
+      "center": "orchestrator",
+      "centerSub": "plans · delegates",
+      "legend": {
+        "wait": "waiting",
+        "run": "running",
+        "done": "done"
+      }
+    }
+  },
+  "verification": {
+    "kicker": "Requirements & verification",
+    "title": "Know why every change exists",
+    "lede": "Requirements and acceptance criteria are persistent engineering artifacts. Every change traces back to one — and forward to the test and verification that prove it.",
+    "chain": {
+      "requirement": "Requirement",
+      "requirementBody": "Session handlers shall be non-blocking under load.",
+      "task": "Task",
+      "taskBody": "Convert session handlers to async · coding-agent-1",
+      "change": "Code change",
+      "test": "Test",
+      "testBody": "38 passed · 0 failed",
+      "verification": "Verification",
+      "verified": "verified",
+      "verificationBody": "Criteria met · evidence attached"
+    },
+    "gate": {
+      "title": "The verification gate",
+      "body": "Nothing is “done” because an agent said so. A dedicated verifier re-reads the requirements, re-runs the tests, and inspects the diff before a task is declared finished — and the completion summary shows you exactly what it found.",
+      "traceability": "Requirement-to-code and requirement-to-test links are enforced in the repository itself, so traceability survives long after the run."
+    },
+    "summary": {
+      "head": "Mission complete",
+      "verified": "verified",
+      "tasks": "Tasks",
+      "tasksValue": "7 / 7 completed",
+      "filesChanged": "Files changed",
+      "tests": "Tests",
+      "testsPassed": "212 passed",
+      "testsFailed": "0 failed",
+      "requirements": "Requirements",
+      "requirementsValue": "6 / 6 covered",
+      "git": "Git",
+      "gitValue": "4 commits · rotaris/auth-refactor",
+      "warnings": "Warnings",
+      "warningsValue": "1 unresolved",
+      "accept": "Accept result",
+      "reviewDiff": "Review diff",
+      "viewEvidence": "View evidence"
+    }
+  },
+  "band": {
+    "lead": "Free and MIT-licensed.",
+    "note": "No account required — download and point it at a repository."
+  },
+  "control": {
+    "kicker": "Control & observability",
+    "title": "Supervised autonomy, not blind trust",
+    "lede": "Every agent's state, tools, elapsed time, context window, and model assignment stay visible while the run is live — and every consequential action has a human handle.",
+    "activeNow": "Active now",
+    "tableLabel": "Agents active right now",
+    "table": {
+      "agent": "Agent",
+      "tool": "Tool",
+      "detail": "Detail",
+      "elapsed": "Elapsed"
+    },
+    "details": {
+      "orchestrator": "waiting on coding-agent-1, tester",
+      "coder": "src/api/session.py · 4 anchors verified",
+      "tester": "pytest tests/unit -x -q · 38s",
+      "blocked": "blocked · depends_on: coding-agent-1"
+    },
+    "metersNote": "context windows · compress automatically at 80%",
+    "human": {
+      "kicker": "Human control",
+      "body": "Pause a run, steer an agent mid-task, change its model or reasoning strength, or cancel — cancellation cascades to every descendant.",
+      "pause": "Pause run",
+      "steer": "Steer agent",
+      "changeModel": "Change model",
+      "cancel": "Cancel run"
+    },
+    "failure": {
+      "kicker": "When something fails",
+      "tag": "failed",
+      "meta": "— tester · pytest exit 1",
+      "body": "Failures surface as states, not buried logs. The orchestrator re-delegates the fix with the failing evidence attached — and you can inspect or intervene at every step.",
+      "rerunning": "re-running"
+    }
+  },
+  "models": {
+    "kicker": "Models & providers",
+    "title": "The right model for every role",
+    "lede": "Route each persona to a different model by capability, cost, and availability. Set defaults at startup, override per run, and fall back automatically when a provider is unavailable.",
+    "routing": "Per-persona routing",
+    "tableLabel": "Model assignment per persona",
+    "table": {
+      "persona": "Persona",
+      "model": "Model",
+      "reasoning": "Reasoning"
+    },
+    "reasoningHigh": "high",
+    "reasoningMedium": "medium",
+    "overrides": "Overrides apply per instance and take effect from the next iteration.",
+    "providers": "Providers",
+    "providerMeta": {
+      "copilot": "412 / 1,500 premium requests",
+      "anthropic": "connected · 6 models",
+      "openai": "63% of weekly limit",
+      "deepseek": "auth expired"
+    },
+    "reauthenticate": "Re-authenticate",
+    "note": "OAuth and API-key providers, local models, and any OpenAI-compatible endpoint. Subscription limits are visible before you hit them."
+  },
+  "security": {
+    "kicker": "Security",
+    "title": "Agents work inside the fence",
+    "lede": "Every capability an agent has is scoped, logged, and revocable. Unsafe overrides exist — but they are explicit, and they are yours to grant.",
+    "boundaries": {
+      "files": {
+        "title": "Workspace-scoped file access",
+        "body": "Agents read and write inside the selected workspace only, with path-traversal prevention."
+      },
+      "shell": {
+        "title": "Controlled shell execution",
+        "body": "Shell commands run under workspace policy; consequential actions can require approval."
+      },
+      "secrets": {
+        "title": "Secret redaction",
+        "body": "Known secrets are redacted from transcripts, reports, and anything sent to a provider."
+      },
+      "tokens": {
+        "title": "Restricted token storage",
+        "body": "Provider credentials stay on your machine in ~/.local/share/rotaris/tokens/, in files readable only by your own user account (mode 0600)."
+      },
+      "loops": {
+        "title": "Loop protection",
+        "body": "Iteration limits and circuit breaking stop runaway agents before they burn tokens."
+      },
+      "cancel": {
+        "title": "Cancellation, always",
+        "body": "Any run, any agent, any time — cancellation propagates through the whole delegation tree."
+      }
+    },
+    "where": {
+      "kicker": "What runs where",
+      "local": "The Rotaris application and orchestration engine run entirely on your machine. Your repository is never uploaded.",
+      "providers": "Only the prompts and code context needed for a task are sent to the model providers you configure. With local models, nothing leaves the machine.",
+      "telemetry": "No telemetry and no usage statistics. Sessions, logs, the response cache and the Git worktrees live in <0>.rotaris/</0> inside your workspace, configuration in <1>~/.config/rotaris/</1>. None of it reaches us.",
+      "update": "The one connection Rotaris opens by itself is the start-up update check against GitHub, which tells GitHub your IP address and client details. Source installations never check, and an update installs only when the download matches the published SHA-256 checksum."
+    },
+    "permissionsLink": "Permissions, tools, and data flow in the documentation",
+    "reportLink": "Report a vulnerability"
+  },
+  "git": {
+    "kicker": "Git workflow",
+    "title": "Isolated worktrees, reviewable commits",
+    "lede": "Each session works in its own Git worktree, so parallel missions never trample each other. Agents commit locally with attributed authorship — you review diffs and decide what leaves the machine.",
+    "tags": {
+      "changedFiles": "changed files",
+      "branchContext": "branch context",
+      "localCommits": "local commits",
+      "diffReview": "diff review",
+      "worktrees": "worktrees",
+      "pullRequests": "pull requests · planned"
+    },
+    "worktrees": "Worktrees",
+    "worktreeMeta": {
+      "dirty": "rotaris/auth-refactor ↑4 · 3 dirty",
+      "docs": "rotaris/docs-pass ↑1 ↓2",
+      "clean": "rotaris/config-v2 · clean"
+    },
+    "recentCommits": "Recent commits",
+    "commits": {
+      "async": "Convert session handlers to async",
+      "blockingIo": "Wrap blocking IO in asyncio.to_thread",
+      "fixtures": "Add async fixtures to test harness",
+      "interface": "Draft async interface for session API"
+    },
+    "authorYou": "you"
+  },
+  "openSource": {
+    "kicker": "Open source",
+    "title": "Built in the open",
+    "lede": "MIT-licensed, CI-built from tagged commits, released with checksums. Every claim on this page maps to code you can read.",
+    "kpis": {
+      "license": "license",
+      "latestRelease": "latest release",
+      "platforms": "platforms · macOS soon",
+      "checksums": "checksums per artifact",
+      "repo": "repo"
+    },
+    "note": "All releases are built by CI from tagged commits and published to GitHub Releases. Previous versions remain available for rollback and reproducibility."
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Questions, answered plainly",
+    "items": {
+      "what": {
+        "q": "What is Rotaris?",
+        "a": "A desktop application for running and supervising a team of specialized coding agents — an orchestration harness with a control plane, not a chat window with a single agent behind it."
+      },
+      "python": {
+        "q": "Does Rotaris require Python?",
+        "a": "No. The desktop application ships as a standalone build with the runtime bundled. Python is only needed for the optional CLI installation under Advanced installation."
+      },
+      "code": {
+        "q": "Does my code leave my computer?",
+        "a": "The application and engine run locally, and your repository is never uploaded. Prompts and the code context needed for a task are sent to the model providers you configure — with local models, nothing leaves the machine. The only connection Rotaris makes on its own is the start-up update check against GitHub."
+      },
+      "providers": {
+        "q": "Which model providers can I use?",
+        "a": "OAuth providers such as GitHub Copilot, API-key providers such as Anthropic and OpenAI, local models, and any OpenAI-compatible endpoint. Each persona can use a different model."
+      },
+      "concurrency": {
+        "q": "Can several agents work concurrently?",
+        "a": "Yes. Independent tasks run in parallel; dependent tasks wait for their prerequisites. Fan-out, depth, and iteration limits keep concurrency bounded."
+      },
+      "finished": {
+        "q": "How does Rotaris decide a task is finished?",
+        "a": "A verifier checks the completed work against the mission's requirements and tests before the task is declared done. You review the completion summary and accept the result."
+      },
+      "cancel": {
+        "q": "Can I pause or cancel a run?",
+        "a": "At any time. Cancellation propagates through the delegation tree, so stopping a parent cleanly stops all of its descendants."
+      },
+      "cli": {
+        "q": "Is there a command-line version?",
+        "a": "Yes — a terminal interface is available for headless and scripted use, installed via pip. The desktop application is the primary product."
+      },
+      "rename": {
+        "q": "What happened to geraet-ai?",
+        "a": "It was renamed. Rotaris is the same orchestration engine and desktop application under its public name; the repository and the Python packages moved with it. Older links to geraet-ai still resolve."
+      },
+      "security": {
+        "q": "How do I report a security issue?",
+        "a": "Through the repository's security policy on GitHub — see the security section for the disclosure process and response expectations."
+      }
+    }
+  },
+  "final": {
+    "title": "Put your coding agents under control.",
+    "sub": "Free, open source, no account required.",
+    "seeAll": "See all downloads",
+    "readDocs": "Read the documentation",
+    "meta": "Windows x64 · Linux AppImage / deb / rpm · macOS coming soon"
+  }
+}

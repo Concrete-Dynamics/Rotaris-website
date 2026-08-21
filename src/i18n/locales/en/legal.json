@@ -1,0 +1,51 @@
+{
+  "back": "Back to Rotaris",
+  "draft": {
+    "title": "Publication draft.",
+    "body": "This is the text prepared for launch, in German — the contract language for the offering it covers. It has not yet had the legal review the source package asks for",
+    "openItems_one": ", and it still contains <0>{{count}} open item</0> marked <1>OFFEN</1> that has to be resolved before it goes live",
+    "openItems_other": ", and it still contains <0>{{count}} open items</0> marked <1>OFFEN</1> that have to be resolved before it goes live",
+    "germanNote": "The document below is in German and stays that way: German is the contract language for this offering, and a translated withdrawal notice or privacy statement would create a second wording that could be read against the first."
+  },
+  "titles": {
+    "imprint": "Imprint",
+    "privacy": "Privacy policy",
+    "terms": "Terms and conditions",
+    "eula": "End-user terms",
+    "withdrawal": "Right of withdrawal",
+    "acceptableUse": "Acceptable use policy"
+  },
+  "descriptions": {
+    "imprint": "Provider identification for Rotaris under § 5 DDG and § 18(2) MStV.",
+    "privacy": "How Rotaris, Rotaris Cloud and this website handle personal data.",
+    "terms": "Terms and conditions for the paid Rotaris Cloud service.",
+    "eula": "End-user terms for the free Rotaris desktop, CLI and terminal application.",
+    "withdrawal": "Right of withdrawal for paid Rotaris Cloud contracts.",
+    "acceptableUse": "What Rotaris and Rotaris Cloud may and may not be used for."
+  },
+  "intros": {
+    "terms": "These terms cover the paid <0>Rotaris Cloud</0> service. The free Rotaris application is governed solely by the <1>end-user terms</1>.",
+    "eula": "These terms cover the free Rotaris application — desktop, command line and terminal interface.",
+    "withdrawal": "The withdrawal notice concerns paid contracts for <0>Rotaris Cloud</0>. Downloading and using the Rotaris application is free and creates no such contract.",
+    "acceptableUse": "This policy forms part of the <0>terms and conditions</0> and of the <1>end-user terms</1>."
+  },
+  "privacy": {
+    "kicker": "This website",
+    "lead": "The statement below covers the Rotaris application and Rotaris Cloud. For this website itself the following applies — it is static and processes nothing beyond serving the page:",
+    "facts": {
+      "storage": "No cookies, no local storage, no session storage.",
+      "analytics": "No analytics and no tracking services.",
+      "thirdParty": "No third-party resources at runtime — fonts and icons are served from this same domain, and no request goes to a CDN or to Google Fonts.",
+      "forms": "No account, no form, no submission of anything you type.",
+      "detection": "Operating-system detection for the download recommendation evaluates the browser's user agent locally and only there.",
+      "logs": "What remains are the web server's access logs (IP address, timestamp, requested path, status code) on the basis of Art. 6(1)(f) GDPR. Controller and data-subject rights as under sections 1 and 9."
+    },
+    "note": "This list describes the current state of this website and has to be checked whenever it changes. It is the place for the separate website privacy statement that the document below refers to in its opening paragraph, and it is no substitute for that document's legal review.",
+    "authoritative": "This English list is a convenience translation. The German version on the German page is the authoritative wording."
+  },
+  "imprint": {
+    "basis": "Angaben gemäß § 5 DDG · § 18 Abs. 2 MStV",
+    "related": "Other legal documents",
+    "securityPolicy": "the SECURITY.md in the source repository"
+  }
+}
