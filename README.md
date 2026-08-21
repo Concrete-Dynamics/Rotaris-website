@@ -188,28 +188,54 @@ a Compose label conditional. `1`, `yes` or `True` will point the router at a
 middleware that does not exist and take the site down.
 
 Traefik requires the password to be **hashed** — plain text does not work.
-Generate a bcrypt entry without installing anything:
+Use the helper, which prints the value ready to paste:
 
 ```bash
-docker run --rm httpd:alpine htpasswd -nbB admin 'your-password'
+./scripts/basic-auth.sh  admin 'your-password'    # bash
+./scripts/basic-auth.ps1 admin 'your-password'    # PowerShell
 ```
 
-Comma-separate the entries for several users.
+Put the result in **Portainer → your stack → Environment variables**, under
+`BASIC_AUTH_USERS`. Comma-separate the entries for several users.
 
-**Where you put the hash matters**, because it contains `$`:
+`BASIC_AUTH_USERS` is deliberately absent from `.stack.env`: if the key were
+present but empty, Portainer's env-file loading could overwrite the value you
+typed in the UI, and an empty value locks everyone out (see below). Keeping the
+credential out of git is the right default anyway.
 
-| Where                                        | How to write it                    |
-| -------------------------------------------- | ---------------------------------- |
-| Portainer → stack → Environment variables *(preferred)* | verbatim, exactly as `htpasswd` printed it |
-| `.stack.env` in this repo                     | double every `$` → `$$2y$$05$$…`   |
+#### Troubleshooting: the prompt keeps coming back
 
-With a single `$` in the env file, Compose reads the rest as a variable name and
-silently truncates the hash, so nobody can log in. Verified with
-`docker compose --env-file … config`, which is also the quickest way to check
-your own value renders intact.
+A browser re-prompting after you type the password means Traefik got the
+credentials and rejected them. Two causes, both silent:
 
-Putting a credential in the repo is worth avoiding anyway — prefer the Portainer
-UI.
+**1. `BASIC_AUTH_USERS` is empty.** Traefik does not read that as "no auth" — it
+reads it as "no user may pass" and answers 401 to everything. Indistinguishable
+from a wrong password.
+
+**2. The hash was truncated by Compose.** htpasswd hashes contain `$`, and in an
+env file Compose reads `$2y$05$AbCd…` as a variable reference, leaving
+`admin:$2y$05`. Deploys cleanly; nobody can log in.
+
+Check what actually reached Traefik:
+
+```bash
+docker inspect rotaris-website   --format '{{ index .Config.Labels "traefik.http.middlewares.rotaris-website-auth-true.basicauth.users" }}'
+```
+
+The output must be the complete `user:$2y$05$…` string. Empty or ending at
+`$05` confirms cause 1 or 2 respectively. You can check before deploying with:
+
+```bash
+docker compose --env-file .stack.env config | grep basicauth.users
+```
+
+That works without a running Docker daemon. `config` prints `$` doubled as `$$`
+— that is its own escaping, not a problem with your value.
+
+If you keep hitting the `$` issue and would rather avoid it entirely, `htpasswd
+-nbs` emits a `{SHA}…` hash with no `$` in it. Traefik accepts it, but SHA1 is
+unsalted and much weaker than bcrypt — reasonable for a temporary pre-launch
+gate over HTTPS, not for anything longer-lived.
 
 Traefik strips the `Authorization` header before forwarding, and the container's
 own health check is unaffected because Traefik probes the backend directly. The
