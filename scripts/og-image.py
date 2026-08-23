@@ -112,7 +112,7 @@ d.line([96*S, 424*S, 1104*S, 424*S], fill=RING + (70,), width=S)
 d.text((96*S, 456*S),
        'Run and supervise a team of specialized coding agents',
        font=font(MANROPE, 34*S, 400), fill=SECONDARY)
-d.text((96*S, 522*S), 'Free  ·  MIT licensed  ·  no account  ·  Windows and Linux',
+d.text((96*S, 522*S), 'Free  ·  GPL-3.0-only  ·  no account  ·  Windows and Linux',
        font=font(MONO, 26*S, 400), fill=TERTIARY)
 
 img.resize((W, H), Image.LANCZOS).save(os.path.join(ROOT, 'public/og-image.png'),
