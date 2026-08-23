@@ -1,6 +1,6 @@
 # Endnutzerbedingungen für die Rotaris-Anwendung
 
-Concrete Dynamics UG (haftungsbeschränkt) — Stand: 21. August 2026
+Concrete Dynamics UG (haftungsbeschränkt) — Stand: 24. August 2026
 
 Diese Bedingungen gelten für die kostenlose Rotaris-Anwendung (Desktop-Anwendung,
 Kommandozeile, Terminaloberfläche). Für den kostenpflichtigen Dienst Rotaris Cloud
@@ -18,24 +18,29 @@ Modellanbieter einrichtest oder Rotaris Cloud nutzt.
 
 ## 2. Nutzungsrechte
 
-(1) Für die Nutzung, Vervielfältigung und Bearbeitung der Anwendung und ihres
-Quellcodes gelten die Bedingungen der Lizenz, die der jeweiligen Fassung beiliegt
-(Datei `LICENSE` im Programmverzeichnis und im Quellcode-Repository).
-[PLATZHALTER — nach der Lizenzentscheidung konkret benennen.]
+(1) Die Rotaris-Anwendung und ihr Quellcode stehen unter der **GNU General Public
+License, ausschließlich Version 3 (GPL-3.0-only)**. Der vollständige Lizenztext ist in
+der Datei `LICENSE` enthalten, die mit der Anwendung und im Quellcode-Repository
+bereitgestellt wird. Deine Rechte zur Nutzung, Vervielfältigung, Bearbeitung und
+Weitergabe von Rotaris richten sich nach dieser Lizenz.
 
-(2) Die Anwendung enthält Bestandteile Dritter, die eigenen Lizenzbedingungen
+(2) Diese Endnutzerbedingungen beschränken die dir nach GPL-3.0-only eingeräumten
+Rechte nicht und fügen ihnen keine zusätzlichen Einschränkungen hinzu. Soweit diese
+Bedingungen und GPL-3.0-only hinsichtlich der Rotaris-Anwendung oder ihres Quellcodes
+voneinander abweichen, gehen die Bedingungen der GPL-3.0-only vor.
+
+(3) Die Anwendung enthält Bestandteile Dritter, die eigenen Lizenzbedingungen
 unterliegen. Diese sind in der Datei `THIRD-PARTY-LICENSES.txt` aufgeführt, die jeder
-Fassung beiliegt. Soweit diese Bedingungen von Ziffer 2 Absatz 1 abweichen, gehen sie
-vor.
+Fassung beiliegt. Für diese Bestandteile gelten die jeweiligen Lizenzbedingungen der
+Dritten.
 
-(3) **Ausnahme für Bestandteile unter der LGPL.** Die Anwendung nutzt Bibliotheken
-unter der GNU Lesser General Public License (unter anderem Qt/PySide6 und pyte). Ihre
+(4) **Bestandteile unter der LGPL.** Die Anwendung nutzt Bibliotheken unter der GNU
+Lesser General Public License (unter anderem Qt/PySide6 und pyte). Ihre
 Lizenzbedingungen gelten unverändert. Insbesondere darfst du diese Bestandteile
-verändern, die veränderte Fassung mit der Anwendung verwenden und die Anwendung zu
-diesem Zweck untersuchen und zurückentwickeln. Eine Einschränkung des
-Zurückentwickelns in Ziffer 2 Absatz 1 oder in anderen Teilen dieser Bedingungen gilt
-für diese Bestandteile nicht. Die Lizenztexte und die Angaben, die für ein erneutes
-Binden nötig sind, stellen wir bereit; auf Anfrage übersenden wir sie dir.
+verändern, die veränderte Fassung mit der Anwendung verwenden und die Anwendung soweit
+untersuchen und zurückentwickeln, wie dies zur Ausübung der für diese Bestandteile
+eingeräumten Rechte erforderlich ist. Die Lizenztexte und die Angaben, die für ein
+erneutes Binden nötig sind, stellen wir bereit; auf Anfrage übersenden wir sie dir.
 
 ## 3. Was die Anwendung tut — bitte lies das
 
@@ -75,7 +80,9 @@ unsere gesetzlichen Vertreter und Erfüllungsgehilfen.
 
 ## 5. Zulässige Nutzung
 
-Es gilt unsere [Richtlinie zur zulässigen Nutzung](acceptable-use-policy.md).
+Unsere [Richtlinie zur zulässigen Nutzung](acceptable-use-policy.md) gilt für die Nutzung
+von Diensten und Infrastruktur, die wir bereitstellen. Sie beschränkt nicht die Rechte,
+die dir für die Rotaris-Anwendung selbst nach GPL-3.0-only eingeräumt werden.
 
 ## 6. Aktualisierungen
 
