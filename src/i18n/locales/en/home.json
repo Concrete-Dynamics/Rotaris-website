@@ -51,7 +51,7 @@
     "kicker": "Agentic coding control plane",
     "title": "The control plane for agentic software engineering",
     "lede": "Rotaris turns a high-level mission into coordinated work across planning, implementation, testing, documentation, Git, and verification. See what every agent is doing, intervene when necessary, and review the evidence before accepting the result.",
-    "closing": "You get an inspectable software-engineering team — not one opaque coding agent.",
+    "closing": "You get an inspectable software-engineering team, with every specialist visible as it works.",
     "pillars": {
       "orchestration": {
         "title": "Orchestration",
@@ -63,7 +63,7 @@
       },
       "verification": {
         "title": "Verification",
-        "body": "Completion depends on requirements, tests, and explicit gates — not on an agent's say-so."
+        "body": "Completion depends on requirements, tests, and explicit gates."
       },
       "traceability": {
         "title": "Traceability",
@@ -86,12 +86,12 @@
     "steps": {
       "classify": {
         "title": "Say what done means",
-        "body": "One clear mission is all Rotaris needs. A small intent classifier reads it first and shapes the orchestration — so the run starts from your intent, not a guess.",
+        "body": "One clear mission is all Rotaris needs. A small intent classifier reads it first and shapes the orchestration, so the run starts from your intent.",
         "control": "what done means"
       },
       "plan": {
-        "title": "A coordinator, not a doer",
-        "body": "The orchestrator decomposes the mission into a todo list and hands each slice to a specialist. It has no write tools of its own — it plans, delegates, and verifies. You supervise the run; there is no plan to sign off.",
+        "title": "A coordinator by design",
+        "body": "The orchestrator decomposes the mission into a todo list and hands each slice to a specialist. It plans, delegates, and verifies with its write tools held back. You supervise the run as it unfolds.",
         "control": "pause or steer, any time"
       },
       "delegate": {
@@ -106,7 +106,7 @@
       },
       "verify": {
         "title": "A gate that can't be flattered",
-        "body": "Every code-changing iteration runs your repository's own checks — lint, typecheck, tests, traceability. Then a read-only verifier grades the result against your original request. No re-runs, no self-grading.",
+        "body": "Every code-changing iteration runs your repository's own checks — lint, typecheck, tests, traceability. Then a read-only verifier grades the result against your original request, working from the evidence those checks produced.",
         "control": "nothing — the gate runs itself"
       },
       "accept": {
@@ -135,7 +135,7 @@
       },
       "requirements": {
         "title": "Requirements",
-        "body": "A kanban board over delivery states with a blocked strip, display-only filtering, and detail, evidence, and graph panes. It renders the engine's projection — it never invents a verdict."
+        "body": "A kanban board over delivery states with a blocked strip, display-only filtering, and detail, evidence, and graph panes. It renders the engine's projection — everything shown is a value the projection carries."
       },
       "git": {
         "title": "Git",
@@ -147,7 +147,7 @@
       },
       "settings": {
         "title": "Settings",
-        "body": "Providers, per-persona model routing, reasoning strength, MCP servers, and workspace security — dropdowns, not slash commands."
+        "body": "Providers, per-persona model routing, reasoning strength, MCP servers, and workspace security — all as dropdowns and pickers."
       }
     },
     "stats": {
@@ -181,10 +181,10 @@
     "points": {
       "parallelism": {
         "lead": "Dependency-aware parallelism.",
-        "body": "Fan-out where tasks are independent, strict ordering where they are not."
+        "body": "Fan-out where tasks are independent, strict ordering where they depend on one another."
       },
       "coordinatorOnly": {
-        "lead": "The orchestrator coordinates — it doesn't hog the work.",
+        "lead": "The orchestrator stays a coordinator.",
         "body": "Its write tools are stripped by default; it plans and delegates, and acts directly only on genuinely trivial changes."
       },
       "bounded": {
@@ -193,7 +193,7 @@
       },
       "reports": {
         "lead": "Structured reports.",
-        "body": "Each agent returns findings, changes, and evidence — not a wall of text."
+        "body": "Each agent returns findings, changes, and evidence in a structured report."
       },
       "cancellation": {
         "lead": "Cancellation propagates.",
@@ -232,8 +232,8 @@
       "verificationBody": "Checks green · verifier graded PASS"
     },
     "gate": {
-      "title": "Completion isn't a feeling",
-      "body": "No task is done because an agent said so. Every code-changing iteration runs your own checks — lint, typecheck, tests, traceability. A blocking check that failed, or never ran, blocks completion. Then a read-only verifier grades what the checks can't see: does the work answer your request? Is the todo list true of the code on disk? Did anything creep in?",
+      "title": "Completion follows the checks",
+      "body": "Completion is decided by the checks that ran and the grader that read them. Every code-changing iteration runs your own checks — lint, typecheck, tests, traceability — and a blocking check that failed, or never ran, blocks completion. Then a read-only verifier grades what the checks cannot see: does the work answer your request? Is the todo list true of the code on disk? Did anything creep in?",
       "traceability": "ReqToCode enforces the requirement-to-code and requirement-to-test links by compiling the requirement store and failing the build on orphan code or spec drift — so the trail outlives the run."
     },
     "summary": {
@@ -262,7 +262,7 @@
   },
   "control": {
     "kicker": "Control & observability",
-    "title": "Supervised autonomy, not blind trust",
+    "title": "Supervised autonomy, fully observable",
     "lede": "Every agent's state, tools, elapsed time, context window, and model assignment stay visible while the run is live — and every consequential action has a human handle.",
     "activeNow": "Active now",
     "tableLabel": "Agents active right now",
@@ -291,7 +291,7 @@
       "kicker": "When something fails",
       "tag": "failed",
       "meta": "— tester · pytest exit 1",
-      "body": "Failures surface as states, not buried logs. The orchestrator re-delegates the fix with the failing evidence attached — and you can inspect or intervene at every step.",
+      "body": "Failures surface as visible states, and the orchestrator re-delegates the fix with the failing evidence attached. You can inspect or intervene at every step.",
       "rerunning": "re-running"
     }
   },
@@ -322,7 +322,7 @@
   "security": {
     "kicker": "Security",
     "title": "Agents work inside the fence",
-    "lede": "Every capability an agent has is scoped, logged, and revocable. Unsafe overrides exist — but they are explicit, and they are yours to grant.",
+    "lede": "Every capability an agent has is scoped, logged, and revocable. Unsafe overrides are explicit, and they are yours to grant.",
     "boundaries": {
       "files": {
         "title": "Workspace-scoped file access",
@@ -405,7 +405,7 @@
     "items": {
       "what": {
         "q": "What is Rotaris?",
-        "a": "A desktop application for running and supervising a team of specialized coding agents — an orchestration harness with a control plane, not a chat window with a single agent behind it."
+        "a": "A desktop application for running and supervising a team of specialized coding agents — an orchestration harness with a control plane, where a coordinator plans and a team of specialists does the work."
       },
       "python": {
         "q": "Does Rotaris require Python?",

@@ -51,7 +51,7 @@
     "kicker": "Steuerungsebene für agentisches Programmieren",
     "title": "Die Steuerungsebene für agentische Softwareentwicklung",
     "lede": "Rotaris übersetzt einen übergeordneten Auftrag in koordinierte Arbeit über Planung, Umsetzung, Tests, Dokumentation, Git und Verifikation hinweg. Du siehst, was jeder Agent gerade tut, greifst bei Bedarf ein und prüfst die Belege, bevor du das Ergebnis annimmst.",
-    "closing": "Du bekommst ein einsehbares Softwareentwicklungsteam — und nicht einen undurchsichtigen Coding-Agenten.",
+    "closing": "Du bekommst ein einsehbares Softwareentwicklungsteam, bei dem jeder Spezialist bei der Arbeit sichtbar bleibt.",
     "pillars": {
       "orchestration": {
         "title": "Orchestrierung",
@@ -63,7 +63,7 @@
       },
       "verification": {
         "title": "Verifikation",
-        "body": "Ob etwas fertig ist, entscheiden Anforderungen, Tests und ausdrückliche Freigaben — nicht das Wort eines Agenten."
+        "body": "Ob etwas fertig ist, entscheiden Anforderungen, Tests und ausdrückliche Freigaben."
       },
       "traceability": {
         "title": "Nachvollziehbarkeit",
@@ -86,12 +86,12 @@
     "steps": {
       "classify": {
         "title": "Sag, was fertig bedeutet",
-        "body": "Ein klarer Auftrag genügt. Ein kleiner Intent-Klassifizierer liest ihn zuerst und wählt die Orchestrierungsform — der Lauf startet also von deiner Absicht, nicht von einer Vermutung.",
+        "body": "Ein klarer Auftrag genügt. Ein kleiner Intent-Klassifizierer liest ihn zuerst und wählt die Orchestrierungsform, der Lauf startet also von deiner Absicht.",
         "control": "was „fertig“ bedeutet"
       },
       "plan": {
-        "title": "Ein Koordinator, kein Ausführender",
-        "body": "Der Orchestrator zerlegt den Auftrag in eine Todo-Liste und übergibt jedes Stück einem Spezialisten. Er hat keine eigenen Schreibwerkzeuge — er plant, delegiert und prüft. Einen Plan zum Abzeichnen gibt es nicht; du beaufsichtigst den Lauf.",
+        "title": "Ein Koordinator von Natur aus",
+        "body": "Der Orchestrator zerlegt den Auftrag in eine Todo-Liste und übergibt jedes Stück einem Spezialisten. Er plant, delegiert und prüft, während seine Schreibwerkzeuge zurückgehalten bleiben. Du beaufsichtigst den Lauf, während er sich entfaltet.",
         "control": "jederzeit anhalten oder steuern"
       },
       "delegate": {
@@ -106,7 +106,7 @@
       },
       "verify": {
         "title": "Eine Stufe, die sich nicht einwickeln lässt",
-        "body": "Jede codeändernde Iteration lässt die eigenen Prüfungen deines Repositories laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit. Danach bewertet ein schreibgeschützter Verifizierer das Ergebnis gegen deinen ursprünglichen Auftrag. Keine erneuten Läufe, keine Selbstbenotung.",
+        "body": "Jede codeändernde Iteration lässt die eigenen Prüfungen deines Repositories laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit. Danach bewertet ein schreibgeschützter Verifizierer das Ergebnis gegen deinen ursprünglichen Auftrag, gestützt auf die Belege, die diese Prüfungen erzeugt haben.",
         "control": "nichts — die Stufe läuft von selbst"
       },
       "accept": {
@@ -135,7 +135,7 @@
       },
       "requirements": {
         "title": "Anforderungen",
-        "body": "Ein Kanban-Board über die Auslieferungszustände mit einer Blockade-Leiste, nur-anzeigender Filterung sowie Detail-, Evidenz- und Graph-Fenstern. Es rendert die Projektion der Engine — es fällt nie selbst ein Urteil."
+        "body": "Ein Kanban-Board über die Auslieferungszustände mit einer Blockade-Leiste, nur-anzeigender Filterung sowie Detail-, Evidenz- und Graph-Fenstern. Es rendert die Projektion der Engine — alles Angezeigte trägt die Projektion mit."
       },
       "git": {
         "title": "Git",
@@ -147,7 +147,7 @@
       },
       "settings": {
         "title": "Einstellungen",
-        "body": "Anbieter, Modellzuordnung je Persona, Reasoning-Stärke, MCP-Server und Sicherheit des Arbeitsbereichs — als Auswahlfelder, nicht als Slash-Befehle."
+        "body": "Anbieter, Modellzuordnung je Persona, Reasoning-Stärke, MCP-Server und Sicherheit des Arbeitsbereichs — als Auswahlfelder und Picker."
       }
     },
     "stats": {
@@ -181,10 +181,10 @@
     "points": {
       "parallelism": {
         "lead": "Parallelität mit Blick auf Abhängigkeiten.",
-        "body": "Verzweigung, wo Aufgaben unabhängig sind, strikte Reihenfolge, wo sie es nicht sind."
+        "body": "Verzweigung, wo Aufgaben unabhängig sind, strikte Reihenfolge, wo sie voneinander abhängen."
       },
       "coordinatorOnly": {
-        "lead": "Der Orchestrator koordiniert — und reißt die Arbeit nicht an sich.",
+        "lead": "Der Orchestrator bleibt ein Koordinator.",
         "body": "Seine Schreibwerkzeuge sind standardmäßig entzogen; er plant und delegiert und greift nur bei wirklich trivialen Änderungen selbst ein."
       },
       "bounded": {
@@ -193,7 +193,7 @@
       },
       "reports": {
         "lead": "Strukturierte Berichte.",
-        "body": "Jeder Agent liefert Befunde, Änderungen und Belege — keine Textwand."
+        "body": "Jeder Agent liefert Befunde, Änderungen und Belege in einem strukturierten Bericht."
       },
       "cancellation": {
         "lead": "Abbrüche wirken nach unten.",
@@ -232,8 +232,8 @@
       "verificationBody": "Prüfungen grün · Verifizierer: PASS"
     },
     "gate": {
-      "title": "Fertig ist kein Gefühl",
-      "body": "Keine Aufgabe ist fertig, nur weil ein Agent das behauptet. Jede codeändernde Iteration lässt deine eigenen Prüfungen laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit. Eine blockierende Prüfung, die fehlschlägt oder nie lief, blockiert den Abschluss. Danach bewertet ein schreibgeschützter Verifizierer, was die Prüfungen nicht sehen: Beantwortet die Arbeit deinen Auftrag? Stimmt die Todo-Liste mit dem Code auf der Platte überein? Hat sich etwas eingeschlichen?",
+      "title": "Fertig folgt den Prüfungen",
+      "body": "Eine Aufgabe gilt erst als fertig, wenn ihre Prüfungen gelaufen sind und der Prüfer sie bewertet hat. Jede codeändernde Iteration lässt deine eigenen Prüfungen laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit — und eine blockierende Prüfung, die fehlschlägt oder nie lief, blockiert den Abschluss. Danach bewertet ein schreibgeschützter Verifizierer, was die Prüfungen nicht sehen: Beantwortet die Arbeit deinen Auftrag? Stimmt die Todo-Liste mit dem Code auf der Platte überein? Hat sich etwas eingeschlichen?",
       "traceability": "ReqToCode erzwingt die Verknüpfungen Anforderung→Code und Anforderung→Test, indem es den Anforderungsbestand kompiliert und den Build bei verwaistem Code oder abweichender Spezifikation fehlschlagen lässt — die Spur überlebt den Lauf."
     },
     "summary": {
@@ -262,7 +262,7 @@
   },
   "control": {
     "kicker": "Kontrolle & Einblick",
-    "title": "Beaufsichtigte Autonomie statt blindem Vertrauen",
+    "title": "Beaufsichtigte Autonomie, vollständig einsehbar",
     "lede": "Status, Werkzeuge, verstrichene Zeit, Kontextfenster und Modellzuordnung jedes Agenten bleiben während des Laufs sichtbar — und für jede folgenreiche Aktion gibt es einen menschlichen Hebel.",
     "activeNow": "Gerade aktiv",
     "tableLabel": "Aktuell aktive Agenten",
@@ -291,7 +291,7 @@
       "kicker": "Wenn etwas fehlschlägt",
       "tag": "fehlgeschlagen",
       "meta": "— tester · pytest Exit 1",
-      "body": "Fehler erscheinen als Zustände, nicht vergraben in Logs. Der Orchestrator delegiert die Behebung erneut, mit den Belegen des Fehlschlags im Gepäck — und du kannst an jedem Schritt hineinsehen oder eingreifen.",
+      "body": "Fehler erscheinen als sichtbare Zustände, und der Orchestrator delegiert die Behebung erneut, mit den Belegen des Fehlschlags im Gepäck. Du kannst an jedem Schritt hineinsehen oder eingreifen.",
       "rerunning": "läuft erneut"
     }
   },
@@ -322,7 +322,7 @@
   "security": {
     "kicker": "Sicherheit",
     "title": "Agenten arbeiten innerhalb des Zauns",
-    "lede": "Jede Fähigkeit eines Agenten ist eingegrenzt, protokolliert und widerrufbar. Unsichere Ausnahmen gibt es — aber sie sind ausdrücklich, und nur du kannst sie gewähren.",
+    "lede": "Jede Fähigkeit eines Agenten ist eingegrenzt, protokolliert und widerrufbar. Unsichere Ausnahmen sind ausdrücklich, und nur du kannst sie gewähren.",
     "boundaries": {
       "files": {
         "title": "Dateizugriff nur im Arbeitsbereich",
@@ -405,7 +405,7 @@
     "items": {
       "what": {
         "q": "Was ist Rotaris?",
-        "a": "Eine Desktop-Anwendung, um ein Team spezialisierter Coding-Agenten zu betreiben und zu beaufsichtigen — ein Orchestrierungs-Harness mit Steuerungsebene, kein Chatfenster mit einem einzelnen Agenten dahinter."
+        "a": "Eine Desktop-Anwendung, um ein Team spezialisierter Coding-Agenten zu betreiben und zu beaufsichtigen — ein Orchestrierungs-Harness mit Steuerungsebene, bei dem ein Koordinator plant und ein Team von Spezialisten die Arbeit übernimmt."
       },
       "python": {
         "q": "Braucht Rotaris Python?",
