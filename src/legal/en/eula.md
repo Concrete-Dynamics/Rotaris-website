@@ -1,6 +1,6 @@
 # End-user terms for the Rotaris application
 
-Concrete Dynamics UG (haftungsbeschränkt) — as of 21 August 2026
+Concrete Dynamics UG (haftungsbeschränkt) — as of 24 August 2026
 
 These terms apply to the free Rotaris application (desktop application, command line,
 terminal interface). The paid Rotaris Cloud service is additionally governed by the
@@ -18,22 +18,25 @@ Rotaris Cloud.
 
 ## 2. Rights of use
 
-(1) Use, reproduction and modification of the application and its source code are
-governed by the terms of the licence enclosed with the respective version (the `LICENSE`
-file in the program directory and in the source repository).
-[PLACEHOLDER — name it specifically once the licence decision has been made.]
+(1) The Rotaris application and its source code are licensed under the **GNU General
+Public License, version 3 only (GPL-3.0-only)**. The complete licence text is provided in
+the `LICENSE` file distributed with the application and in the source repository. Your
+rights to use, copy, modify and distribute Rotaris are governed by that licence.
 
-(2) The application contains third-party components that are subject to their own
+(2) Nothing in these end-user terms limits or adds restrictions to rights granted to you
+under GPL-3.0-only. If these terms and GPL-3.0-only conflict with respect to the Rotaris
+application or its source code, the GPL-3.0-only terms prevail.
+
+(3) The application contains third-party components that are subject to their own
 licence terms. These are listed in the `THIRD-PARTY-LICENSES.txt` file enclosed with
-every version. Where those terms differ from section 2(1), they take precedence.
+every version. Those third-party licence terms apply to the respective components.
 
-(3) **Exception for components under the LGPL.** The application uses libraries under
-the GNU Lesser General Public License (among others Qt/PySide6 and pyte). Their licence
-terms apply unchanged. In particular, you may modify these components, use the modified
-version with the application, and examine and reverse-engineer the application for that
-purpose. Any restriction on reverse engineering in section 2(1) or elsewhere in these
-terms does not apply to these components. We provide the licence texts and the
-information needed for relinking; we will send them to you on request.
+(4) **Components under the LGPL.** The application uses libraries under the GNU Lesser
+General Public License (among others Qt/PySide6 and pyte). Their licence terms apply
+unchanged. In particular, you may modify these components, use the modified version with
+the application, and examine and reverse-engineer the application to the extent required
+for exercising the rights granted for those components. We provide the licence texts and
+the information needed for relinking; we will send them to you on request.
 
 ## 3. What the application does — please read this
 
@@ -73,7 +76,9 @@ representatives and vicarious agents.
 
 ## 5. Acceptable use
 
-Our [acceptable use policy](acceptable-use-policy.md) applies.
+Our [acceptable use policy](acceptable-use-policy.md) applies to the use of services and
+infrastructure we provide. It does not restrict the permissions granted for the Rotaris
+application itself under GPL-3.0-only.
 
 ## 6. Updates
 
