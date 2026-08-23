@@ -3,11 +3,15 @@ import { REPO_URL } from '../data/release'
 import type { ReleaseState } from '../hooks/useRelease'
 
 export default function OpenSource({ release }: { release: ReleaseState }) {
-  const { t } = useTranslation('home')
+  const { t, i18n } = useTranslation('home')
+  const isGerman = (i18n.resolvedLanguage ?? i18n.language).toLowerCase().startsWith('de')
+  const licenseLede = isGerman
+    ? 'Unter GPL-3.0-only veröffentlicht, per CI aus getaggten Commits gebaut und mit Prüfsummen ausgeliefert. Der Quellcode bleibt offen, und weitergegebene Änderungen müssen unter denselben Copyleft-Bedingungen verfügbar bleiben.'
+    : 'Released under GPL-3.0-only, CI-built from tagged commits and shipped with checksums. The source stays open, and distributed modifications must remain available under the same copyleft terms.'
 
   // Only verifiable facts belong here — no invented adoption metrics (Section 14).
   const KPIS = [
-    { value: 'MIT', unit: t('openSource.kpis.license') },
+    { value: 'GPL-3.0-only', unit: t('openSource.kpis.license') },
     { value: `v${release.channelInfo.version}`, unit: t('openSource.kpis.latestRelease') },
     { value: '2', unit: t('openSource.kpis.platforms') },
     { value: 'SHA-256', unit: t('openSource.kpis.checksums') },
@@ -19,7 +23,7 @@ export default function OpenSource({ release }: { release: ReleaseState }) {
         <h6>{t('openSource.kicker')}</h6>
         <h2 style={{ marginBottom: 14 }}>{t('openSource.title')}</h2>
         <p className="section-lede" style={{ marginBottom: 36 }}>
-          {t('openSource.lede')}
+          {licenseLede}
         </p>
 
         <div className="grid-cards cols-sm">
