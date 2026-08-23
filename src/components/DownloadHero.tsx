@@ -3,6 +3,7 @@ import logo from '../assets/logo.svg'
 import { LATEST_RELEASE_URL, RELEASES_URL, REPO_URL } from '../data/release'
 import { usePlatformCopy, useReleaseDate, type ReleaseState } from '../hooks/useRelease'
 import ChannelSwitch from './ChannelSwitch'
+import DownloadNetworkDisclosure from './DownloadNetworkDisclosure'
 import WorkspaceMock from './WorkspaceMock'
 
 export default function DownloadHero({ release }: { release: ReleaseState }) {
@@ -81,6 +82,7 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
             <i className="ph ph-seal-check" style={{ color: 'var(--rt-run)' }} aria-hidden="true" />{' '}
             {t('hero.signed')}
           </span>
+          <DownloadNetworkDisclosure />
         </div>
 
         <details className="advanced">
