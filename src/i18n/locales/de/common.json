@@ -3,7 +3,7 @@
     "titleSuffix": "Rotaris",
     "home": {
       "title": "Rotaris — Die Steuerungsebene für agentische Softwareentwicklung",
-      "description": "Ein Team spezialisierter Coding-Agenten aus einem Desktop-Arbeitsbereich steuern und überwachen. Kostenlos, MIT-lizenziert, ohne Konto."
+      "description": "Ein Team spezialisierter Coding-Agenten aus einem Desktop-Arbeitsbereich steuern und überwachen. Kostenlos und Open Source unter GPL-3.0-only, ohne Konto."
     },
     "notFound": {
       "title": "Seite nicht gefunden",
@@ -63,9 +63,9 @@
       "terms": "AGB · Rotaris Cloud",
       "eula": "Endnutzerbedingungen",
       "acceptableUse": "Zulässige Nutzung",
-      "license": "Lizenz · MIT"
+      "license": "Lizenz · GPL-3.0-only"
     },
-    "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT-Lizenz",
+    "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · GPL-3.0-only",
     "entity": "Rotaris — <0>Concrete Dynamics UG (haftungsbeschränkt)</0>, Kempten (Allgäu)."
   },
   "notFound": {
