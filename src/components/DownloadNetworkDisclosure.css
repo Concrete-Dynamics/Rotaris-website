@@ -1,0 +1,88 @@
+.download-network-disclosure {
+  position: relative;
+  display: inline-flex;
+  margin-left: 2px;
+}
+
+.download-network-disclosure > summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  color: var(--rt-text-tertiary);
+  cursor: pointer;
+  transition: color var(--rt-duration-fast) var(--rt-ease-out),
+    background var(--rt-duration-fast) var(--rt-ease-out);
+}
+
+.download-network-disclosure > summary:hover,
+.download-network-disclosure > summary:focus-visible,
+.download-network-disclosure[open] > summary {
+  color: var(--rt-text-secondary);
+  background: var(--rt-hover);
+  outline: none;
+}
+
+.download-network-disclosure > summary i {
+  font-size: 14px;
+}
+
+.download-network-disclosure-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.download-network-disclosure-popover {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: min(420px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  padding: 13px 14px;
+  border: 1px solid var(--rt-border);
+  border-radius: 9px;
+  background: var(--rt-surface);
+  box-shadow: var(--rt-shadow-lg);
+  text-align: left;
+  color: var(--rt-text-secondary);
+  font-family: var(--rt-font-body);
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+.download-network-disclosure-popover strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--rt-text);
+  font-size: 11.5px;
+}
+
+.download-network-disclosure-popover p {
+  margin: 0 0 7px;
+}
+
+.download-network-disclosure-popover a {
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .download-network-disclosure-popover {
+    position: fixed;
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+    transform: none;
+  }
+}
