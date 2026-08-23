@@ -72,7 +72,7 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
           <span className="sep">·</span>
           <span>{t('hero.released', { date: releasedOn })}</span>
           <span className="sep">·</span>
-          <span>{t('hero.mitLicensed')}</span>
+          <span>GPL-3.0-only</span>
           <span className="sep">·</span>
           <a href={RELEASES_URL}>{t('hero.releaseNotes')}</a>
           <span className="sep">·</span>
