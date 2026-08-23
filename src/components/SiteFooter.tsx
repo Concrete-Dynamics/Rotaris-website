@@ -71,7 +71,6 @@ const COLUMNS: { title: string; group: string; links: FooterLink[] }[] = [
       { key: 'privacy', href: LEGAL_ROUTES.privacy, internal: true },
       { key: 'terms', href: LEGAL_ROUTES.terms, internal: true },
       { key: 'eula', href: LEGAL_ROUTES.eula, internal: true },
-      { key: 'withdrawal', href: LEGAL_ROUTES.withdrawal, internal: true },
       { key: 'acceptableUse', href: LEGAL_ROUTES.acceptableUse, internal: true },
       { key: 'license', href: LICENSE_URL },
     ],

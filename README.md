@@ -85,7 +85,6 @@ smoke-test route list in both workflows.
 | `/privacy`        | Datenschutzerklärung              | `/datenschutz`, `/datenschutzerklaerung` |
 | `/terms`          | AGB — Rotaris Cloud               | `/agb`                                   |
 | `/eula`           | Endnutzerbedingungen              | `/endnutzerbedingungen`                  |
-| `/withdrawal`     | Widerrufsbelehrung                | `/widerruf`, `/widerrufsbelehrung`       |
 | `/acceptable-use` | Richtlinie zur zulässigen Nutzung | `/nutzungsrichtlinie`                    |
 
 Every row exists under `/de` as well, slugs included: `/de/impressum` redirects
@@ -98,7 +97,7 @@ the reviewed copy is the other one. Sections the package marks as internal are
 removed on import; the renderer strips them again as a safety net.
 
 The documents stay in German **in both locales**. That is the contract language
-for the offering they cover, and a translated withdrawal notice would be a
+for the offering they cover, and a translated document would be a
 second wording readable against the first. Only the chrome around them — title,
 back link, draft banner, the intro cards — follows the site language, and the
 English page says outright why the document below it is not in English. The

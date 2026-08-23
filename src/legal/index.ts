@@ -23,30 +23,26 @@ import acceptableUseDe from './de/acceptable-use-policy.md?raw'
 import agbDe from './de/agb.md?raw'
 import datenschutzDe from './de/datenschutzerklaerung.md?raw'
 import eulaDe from './de/eula.md?raw'
-import widerrufDe from './de/widerrufsbelehrung.md?raw'
 
 import acceptableUseEn from './en/acceptable-use-policy.md?raw'
 import termsEn from './en/terms.md?raw'
 import privacyEn from './en/privacy-policy.md?raw'
 import eulaEn from './en/eula.md?raw'
-import withdrawalEn from './en/withdrawal.md?raw'
 
 /** The documents, keyed the way the routes and the legal namespace key them. */
-export type DocumentKey = 'privacy' | 'terms' | 'eula' | 'withdrawal' | 'acceptableUse'
+export type DocumentKey = 'privacy' | 'terms' | 'eula' | 'acceptableUse'
 
 export const LEGAL_DOCUMENTS: Record<Locale, Record<DocumentKey, string>> = {
   de: {
     privacy: datenschutzDe,
     terms: agbDe,
     eula: eulaDe,
-    withdrawal: widerrufDe,
     acceptableUse: acceptableUseDe,
   },
   en: {
     privacy: privacyEn,
     terms: termsEn,
     eula: eulaEn,
-    withdrawal: withdrawalEn,
     acceptableUse: acceptableUseEn,
   },
 }
@@ -61,8 +57,6 @@ export const DOCUMENT_LINKS: Record<string, string> = {
   'agb.md': '/terms',
   'terms.md': '/terms',
   'eula.md': '/eula',
-  'widerrufsbelehrung.md': '/withdrawal',
-  'withdrawal.md': '/withdrawal',
   'acceptable-use-policy.md': '/acceptable-use',
   'datenschutzerklaerung.md': '/privacy',
   'privacy-policy.md': '/privacy',

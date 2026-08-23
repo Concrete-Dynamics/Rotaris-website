@@ -127,18 +127,12 @@ informieren dich darüber. Unterlässt du eine bereitgestellte Aktualisierung, h
 nicht für Mängel, die allein daraus folgen — vorausgesetzt, wir haben dich über die
 Aktualisierung und die Folgen ihres Unterlassens informiert.
 
-## 11. Widerrufsrecht
-
-Verbraucherinnen und Verbrauchern steht ein Widerrufsrecht zu. Die Einzelheiten
-stehen in der [Widerrufsbelehrung](widerrufsbelehrung.md), die dem Vertrag beigefügt
-ist und ein Musterformular enthält.
-
-## 12. Mängel
+## 11. Mängel
 
 Es gelten die gesetzlichen Vorschriften über die Bereitstellung digitaler Produkte
 (§§ 327 ff. BGB). Deine gesetzlichen Rechte werden durch diese AGB nicht eingeschränkt.
 
-## 13. Haftung
+## 12. Haftung
 
 (1) Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit, bei der Verletzung
 des Lebens, des Körpers oder der Gesundheit, nach dem Produkthaftungsgesetz und im
@@ -154,7 +148,7 @@ Haftung auf den bei Vertragsschluss vorhersehbaren, vertragstypischen Schaden be
 (4) Die Absätze 1 bis 3 gelten auch für unsere gesetzlichen Vertreter und
 Erfüllungsgehilfen.
 
-## 14. Laufzeit und Kündigung
+## 13. Laufzeit und Kündigung
 
 (1) Der Vertrag läuft auf unbestimmte Zeit und kann von beiden Seiten jederzeit ohne
 Frist gekündigt werden. Die Kündigung durch dich erfolgt durch Löschung des Kontos in
@@ -165,7 +159,7 @@ der Anwendung oder durch Mitteilung in Textform an info@concrete-dynamics.com.
 (3) Nach Beendigung löschen wir dein Konto nach Maßgabe unserer Datenschutzerklärung.
 Ziffer 6 Absatz 4 bleibt unberührt.
 
-## 15. Änderungen dieser Bedingungen
+## 14. Änderungen dieser Bedingungen
 
 (1) Wir dürfen diese Bedingungen ändern, wenn dafür ein sachlicher Grund besteht — etwa
 eine geänderte Rechtslage, höchstrichterliche Rechtsprechung, eine Änderung des
@@ -178,12 +172,12 @@ Schweigens hin. Widersprichst du nicht bis zum Wirksamwerden, gilt die Änderung
 angenommen. Widersprichst du, endet der Vertrag zum Zeitpunkt des Wirksamwerdens; wir
 erstatten dir dein nicht verbrauchtes Guthaben.
 
-## 16. Streitbeilegung
+## 15. Streitbeilegung
 
 Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
 Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
 
-## 17. Schlussbestimmungen
+## 16. Schlussbestimmungen
 
 (1) Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Bist du Verbraucherin
 oder Verbraucher, gilt diese Rechtswahl nur, soweit dir dadurch nicht der Schutz

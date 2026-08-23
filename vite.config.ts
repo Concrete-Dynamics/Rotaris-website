@@ -24,7 +24,6 @@ const ROUTES: { path: string; priority: string; changefreq: string }[] = [
   { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
   { path: '/eula', priority: '0.3', changefreq: 'yearly' },
-  { path: '/withdrawal', priority: '0.3', changefreq: 'yearly' },
   { path: '/acceptable-use', priority: '0.3', changefreq: 'yearly' },
 ]
 

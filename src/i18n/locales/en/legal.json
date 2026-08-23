@@ -13,7 +13,6 @@
     "privacy": "Privacy policy",
     "terms": "Terms and conditions",
     "eula": "End-user terms",
-    "withdrawal": "Right of withdrawal",
     "acceptableUse": "Acceptable use policy"
   },
   "descriptions": {
@@ -21,13 +20,11 @@
     "privacy": "How Rotaris, Rotaris Cloud and this website handle personal data.",
     "terms": "Terms and conditions for the paid Rotaris Cloud service.",
     "eula": "End-user terms for the free Rotaris desktop, CLI and terminal application.",
-    "withdrawal": "Right of withdrawal for paid Rotaris Cloud contracts.",
     "acceptableUse": "What Rotaris and Rotaris Cloud may and may not be used for."
   },
   "intros": {
     "terms": "These terms cover the paid <0>Rotaris Cloud</0> service. The free Rotaris application is governed solely by the <1>end-user terms</1>.",
     "eula": "These terms cover the free Rotaris application — desktop, command line and terminal interface.",
-    "withdrawal": "The withdrawal notice concerns paid contracts for <0>Rotaris Cloud</0>. Downloading and using the Rotaris application is free and creates no such contract.",
     "acceptableUse": "This policy forms part of the <0>terms and conditions</0> and of the <1>end-user terms</1>."
   },
   "privacy": {

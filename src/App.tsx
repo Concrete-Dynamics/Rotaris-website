@@ -6,7 +6,6 @@ import Imprint from './pages/Imprint'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Eula from './pages/Eula'
-import Withdrawal from './pages/Withdrawal'
 import AcceptableUse from './pages/AcceptableUse'
 import NotFound from './pages/NotFound'
 import { LEGAL_ALIASES, LEGAL_SEGMENTS, segmentOf } from './data/routes'
@@ -29,7 +28,6 @@ function localeRoutes(release: Release, locale: Locale) {
       <Route path={LEGAL_SEGMENTS.privacy} element={<Privacy />} />
       <Route path={LEGAL_SEGMENTS.terms} element={<Terms />} />
       <Route path={LEGAL_SEGMENTS.eula} element={<Eula />} />
-      <Route path={LEGAL_SEGMENTS.withdrawal} element={<Withdrawal />} />
       <Route path={LEGAL_SEGMENTS.acceptableUse} element={<AcceptableUse />} />
 
       {/* German slugs redirect to the canonical path, staying in this locale. */}

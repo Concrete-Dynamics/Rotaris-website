@@ -123,18 +123,12 @@ update that was made available, we are not liable for defects resulting solely f
 — provided we informed you about the update and about the consequences of not installing
 it.
 
-## 11. Right of withdrawal
-
-Consumers have a right of withdrawal. The details are set out in the
-[withdrawal notice](withdrawal.md), which is attached to the contract and contains a
-model form.
-
-## 12. Defects
+## 11. Defects
 
 The statutory provisions on the supply of digital products (§§ 327 et seq. BGB) apply.
 Your statutory rights are not restricted by these terms and conditions.
 
-## 13. Liability
+## 12. Liability
 
 (1) We are liable without limitation for intent and gross negligence, for injury to
 life, body or health, under the Product Liability Act and to the extent of any guarantee
@@ -149,7 +143,7 @@ foreseeable and typical for this type of contract at the time it was concluded.
 
 (4) Paragraphs 1 to 3 also apply to our legal representatives and vicarious agents.
 
-## 14. Term and termination
+## 13. Term and termination
 
 (1) The contract runs for an indefinite period and may be terminated by either side at
 any time without notice. You terminate by deleting your account in the application or by
@@ -160,7 +154,7 @@ notifying us in text form at info@concrete-dynamics.com.
 (3) After termination we delete your account in accordance with our privacy policy.
 Section 6(4) remains unaffected.
 
-## 15. Changes to these terms
+## 14. Changes to these terms
 
 (1) We may change these terms where there is objective reason to do so — for example a
 change in the legal situation, supreme court case law, a change to the range of services
@@ -173,12 +167,12 @@ you do not object before it takes effect, the change is deemed accepted. If you 
 the contract ends at the time the change takes effect; we will refund your unused
 credit.
 
-## 16. Dispute resolution
+## 15. Dispute resolution
 
 We are neither willing nor obliged to take part in dispute resolution proceedings before
 a consumer arbitration board (§ 36 VSBG).
 
-## 17. Final provisions
+## 16. Final provisions
 
 (1) German law applies, to the exclusion of the UN Convention on Contracts for the
 International Sale of Goods. If you are a consumer, this choice of law applies only in

@@ -13,7 +13,6 @@
     "privacy": "Datenschutzerklärung",
     "terms": "AGB — Rotaris Cloud",
     "eula": "Endnutzerbedingungen",
-    "withdrawal": "Widerrufsbelehrung",
     "acceptableUse": "Richtlinie zur zulässigen Nutzung"
   },
   "descriptions": {
@@ -21,13 +20,11 @@
     "privacy": "Wie Rotaris, Rotaris Cloud und diese Website mit personenbezogenen Daten umgehen.",
     "terms": "Allgemeine Geschäftsbedingungen für den kostenpflichtigen Dienst Rotaris Cloud.",
     "eula": "Endnutzerbedingungen für die kostenlose Rotaris-Anwendung für Desktop, CLI und Terminal.",
-    "withdrawal": "Widerrufsrecht für kostenpflichtige Verträge über Rotaris Cloud.",
     "acceptableUse": "Wofür Rotaris und Rotaris Cloud genutzt werden dürfen und wofür nicht."
   },
   "intros": {
     "terms": "Diese Bedingungen gelten für den kostenpflichtigen Dienst <0>Rotaris Cloud</0>. Für die kostenlose Rotaris-Anwendung gelten allein die <1>Endnutzerbedingungen</1>.",
     "eula": "Diese Bedingungen gelten für die kostenlose Rotaris-Anwendung — Desktop, Kommandozeile und Terminaloberfläche.",
-    "withdrawal": "Die Widerrufsbelehrung betrifft kostenpflichtige Verträge über <0>Rotaris Cloud</0>. Der Download und die Nutzung der Rotaris-Anwendung sind kostenlos und begründen keinen solchen Vertrag.",
     "acceptableUse": "Diese Richtlinie ist Bestandteil der <0>AGB</0> und der <1>Endnutzerbedingungen</1>."
   },
   "privacy": {

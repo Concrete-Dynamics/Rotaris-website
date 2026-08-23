@@ -44,7 +44,6 @@ const RELATED = [
   { key: 'privacy', to: LEGAL_ROUTES.privacy },
   { key: 'terms', to: LEGAL_ROUTES.terms },
   { key: 'eula', to: LEGAL_ROUTES.eula },
-  { key: 'withdrawal', to: LEGAL_ROUTES.withdrawal },
   { key: 'acceptableUse', to: LEGAL_ROUTES.acceptableUse },
 ] as const
 

@@ -4,7 +4,6 @@ export const LEGAL_ROUTES = {
   privacy: '/privacy',
   terms: '/terms',
   eula: '/eula',
-  withdrawal: '/withdrawal',
   acceptableUse: '/acceptable-use',
 } as const
 
@@ -22,7 +21,6 @@ export const LEGAL_SEGMENTS = {
   privacy: segmentOf(LEGAL_ROUTES.privacy),
   terms: segmentOf(LEGAL_ROUTES.terms),
   eula: segmentOf(LEGAL_ROUTES.eula),
-  withdrawal: segmentOf(LEGAL_ROUTES.withdrawal),
   acceptableUse: segmentOf(LEGAL_ROUTES.acceptableUse),
 } as const
 
@@ -36,8 +34,6 @@ export const LEGAL_ALIASES: Record<string, string> = {
   '/datenschutzerklaerung': LEGAL_ROUTES.privacy,
   '/agb': LEGAL_ROUTES.terms,
   '/endnutzerbedingungen': LEGAL_ROUTES.eula,
-  '/widerruf': LEGAL_ROUTES.withdrawal,
-  '/widerrufsbelehrung': LEGAL_ROUTES.withdrawal,
   '/nutzungsrichtlinie': LEGAL_ROUTES.acceptableUse,
 }
 
