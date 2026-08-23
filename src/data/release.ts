@@ -31,7 +31,7 @@ export interface ChannelRelease {
   releasedOn: string
 }
 
-export const REPO_URL = 'https://github.com/theUpsider/Rotaris'
+export const REPO_URL = 'https://github.com/Concrete-Dynamics/Rotaris'
 export const RELEASES_URL = `${REPO_URL}/releases`
 export const LATEST_RELEASE_URL = `${REPO_URL}/releases/latest`
 export const SECURITY_POLICY_URL = `${REPO_URL}/security/policy`

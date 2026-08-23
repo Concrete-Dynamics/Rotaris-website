@@ -40,7 +40,7 @@ export default function OpenSource({ release }: { release: ReleaseState }) {
               {t('openSource.kpis.repo')}
             </span>
             <a href={REPO_URL} className="mono" style={{ fontSize: 11 }}>
-              theUpsider/Rotaris
+              Concrete-Dynamics/Rotaris
             </a>
           </div>
         </div>

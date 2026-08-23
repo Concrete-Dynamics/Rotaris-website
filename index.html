@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#2b2b2b" />
 
-    <title>Rotaris — Download the agentic coding control plane</title>
-    <meta
-      name="description"
-      content="Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required."
-    />
-    <!-- Canonical and hreflang are set per route by src/hooks/usePageMeta.ts.
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#2b2b2b" />
+
+  <title>Rotaris — Download the agentic coding control plane</title>
+  <meta name="description"
+    content="Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required." />
+  <!-- Canonical and hreflang are set per route by src/hooks/usePageMeta.ts.
          These are the values for "/", so a crawler that does not run the
          script still sees a correct pair for the homepage. -->
-    <link rel="canonical" href="%SITE_URL%/" />
-    <link rel="alternate" hreflang="en" href="%SITE_URL%/" />
-    <link rel="alternate" hreflang="de" href="%SITE_URL%/de" />
-    <link rel="alternate" hreflang="x-default" href="%SITE_URL%/" />
+  <link rel="canonical" href="%SITE_URL%/" />
+  <link rel="alternate" hreflang="en" href="%SITE_URL%/" />
+  <link rel="alternate" hreflang="de" href="%SITE_URL%/de" />
+  <link rel="alternate" hreflang="x-default" href="%SITE_URL%/" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Rotaris" />
-    <meta property="og:title" content="Rotaris — Download the agentic coding control plane" />
-    <meta
-      property="og:description"
-      content="Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required."
-    />
-    <meta property="og:url" content="%SITE_URL%/" />
-    <meta property="og:locale" content="en_US" />
-    <!-- data-locale lets usePageMeta.ts own this tag: on a German page the
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rotaris" />
+  <meta property="og:title" content="Rotaris — Download the agentic coding control plane" />
+  <meta property="og:description"
+    content="Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required." />
+  <meta property="og:url" content="%SITE_URL%/" />
+  <meta property="og:locale" content="en_US" />
+  <!-- data-locale lets usePageMeta.ts own this tag: on a German page the
          alternate is English, so this one has to go rather than stay. -->
-    <meta property="og:locale:alternate" content="de_DE" data-locale="de" />
-    <meta property="og:image" content="%SITE_URL%/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:locale:alternate" content="de_DE" data-locale="de" />
+  <meta property="og:image" content="%SITE_URL%/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <script type="application/ld+json">
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -44,14 +41,16 @@
         "_comment": "softwareVersion duplicates CHANNELS.stable.version in src/data/release.ts — bump both.",
         "softwareVersion": "0.5.0",
         "license": "https://opensource.org/licenses/MIT",
-        "downloadUrl": "https://github.com/theUpsider/Rotaris/releases/latest",
+        "downloadUrl": "https://github.com/Concrete-Dynamics/Rotaris/releases/latest",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "description": "Desktop control plane for running and supervising a team of specialized coding agents."
       }
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
