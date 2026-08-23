@@ -3,9 +3,11 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const POINTS = [
   { key: 'parallelism', icon: 'ph ph-flow-arrow' },
+  { key: 'coordinatorOnly', icon: 'ph ph-user-gear' },
   { key: 'bounded', icon: 'ph ph-clock-countdown' },
   { key: 'reports', icon: 'ph ph-file-text' },
   { key: 'cancellation', icon: 'ph ph-x-circle' },
+  { key: 'improvement', icon: 'ph ph-trend-up' },
 ]
 
 /**
@@ -14,7 +16,7 @@ const POINTS = [
  * verbatim in every language, so they are not translated.
  */
 const NODES = [
-  { x: 240, y: 60, state: 'run', label: 'implementer', tx: 240, ty: 42, delay: '0s' },
+  { x: 240, y: 60, state: 'run', label: 'coding-agent', tx: 240, ty: 42, delay: '0s' },
   { x: 349, y: 113, state: 'wait', label: 'verifier', tx: 360, ty: 99 },
   { x: 377, y: 231, state: 'done', label: 'librarian', tx: 399, ty: 253 },
   { x: 301, y: 326, state: 'run', label: 'refactorer', tx: 311, ty: 350, delay: '0.5s' },

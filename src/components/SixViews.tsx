@@ -25,6 +25,15 @@ const VIEWS: ViewCard[] = [
     stats: [{ key: 'tasks' }, { key: 'blocked', dot: 'var(--rt-wait)' }, { key: 'depth' }],
   },
   {
+    key: 'requirements',
+    icon: 'ph ph-list-checks',
+    stats: [
+      { key: 'requirements' },
+      { key: 'coverage', dot: 'var(--rt-run)' },
+      { key: 'evidence' },
+    ],
+  },
+  {
     key: 'git',
     icon: 'ph ph-git-branch',
     stats: [{ key: 'worktrees' }, { key: 'ahead' }, { key: 'diff' }],
@@ -32,7 +41,7 @@ const VIEWS: ViewCard[] = [
   {
     key: 'library',
     icon: 'ph ph-books',
-    stats: [{ key: 'requirements' }, { key: 'skills' }, { key: 'artifacts' }],
+    stats: [{ key: 'prompts' }, { key: 'improvements' }, { key: 'artifacts' }],
   },
   {
     key: 'settings',

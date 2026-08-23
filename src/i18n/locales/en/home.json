@@ -73,52 +73,52 @@
   },
   "howItWorks": {
     "kicker": "How it works",
-    "title": "From mission to verified change",
+    "title": "From first word to final accept",
     "pipeline": {
-      "define": "Define",
+      "classify": "Classify",
       "plan": "Plan",
       "delegate": "Delegate",
-      "execute": "Execute",
-      "inspect": "Inspect",
-      "verify": "Verify"
+      "run": "Run",
+      "verify": "Verify",
+      "accept": "Accept"
     },
     "youControl": "You control:",
     "steps": {
-      "define": {
-        "title": "Define the mission",
-        "body": "Describe the change and its acceptance criteria. The requirements engineer turns them into persistent, numbered requirements.",
-        "control": "scope, acceptance criteria"
+      "classify": {
+        "title": "Say what done means",
+        "body": "One clear mission is all Rotaris needs. A small intent classifier reads it first and shapes the orchestration — so the run starts from your intent, not a guess.",
+        "control": "what done means"
       },
       "plan": {
-        "title": "Review the plan",
-        "body": "The orchestrator decomposes the mission. Inspect tasks, dependencies, assigned agents, and models before anything runs.",
-        "control": "approve, edit, or reject the plan"
+        "title": "A coordinator, not a doer",
+        "body": "The orchestrator decomposes the mission into a todo list and hands each slice to a specialist. It has no write tools of its own — it plans, delegates, and verifies. You supervise the run; there is no plan to sign off.",
+        "control": "pause or steer, any time"
       },
       "delegate": {
-        "title": "Delegate to specialists",
-        "body": "Work is routed to purpose-specific agents — analyst, architect, coding agents, tester, librarian — each with its own model and tools.",
+        "title": "The right specialist for every slice",
+        "body": "Analyst, architect, coding agents, tester, librarian — each persona brings its own model and tools to the slice it was built for. The requirements engineer steps in only when scope is ambiguous.",
         "control": "model routing per role"
       },
       "run": {
-        "title": "Run the team",
-        "body": "Independent tasks execute concurrently; dependent work waits for its prerequisites. Iteration, depth, and fan-out limits bound every run.",
-        "control": "pause, steer, cancel"
-      },
-      "control": {
-        "title": "Stay in control",
-        "body": "Inspect any agent's transcript, tools, and context. Change configuration mid-run or respond to a failure with the recovery in view.",
-        "control": "everything, live"
+        "title": "Parallel where it can, bounded where it must",
+        "body": "Independent slices run side by side; dependent ones wait their turn. Depth, fan-out, and iteration limits — plus a circuit breaker that catches runaway loops — keep every run in check.",
+        "control": "approve tool calls, cancel"
       },
       "verify": {
-        "title": "Verify the result",
-        "body": "A verifier checks completed work against the requirements before the task is declared finished. Review the evidence, then accept.",
+        "title": "A gate that can't be flattered",
+        "body": "Every code-changing iteration runs your repository's own checks — lint, typecheck, tests, traceability. Then a read-only verifier grades the result against your original request. No re-runs, no self-grading.",
+        "control": "nothing — the gate runs itself"
+      },
+      "accept": {
+        "title": "Your signature, last",
+        "body": "The completion summary shows what ran, what passed, and what is still open. Read the evidence, then accept — or send it back.",
         "control": "the final accept"
       }
     }
   },
   "views": {
     "kicker": "The interface",
-    "title": "Six views. One workspace.",
+    "title": "Seven views. One workspace.",
     "lede": "Everything the harness knows — sessions, agents, requirements, worktrees, artifacts, configuration — has one visible home.",
     "cards": {
       "overview": {
@@ -133,13 +133,17 @@
         "title": "Mission",
         "body": "The full task hierarchy: dependencies, per-agent models, tool counts, elapsed time, and state."
       },
+      "requirements": {
+        "title": "Requirements",
+        "body": "A kanban board over delivery states with a blocked strip, display-only filtering, and detail, evidence, and graph panes. It renders the engine's projection — it never invents a verdict."
+      },
       "git": {
         "title": "Git",
         "body": "Worktrees, branch context, changed files, diffs, and local commits made by agents — reviewable before anything leaves the machine."
       },
       "library": {
         "title": "Library",
-        "body": "Requirements, agent reports, skills, and artifacts — the persistent knowledge a mission produces and consumes."
+        "body": "The prompt stash, session artifacts, and improvement proposals — the persistent knowledge a mission produces and consumes."
       },
       "settings": {
         "title": "Settings",
@@ -155,12 +159,15 @@
       "inspector": "inspector",
       "tasks": "9 tasks",
       "blocked": "2 blocked",
-      "depth": "depth ≤ 2",
+      "depth": "depth ≤ 3",
       "worktrees": "3 worktrees",
       "ahead": "↑4",
       "diff": "+214 −96",
       "requirements": "6 requirements",
-      "skills": "4 skills",
+      "coverage": "5 / 6 covered",
+      "evidence": "evidence ring",
+      "prompts": "prompt stash",
+      "improvements": "3 improvements",
       "artifacts": "11 artifacts",
       "providers": "4 providers",
       "personas": "5 personas",
@@ -176,9 +183,13 @@
         "lead": "Dependency-aware parallelism.",
         "body": "Fan-out where tasks are independent, strict ordering where they are not."
       },
+      "coordinatorOnly": {
+        "lead": "The orchestrator coordinates — it doesn't hog the work.",
+        "body": "Its write tools are stripped by default; it plans and delegates, and acts directly only on genuinely trivial changes."
+      },
       "bounded": {
         "lead": "Bounded autonomy.",
-        "body": "Iteration limits, depth limits, fan-out limits, loop protection, and circuit breaking constrain every run."
+        "body": "Iteration, depth, and fan-out limits, plus a circuit breaker that catches runaway loops, constrain every run."
       },
       "reports": {
         "lead": "Structured reports.",
@@ -187,6 +198,10 @@
       "cancellation": {
         "lead": "Cancellation propagates.",
         "body": "Stop a parent and every descendant stops with it — cleanly."
+      },
+      "improvement": {
+        "lead": "Every run teaches the next.",
+        "body": "After a run, an improvement collector proposes fixes and refinements; recurring local quirks become workspace-scoped persona memory."
       }
     },
     "diagram": {
@@ -202,8 +217,8 @@
   },
   "verification": {
     "kicker": "Requirements & verification",
-    "title": "Know why every change exists",
-    "lede": "Requirements and acceptance criteria are persistent engineering artifacts. Every change traces back to one — and forward to the test and verification that prove it.",
+    "title": "Every change, traced and gated",
+    "lede": "Requirements are files in your repo with a status — draft, approved, deprecated. Code links to them with @traces, tests with @verifies, and a check fails the build on orphan code or spec drift.",
     "chain": {
       "requirement": "Requirement",
       "requirementBody": "Session handlers shall be non-blocking under load.",
@@ -212,14 +227,14 @@
       "change": "Code change",
       "test": "Test",
       "testBody": "38 passed · 0 failed",
-      "verification": "Verification",
+      "verification": "Gate",
       "verified": "verified",
-      "verificationBody": "Criteria met · evidence attached"
+      "verificationBody": "Checks green · verifier graded PASS"
     },
     "gate": {
-      "title": "The verification gate",
-      "body": "Nothing is “done” because an agent said so. A dedicated verifier re-reads the requirements, re-runs the tests, and inspects the diff before a task is declared finished — and the completion summary shows you exactly what it found.",
-      "traceability": "Requirement-to-code and requirement-to-test links are enforced in the repository itself, so traceability survives long after the run."
+      "title": "Completion isn't a feeling",
+      "body": "No task is done because an agent said so. Every code-changing iteration runs your own checks — lint, typecheck, tests, traceability. A blocking check that failed, or never ran, blocks completion. Then a read-only verifier grades what the checks can't see: does the work answer your request? Is the todo list true of the code on disk? Did anything creep in?",
+      "traceability": "ReqToCode enforces the requirement-to-code and requirement-to-test links by compiling the requirement store and failing the build on orphan code or spec drift — so the trail outlives the run."
     },
     "summary": {
       "head": "Mission complete",

@@ -2,15 +2,15 @@ import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const PIPELINE = [
-  { key: 'define', colour: 'var(--rt-text)' },
+  { key: 'classify', colour: 'var(--rt-text)' },
   { key: 'plan', colour: 'var(--rt-text)' },
   { key: 'delegate', colour: 'var(--rt-text)' },
-  { key: 'execute', colour: 'var(--rt-run)' },
-  { key: 'inspect', colour: 'var(--rt-wait)' },
-  { key: 'verify', colour: 'var(--rt-accent-300)' },
+  { key: 'run', colour: 'var(--rt-run)' },
+  { key: 'verify', colour: 'var(--rt-wait)' },
+  { key: 'accept', colour: 'var(--rt-accent-300)' },
 ]
 
-const STEPS = ['define', 'plan', 'delegate', 'run', 'control', 'verify']
+const STEPS = ['classify', 'plan', 'delegate', 'run', 'verify', 'accept']
 
 export default function HowItWorks() {
   const { t } = useTranslation('home')

@@ -12,6 +12,7 @@ const RAIL = [
   { icon: 'ph ph-gauge', label: 'Overview' },
   { icon: 'ph-fill ph-chats-circle', label: 'Workspace', active: true },
   { icon: 'ph ph-tree-structure', label: 'Mission' },
+  { icon: 'ph ph-list-checks', label: 'Requirements' },
   { icon: 'ph ph-git-branch', label: 'Git' },
   { icon: 'ph ph-books', label: 'Library' },
 ]
@@ -302,9 +303,9 @@ export default function WorkspaceMock() {
               Tools
             </div>
             <div className="mono mock-tools">
-              <span className="mock-tool is-granted">haet_edit ✓</span>
+              <span className="mock-tool is-granted">write_file ✓</span>
               <span className="mock-tool is-granted">shell ✓</span>
-              <span className="mock-tool">write_file</span>
+              <span className="mock-tool">haet_edit</span>
               <span className="mock-tool">grep</span>
             </div>
 

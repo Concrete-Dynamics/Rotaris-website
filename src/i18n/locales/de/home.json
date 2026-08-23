@@ -73,52 +73,52 @@
   },
   "howItWorks": {
     "kicker": "So funktioniert es",
-    "title": "Vom Auftrag zur verifizierten Änderung",
+    "title": "Vom ersten Wort bis zur Abnahme",
     "pipeline": {
-      "define": "Definieren",
+      "classify": "Klassifizieren",
       "plan": "Planen",
       "delegate": "Delegieren",
-      "execute": "Ausführen",
-      "inspect": "Prüfen",
-      "verify": "Verifizieren"
+      "run": "Ausführen",
+      "verify": "Verifizieren",
+      "accept": "Annehmen"
     },
     "youControl": "Du bestimmst:",
     "steps": {
-      "define": {
-        "title": "Auftrag definieren",
-        "body": "Beschreibe die Änderung und ihre Abnahmekriterien. Der Requirements Engineer macht daraus dauerhafte, nummerierte Anforderungen.",
-        "control": "Umfang, Abnahmekriterien"
+      "classify": {
+        "title": "Sag, was fertig bedeutet",
+        "body": "Ein klarer Auftrag genügt. Ein kleiner Intent-Klassifizierer liest ihn zuerst und wählt die Orchestrierungsform — der Lauf startet also von deiner Absicht, nicht von einer Vermutung.",
+        "control": "was „fertig“ bedeutet"
       },
       "plan": {
-        "title": "Plan prüfen",
-        "body": "Der Orchestrator zerlegt den Auftrag. Prüfe Aufgaben, Abhängigkeiten, zugewiesene Agenten und Modelle, bevor irgendetwas läuft.",
-        "control": "Plan freigeben, ändern oder ablehnen"
+        "title": "Ein Koordinator, kein Ausführender",
+        "body": "Der Orchestrator zerlegt den Auftrag in eine Todo-Liste und übergibt jedes Stück einem Spezialisten. Er hat keine eigenen Schreibwerkzeuge — er plant, delegiert und prüft. Einen Plan zum Abzeichnen gibt es nicht; du beaufsichtigst den Lauf.",
+        "control": "jederzeit anhalten oder steuern"
       },
       "delegate": {
-        "title": "An Spezialisten delegieren",
-        "body": "Die Arbeit geht an zweckgebundene Agenten — Analyst, Architekt, Coding-Agenten, Tester, Librarian — jeder mit eigenem Modell und eigenen Werkzeugen.",
+        "title": "Der richtige Spezialist für jedes Stück",
+        "body": "Analyst, Architekt, Coding-Agenten, Tester, Librarian — jede Persona bringt ihr eigenes Modell und Werkzeug für das Stück mit, für das sie gebaut ist. Der Requirements Engineer greift nur ein, wenn der Umfang mehrdeutig ist.",
         "control": "Modellzuordnung je Rolle"
       },
       "run": {
-        "title": "Das Team laufen lassen",
-        "body": "Unabhängige Aufgaben laufen gleichzeitig; abhängige warten auf ihre Voraussetzungen. Grenzen für Iterationen, Tiefe und Verzweigung begrenzen jeden Lauf.",
-        "control": "anhalten, steuern, abbrechen"
-      },
-      "control": {
-        "title": "Die Kontrolle behalten",
-        "body": "Sieh dir Transkript, Werkzeuge und Kontext jedes Agenten an. Ändere die Konfiguration mitten im Lauf oder reagiere auf einen Fehler, während die Behebung sichtbar bleibt.",
-        "control": "alles, in Echtzeit"
+        "title": "Parallel, wo es geht — begrenzt, wo es muss",
+        "body": "Unabhängige Stücke laufen nebeneinander, abhängige warten auf ihren Einsatz. Grenzen für Tiefe, Verzweigung und Iterationen sowie ein Circuit Breaker gegen entlaufene Schleifen halten jeden Lauf im Griff.",
+        "control": "Werkzeugaufrufe freigeben, abbrechen"
       },
       "verify": {
-        "title": "Ergebnis verifizieren",
-        "body": "Ein Verifizierer prüft die fertige Arbeit gegen die Anforderungen, bevor eine Aufgabe als erledigt gilt. Prüfe die Belege und nimm das Ergebnis an.",
+        "title": "Eine Stufe, die sich nicht einwickeln lässt",
+        "body": "Jede codeändernde Iteration lässt die eigenen Prüfungen deines Repositories laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit. Danach bewertet ein schreibgeschützter Verifizierer das Ergebnis gegen deinen ursprünglichen Auftrag. Keine erneuten Läufe, keine Selbstbenotung.",
+        "control": "nichts — die Stufe läuft von selbst"
+      },
+      "accept": {
+        "title": "Deine Unterschrift, ganz am Ende",
+        "body": "Die Abschlussübersicht zeigt, was lief, was bestand und was noch offen ist. Lies die Belege, dann nimm an — oder gib es zurück.",
         "control": "die letzte Abnahme"
       }
     }
   },
   "views": {
     "kicker": "Die Oberfläche",
-    "title": "Sechs Ansichten. Ein Arbeitsbereich.",
+    "title": "Sieben Ansichten. Ein Arbeitsbereich.",
     "lede": "Alles, was der Harness weiß — Sitzungen, Agenten, Anforderungen, Worktrees, Artefakte, Konfiguration — hat einen sichtbaren Ort.",
     "cards": {
       "overview": {
@@ -133,13 +133,17 @@
         "title": "Auftrag",
         "body": "Die vollständige Aufgabenhierarchie: Abhängigkeiten, Modelle je Agent, Anzahl der Werkzeugaufrufe, verstrichene Zeit und Status."
       },
+      "requirements": {
+        "title": "Anforderungen",
+        "body": "Ein Kanban-Board über die Auslieferungszustände mit einer Blockade-Leiste, nur-anzeigender Filterung sowie Detail-, Evidenz- und Graph-Fenstern. Es rendert die Projektion der Engine — es fällt nie selbst ein Urteil."
+      },
       "git": {
         "title": "Git",
         "body": "Worktrees, Branch-Kontext, geänderte Dateien, Diffs und lokale Commits der Agenten — prüfbar, bevor irgendetwas den Rechner verlässt."
       },
       "library": {
         "title": "Bibliothek",
-        "body": "Anforderungen, Agentenberichte, Skills und Artefakte — das dauerhafte Wissen, das ein Auftrag erzeugt und verbraucht."
+        "body": "Die Prompt-Ablage, Sitzungsartefakte und Verbesserungsvorschläge — das dauerhafte Wissen, das ein Auftrag erzeugt und verbraucht."
       },
       "settings": {
         "title": "Einstellungen",
@@ -155,12 +159,15 @@
       "inspector": "Inspektor",
       "tasks": "9 Aufgaben",
       "blocked": "2 blockiert",
-      "depth": "Tiefe ≤ 2",
+      "depth": "Tiefe ≤ 3",
       "worktrees": "3 Worktrees",
       "ahead": "↑4",
       "diff": "+214 −96",
       "requirements": "6 Anforderungen",
-      "skills": "4 Skills",
+      "coverage": "5 / 6 abgedeckt",
+      "evidence": "Evidenz-Ring",
+      "prompts": "Prompt-Ablage",
+      "improvements": "3 Verbesserungen",
       "artifacts": "11 Artefakte",
       "providers": "4 Anbieter",
       "personas": "5 Personas",
@@ -176,9 +183,13 @@
         "lead": "Parallelität mit Blick auf Abhängigkeiten.",
         "body": "Verzweigung, wo Aufgaben unabhängig sind, strikte Reihenfolge, wo sie es nicht sind."
       },
+      "coordinatorOnly": {
+        "lead": "Der Orchestrator koordiniert — und reißt die Arbeit nicht an sich.",
+        "body": "Seine Schreibwerkzeuge sind standardmäßig entzogen; er plant und delegiert und greift nur bei wirklich trivialen Änderungen selbst ein."
+      },
       "bounded": {
         "lead": "Begrenzte Autonomie.",
-        "body": "Grenzen für Iterationen, Tiefe und Verzweigung, Schleifenschutz und Circuit Breaking begrenzen jeden Lauf."
+        "body": "Grenzen für Iterationen, Tiefe und Verzweigung sowie ein Circuit Breaker, der entlaufene Schleifen einfängt, begrenzen jeden Lauf."
       },
       "reports": {
         "lead": "Strukturierte Berichte.",
@@ -187,6 +198,10 @@
       "cancellation": {
         "lead": "Abbrüche wirken nach unten.",
         "body": "Stoppst du ein Elternteil, stoppt jeder Nachfahre sauber mit."
+      },
+      "improvement": {
+        "lead": "Jeder Lauf lehrt den nächsten.",
+        "body": "Nach einem Lauf schlägt ein Improvement Collector Korrekturen und Verbesserungen vor; wiederkehrende lokale Eigenheiten werden zum Persona-Gedächtnis des Arbeitsbereichs."
       }
     },
     "diagram": {
@@ -202,8 +217,8 @@
   },
   "verification": {
     "kicker": "Anforderungen & Verifikation",
-    "title": "Wissen, warum es jede Änderung gibt",
-    "lede": "Anforderungen und Abnahmekriterien sind dauerhafte Artefakte der Entwicklung. Jede Änderung führt zurück auf eine davon — und vorwärts zu dem Test und der Verifikation, die sie belegen.",
+    "title": "Jede Änderung, nachvollzogen und geprüft",
+    "lede": "Anforderungen sind Dateien in deinem Repository mit einem Status — Entwurf, freigegeben, veraltet. Code verknüpft sich mit @traces, Tests mit @verifies, und eine Prüfung lässt den Build bei verwaistem Code oder abweichender Spezifikation fehlschlagen.",
     "chain": {
       "requirement": "Anforderung",
       "requirementBody": "Session-Handler müssen unter Last nicht blockierend arbeiten.",
@@ -212,14 +227,14 @@
       "change": "Codeänderung",
       "test": "Test",
       "testBody": "38 bestanden · 0 fehlgeschlagen",
-      "verification": "Verifikation",
+      "verification": "Stufe",
       "verified": "verifiziert",
-      "verificationBody": "Kriterien erfüllt · Belege angehängt"
+      "verificationBody": "Prüfungen grün · Verifizierer: PASS"
     },
     "gate": {
-      "title": "Die Verifikationsstufe",
-      "body": "Nichts ist „fertig“, nur weil ein Agent das sagt. Ein eigener Verifizierer liest die Anforderungen erneut, führt die Tests erneut aus und prüft den Diff, bevor eine Aufgabe als abgeschlossen gilt — und die Abschlussübersicht zeigt dir genau, was er dabei gefunden hat.",
-      "traceability": "Die Verknüpfung von Anforderung zu Code und von Anforderung zu Test wird im Repository selbst erzwungen. So bleibt die Nachvollziehbarkeit lange nach dem Lauf erhalten."
+      "title": "Fertig ist kein Gefühl",
+      "body": "Keine Aufgabe ist fertig, nur weil ein Agent das behauptet. Jede codeändernde Iteration lässt deine eigenen Prüfungen laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit. Eine blockierende Prüfung, die fehlschlägt oder nie lief, blockiert den Abschluss. Danach bewertet ein schreibgeschützter Verifizierer, was die Prüfungen nicht sehen: Beantwortet die Arbeit deinen Auftrag? Stimmt die Todo-Liste mit dem Code auf der Platte überein? Hat sich etwas eingeschlichen?",
+      "traceability": "ReqToCode erzwingt die Verknüpfungen Anforderung→Code und Anforderung→Test, indem es den Anforderungsbestand kompiliert und den Build bei verwaistem Code oder abweichender Spezifikation fehlschlagen lässt — die Spur überlebt den Lauf."
     },
     "summary": {
       "head": "Auftrag abgeschlossen",
