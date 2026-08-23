@@ -3,7 +3,7 @@
     "titleSuffix": "Rotaris",
     "home": {
       "title": "Rotaris — Download the agentic coding control plane",
-      "description": "Run and supervise a team of specialized coding agents from one desktop workspace. Free, MIT-licensed, no account required."
+      "description": "Run and supervise a team of specialized coding agents from one desktop workspace. Free and open source under GPL-3.0-only, no account required."
     },
     "notFound": {
       "title": "Page not found",
@@ -63,9 +63,9 @@
       "terms": "Terms · Rotaris Cloud",
       "eula": "End-user terms",
       "acceptableUse": "Acceptable use",
-      "license": "License · MIT"
+      "license": "License · GPL-3.0-only"
     },
-    "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT license",
+    "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · GPL-3.0-only",
     "entity": "Rotaris — <0>Concrete Dynamics UG (haftungsbeschränkt)</0>, Kempten (Allgäu)."
   },
   "notFound": {
