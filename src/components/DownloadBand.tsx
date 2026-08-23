@@ -6,14 +6,18 @@ import { usePlatformCopy, type ReleaseState } from '../hooks/useRelease'
 
 /** Mid-page download access — DL-11 asks for the action to recur down the page. */
 export default function DownloadBand({ release }: { release: ReleaseState }) {
-  const { t } = useTranslation('home')
+  const { t, i18n } = useTranslation('home')
   const localePath = useLocalePath()
   const copy = usePlatformCopy(release)
+  const isGerman = (i18n.resolvedLanguage ?? i18n.language).toLowerCase().startsWith('de')
+  const licenseLead = isGerman
+    ? 'Kostenlos und Open Source unter GPL-3.0-only.'
+    : 'Free and open source under GPL-3.0-only.'
 
   return (
     <div className="download-band">
       <div className="wrap">
-        <strong>{t('band.lead')}</strong>
+        <strong>{licenseLead}</strong>
         <span className="band-note">{t('band.note')}</span>
         <Link
           className="btn btn-primary btn-compact"
