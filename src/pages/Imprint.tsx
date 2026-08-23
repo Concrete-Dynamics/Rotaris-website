@@ -1,8 +1,8 @@
 import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { SECURITY_POLICY_URL } from '../data/release'
+import { COMPANY_WEBSITE_URL, SECURITY_POLICY_URL } from '../data/release'
 import { LEGAL_ROUTES } from '../data/routes'
-import { useLocalePath } from '../hooks/useLocalePath'
+import { useLocale, useLocalePath } from '../hooks/useLocalePath'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 /**
@@ -51,7 +51,9 @@ const RELATED = [
 export default function Imprint() {
   const { t } = useTranslation('legal')
   const { t: tCommon } = useTranslation('common')
+  const locale = useLocale()
   const localePath = useLocalePath()
+  const companyUrl = COMPANY_WEBSITE_URL[locale]
 
   usePageMeta({ title: t('titles.imprint'), description: t('descriptions.imprint') })
 
@@ -71,7 +73,7 @@ export default function Imprint() {
         <article className="legal-doc">
           <h2>{t('imprint.headings.provider')}</h2>
           <p>
-            {COMPANY.name}
+            <a href={companyUrl}>{COMPANY.name}</a>
             <br />
             {COMPANY.street}
             <br />
@@ -89,6 +91,8 @@ export default function Imprint() {
             <br />
             {t('imprint.labels.phone')}:{' '}
             <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}>{COMPANY.phone}</a>
+            <br />
+            {t('imprint.labels.website')}: <a href={companyUrl}>{companyUrl}</a>
           </p>
 
           <h2>{t('imprint.headings.register')}</h2>

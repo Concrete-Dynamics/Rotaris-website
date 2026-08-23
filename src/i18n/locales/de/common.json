@@ -34,7 +34,7 @@
     "product": {
       "whatItIs": "Was es ist",
       "howItWorks": "So funktioniert es",
-      "views": "Die sieben Ansichten",
+      "views": "Die sechs Ansichten",
       "orchestration": "Orchestrierung",
       "verification": "Verifikation",
       "control": "Kontrolle und Einblick",
@@ -48,8 +48,7 @@
       "firstRun": "Erster Start",
       "providers": "Anbieter einrichten",
       "permissions": "Berechtigungen und Sicherheit",
-      "architecture": "Architektur",
-      "rename": "Was ist aus geraet-ai geworden?"
+      "architecture": "Architektur"
     },
     "trust": {
       "security": "Sicherheit",
@@ -68,7 +67,7 @@
       "license": "Lizenz · MIT"
     },
     "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT-Lizenz",
-    "entity": "Rotaris — vormals geraet-ai. Concrete Dynamics UG (haftungsbeschränkt), Kempten (Allgäu)."
+    "entity": "Rotaris — <0>Concrete Dynamics UG (haftungsbeschränkt)</0>, Kempten (Allgäu)."
   },
   "notFound": {
     "heading": "Diese Seite gibt es nicht.",

@@ -118,7 +118,7 @@
   },
   "views": {
     "kicker": "Die Oberfläche",
-    "title": "Sieben Ansichten. Ein Arbeitsbereich.",
+    "title": "Sechs Ansichten. Ein Arbeitsbereich.",
     "lede": "Alles, was der Harness weiß — Sitzungen, Agenten, Anforderungen, Worktrees, Artefakte, Konfiguration — hat einen sichtbaren Ort.",
     "cards": {
       "overview": {
@@ -144,10 +144,6 @@
       "library": {
         "title": "Bibliothek",
         "body": "Die Prompt-Ablage, Sitzungsartefakte und Verbesserungsvorschläge — das dauerhafte Wissen, das ein Auftrag erzeugt und verbraucht."
-      },
-      "settings": {
-        "title": "Einstellungen",
-        "body": "Anbieter, Modellzuordnung je Persona, Reasoning-Stärke, MCP-Server und Sicherheit des Arbeitsbereichs — als Auswahlfelder und Picker."
       }
     },
     "stats": {
@@ -168,10 +164,7 @@
       "evidence": "Evidenz-Ring",
       "prompts": "Prompt-Ablage",
       "improvements": "3 Verbesserungen",
-      "artifacts": "11 Artefakte",
-      "providers": "4 Anbieter",
-      "personas": "5 Personas",
-      "mcpServers": "3 MCP-Server"
+      "artifacts": "11 Artefakte"
     }
   },
   "orchestration": {
@@ -434,10 +427,6 @@
       "cli": {
         "q": "Gibt es eine Version für die Kommandozeile?",
         "a": "Ja — eine Terminaloberfläche für den Betrieb ohne Fenster und in Skripten, installierbar über pip. Das Hauptprodukt ist die Desktop-Anwendung."
-      },
-      "rename": {
-        "q": "Was ist aus geraet-ai geworden?",
-        "a": "Es wurde umbenannt. Rotaris ist dieselbe Orchestrierungs-Engine und Desktop-Anwendung unter ihrem öffentlichen Namen; Repository und Python-Pakete sind mitgezogen. Ältere Links auf geraet-ai funktionieren weiterhin."
       },
       "security": {
         "q": "Wie melde ich ein Sicherheitsproblem?",

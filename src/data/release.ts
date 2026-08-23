@@ -1,3 +1,5 @@
+import type { Locale } from '../i18n/config'
+
 /**
  * Single source of release metadata for the whole page (DL-06).
  *
@@ -40,6 +42,15 @@ export const SECURITY_POLICY_URL = `${REPO_URL}/security/policy`
  */
 export const LICENSE_URL = `${REPO_URL}/blob/HEAD/LICENSE`
 export const ARCHITECTURE_URL = `${REPO_URL}/blob/HEAD/docs/architecture.md`
+
+/**
+ * The company behind Rotaris, addressed in the visitor's language. German is
+ * the site's default and lives at the root; English under /en/.
+ */
+export const COMPANY_WEBSITE_URL: Record<Locale, string> = {
+  de: 'https://concrete-dynamics.com',
+  en: 'https://concrete-dynamics.com/en/',
+}
 
 /**
  * Headings in the repository README, which is the documentation until a docs

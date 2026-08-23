@@ -43,11 +43,6 @@ const VIEWS: ViewCard[] = [
     icon: 'ph ph-books',
     stats: [{ key: 'prompts' }, { key: 'improvements' }, { key: 'artifacts' }],
   },
-  {
-    key: 'settings',
-    icon: 'ph ph-gear',
-    stats: [{ key: 'providers' }, { key: 'personas' }, { key: 'mcpServers' }],
-  },
 ]
 
 export default function SixViews() {

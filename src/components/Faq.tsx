@@ -9,7 +9,6 @@ const QUESTIONS = [
   'finished',
   'cancel',
   'cli',
-  'rename',
   'security',
 ]
 

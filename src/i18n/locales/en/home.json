@@ -118,7 +118,7 @@
   },
   "views": {
     "kicker": "The interface",
-    "title": "Seven views. One workspace.",
+    "title": "Six views. One workspace.",
     "lede": "Everything the harness knows — sessions, agents, requirements, worktrees, artifacts, configuration — has one visible home.",
     "cards": {
       "overview": {
@@ -144,10 +144,6 @@
       "library": {
         "title": "Library",
         "body": "The prompt stash, session artifacts, and improvement proposals — the persistent knowledge a mission produces and consumes."
-      },
-      "settings": {
-        "title": "Settings",
-        "body": "Providers, per-persona model routing, reasoning strength, MCP servers, and workspace security — all as dropdowns and pickers."
       }
     },
     "stats": {
@@ -168,10 +164,7 @@
       "evidence": "evidence ring",
       "prompts": "prompt stash",
       "improvements": "3 improvements",
-      "artifacts": "11 artifacts",
-      "providers": "4 providers",
-      "personas": "5 personas",
-      "mcpServers": "3 MCP servers"
+      "artifacts": "11 artifacts"
     }
   },
   "orchestration": {
@@ -434,10 +427,6 @@
       "cli": {
         "q": "Is there a command-line version?",
         "a": "Yes — a terminal interface is available for headless and scripted use, installed via pip. The desktop application is the primary product."
-      },
-      "rename": {
-        "q": "What happened to geraet-ai?",
-        "a": "It was renamed. Rotaris is the same orchestration engine and desktop application under its public name; the repository and the Python packages moved with it. Older links to geraet-ai still resolve."
       },
       "security": {
         "q": "How do I report a security issue?",

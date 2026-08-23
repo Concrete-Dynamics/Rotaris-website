@@ -1,8 +1,9 @@
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import {
   ARCHITECTURE_URL,
+  COMPANY_WEBSITE_URL,
   LATEST_RELEASE_URL,
   LICENSE_URL,
   README_ANCHORS,
@@ -11,7 +12,7 @@ import {
   SECURITY_POLICY_URL,
 } from '../data/release'
 import { HOME_ANCHORS, LEGAL_ROUTES } from '../data/routes'
-import { useLocalePath } from '../hooks/useLocalePath'
+import { useLocale, useLocalePath } from '../hooks/useLocalePath'
 
 interface FooterLink {
   /** Key under `footer.<column>` in the common namespace. */
@@ -49,7 +50,6 @@ const COLUMNS: { title: string; group: string; links: FooterLink[] }[] = [
       { key: 'providers', href: README_ANCHORS.providers },
       { key: 'permissions', href: README_ANCHORS.permissions },
       { key: 'architecture', href: ARCHITECTURE_URL },
-      { key: 'rename', href: HOME_ANCHORS.faq, internal: true },
     ],
   },
   {
@@ -80,7 +80,9 @@ const COLUMNS: { title: string; group: string; links: FooterLink[] }[] = [
 
 export default function SiteFooter() {
   const { t } = useTranslation('common')
+  const locale = useLocale()
   const localePath = useLocalePath()
+  const companyUrl = COMPANY_WEBSITE_URL[locale]
 
   return (
     <footer id="docs" className="site-footer">
@@ -116,7 +118,9 @@ export default function SiteFooter() {
 
         <div className="footer-legal">
           <span>{t('footer.copyright')}</span>
-          <span>{t('footer.entity')}</span>
+          <span>
+            <Trans t={t} i18nKey="footer.entity" components={[<a href={companyUrl} />]} />
+          </span>
         </div>
       </div>
     </footer>

@@ -34,7 +34,7 @@
     "product": {
       "whatItIs": "What it is",
       "howItWorks": "How it works",
-      "views": "The seven views",
+      "views": "The six views",
       "orchestration": "Orchestration",
       "verification": "Verification",
       "control": "Control and observability",
@@ -48,8 +48,7 @@
       "firstRun": "First run",
       "providers": "Provider setup",
       "permissions": "Permissions and security",
-      "architecture": "Architecture",
-      "rename": "What happened to geraet-ai?"
+      "architecture": "Architecture"
     },
     "trust": {
       "security": "Security",
@@ -68,7 +67,7 @@
       "license": "License · MIT"
     },
     "copyright": "© 2026 Concrete Dynamics UG (haftungsbeschränkt) · MIT license",
-    "entity": "Rotaris — formerly geraet-ai. Concrete Dynamics UG (haftungsbeschränkt), Kempten (Allgäu)."
+    "entity": "Rotaris — <0>Concrete Dynamics UG (haftungsbeschränkt)</0>, Kempten (Allgäu)."
   },
   "notFound": {
     "heading": "This page does not exist.",
