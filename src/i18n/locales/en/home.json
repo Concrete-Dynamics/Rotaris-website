@@ -41,7 +41,7 @@
     "signed": "signed",
     "advanced": "Advanced installation",
     "advancedBody": "CLI-only and Python package installation, for headless or scripted use. The desktop application above bundles everything — no Python required.",
-    "advancedComment": "# Python 3.12+ · terminal interface",
+    "advancedSoon": "Coming soon",
     "mock": {
       "label": "The Rotaris workspace during an active run: agent tree, live transcript, and the inspector for a running coding agent",
       "context": "Context window 71 percent full"

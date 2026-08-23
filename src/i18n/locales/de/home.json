@@ -41,7 +41,7 @@
     "signed": "signiert",
     "advanced": "Erweiterte Installation",
     "advancedBody": "Installation nur als CLI oder als Python-Paket, für den Betrieb ohne Oberfläche oder in Skripten. Die Desktop-Anwendung oben bringt alles mit — Python wird dafür nicht benötigt.",
-    "advancedComment": "# Python 3.12+ · Terminaloberfläche",
+    "advancedSoon": "Folgt in Kürze",
     "mock": {
       "label": "Der Rotaris-Arbeitsbereich während eines laufenden Durchlaufs: Agentenbaum, Live-Transkript und der Inspektor für einen laufenden Coding-Agenten",
       "context": "Kontextfenster zu 71 Prozent gefüllt"

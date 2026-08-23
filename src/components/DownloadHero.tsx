@@ -92,10 +92,10 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
           </summary>
           <div className="advanced-body">
             <p>{t('hero.advancedBody')}</p>
-            <pre className="mono">
-              <span className="dim">{t('hero.advancedComment')}</span>
-              {'\n'}pip install rotaris{'\n'}rotaris run
-            </pre>
+            <div className="download-soon">
+              <i className="ph ph-clock" aria-hidden="true" />
+              {t('hero.advancedSoon')}
+            </div>
           </div>
         </details>
 
