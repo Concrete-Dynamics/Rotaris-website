@@ -43,8 +43,10 @@ export const LICENSE_URL = `${REPO_URL}/blob/HEAD/LICENSE`
 export const ARCHITECTURE_URL = `${REPO_URL}/blob/HEAD/docs/architecture/README.md`
 
 /**
- * The company behind Rotaris, addressed in the visitor's language. German is
- * the site's default and lives at the root; English under /en/.
+ * The company behind Rotaris, addressed in the visitor's language. The two
+ * sites are laid out differently: concrete-dynamics.com serves German at the
+ * root and English under /en/, while this site serves English at the root and
+ * German under /de (src/i18n/config.ts).
  */
 export const COMPANY_WEBSITE_URL: Record<Locale, string> = {
   de: 'https://concrete-dynamics.com',
