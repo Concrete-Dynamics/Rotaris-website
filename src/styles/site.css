@@ -57,18 +57,12 @@ section[id],div[id],header[id]{scroll-margin-top:72px}
 .hero-eyebrow{margin:0 0 10px;font-family:var(--rt-font-display);font-size:14px;color:var(--rt-accent-300);letter-spacing:0.01em}
 .hero h1{margin:0 0 14px;font-size:clamp(34px,5vw,46px)}
 .hero-sub{max-width:480px;font-size:13px;color:var(--rt-text-tertiary);margin:0 0 28px;text-wrap:pretty}
-.channel-switch{margin-bottom:18px;background:var(--rt-surface)}
-/* The segmented control is built from real <button>s so it is keyboard-operable;
-   these reset the UA styling without touching the .is-active treatment. */
-button.seg-opt{border:0;margin:0;font:inherit;font-size:var(--rt-text-xs);font-weight:600;background:transparent;color:var(--rt-text-secondary)}
-.seg > button.seg-opt + button.seg-opt{border-left:1px solid var(--rt-border-strong)}
 .btn-download-lg{font-size:15px;padding:13px 26px;border-radius:10px;gap:10px}
 .btn-download-lg i{font-size:19px}
 .download-soon{display:inline-flex;align-items:center;gap:10px;font-size:15px;padding:13px 26px;border-radius:10px;border:1px dashed var(--rt-border-strong);color:var(--rt-text-tertiary);font-family:var(--rt-font-body);font-weight:600}
 .download-soon i{font-size:19px}
 .release-line{font-size:11px;color:var(--rt-text-tertiary);margin-top:10px}
-.preview-warning{margin-top:12px;display:inline-flex;align-items:flex-start;gap:8px;max-width:560px;text-align:left;padding:7px 14px;border:1px solid var(--rt-axis-x-800);border-radius:8px;background:color-mix(in oklch, var(--rt-wait) 8%, transparent);font-size:12px;color:var(--rt-axis-x-200)}
-.preview-warning i{color:var(--rt-wait);flex:none;transform:translateY(3px)}
+.hero-prerelease{max-width:520px;margin:10px 0 0;font-size:11.5px;color:var(--rt-text-tertiary);text-wrap:pretty}
 .alt-platforms{display:flex;align-items:center;gap:8px;margin-top:22px;flex-wrap:wrap;justify-content:center}
 .alt-platforms > span:first-child{font-size:11px;color:var(--rt-text-tertiary);margin-right:2px}
 .alt-platforms .mono{font-size:10px;color:var(--rt-text-tertiary)}
@@ -76,11 +70,6 @@ button.seg-opt{border:0;margin:0;font:inherit;font-size:var(--rt-text-xs);font-w
 .meta-line{font-size:11px;color:var(--rt-text-tertiary);margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center}
 .meta-line i{vertical-align:-2px}
 
-.advanced{margin-top:16px;max-width:560px;width:100%;text-align:left}
-.advanced > summary{text-align:center;font-size:12px;color:var(--rt-text-tertiary);font-weight:600}
-.advanced-body{margin-top:12px;border:1px solid var(--rt-border);border-radius:10px;background:var(--rt-surface);padding:16px 18px}
-.advanced-body p{font-size:12px;color:var(--rt-text-secondary);margin:0 0 10px}
-.advanced-body pre{margin:0;font-size:12px;line-height:1.9;color:var(--rt-text-secondary);background:var(--rt-bg);border:1px solid var(--rt-border);border-radius:6px;padding:12px 14px;overflow-x:auto}
 
 details > summary{cursor:pointer;list-style:none}
 details > summary::-webkit-details-marker{display:none}

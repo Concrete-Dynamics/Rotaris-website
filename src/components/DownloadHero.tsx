@@ -2,15 +2,14 @@ import { useTranslation } from 'react-i18next'
 import logo from '../assets/logo.svg'
 import { LATEST_RELEASE_URL, RELEASES_URL, REPO_URL } from '../data/release'
 import { usePlatformCopy, useReleaseDate, type ReleaseState } from '../hooks/useRelease'
-import ChannelSwitch from './ChannelSwitch'
 import DownloadNetworkDisclosure from './DownloadNetworkDisclosure'
 import WorkspaceMock from './WorkspaceMock'
 
 export default function DownloadHero({ release }: { release: ReleaseState }) {
   const { t } = useTranslation('home')
-  const { release: platform, channelInfo, channel, isPreview, setChannel } = release
+  const { release: platform, latest } = release
   const copy = usePlatformCopy(release)
-  const releasedOn = useReleaseDate(channelInfo.releasedOn)
+  const releasedOn = useReleaseDate(latest.releasedOn)
 
   return (
     <header id="download" className="hero rt-dot-grid-soft">
@@ -19,8 +18,6 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
         <p className="hero-eyebrow">{t('hero.eyebrow')}</p>
         <h1>{t('hero.title')}</h1>
         <p className="hero-sub">{t('hero.sub')}</p>
-
-        <ChannelSwitch channel={channel} onChange={setChannel} />
 
         {platform.soon ? (
           <>
@@ -44,22 +41,17 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
           {copy.sub} · {copy.size} · {copy.minOs}
         </div>
 
-        {isPreview && (
-          <p className="preview-warning">
-            <i className="ph ph-warning" aria-hidden="true" />
-            <span>{t('hero.previewWarning')}</span>
-          </p>
-        )}
+        <p className="hero-prerelease">{t('hero.prerelease')}</p>
 
         <div className="alt-platforms">
           <span>{t('hero.alsoAvailable')}</span>
           <a className="btn btn-secondary btn-compact" href={LATEST_RELEASE_URL}>
             <i className="ph ph-windows-logo" aria-hidden="true" />
-            {t('hero.windows')} <span className="mono">x64</span>
+            {t('hero.windows')} <span className="mono">x64 · {t('hero.windowsFormats')}</span>
           </a>
           <a className="btn btn-secondary btn-compact" href={LATEST_RELEASE_URL}>
             <i className="ph ph-linux-logo" aria-hidden="true" />
-            {t('hero.linux')} <span className="mono">AppImage · deb · rpm</span>
+            {t('hero.linux')} <span className="mono">AppImage · deb</span>
           </a>
           <span className="btn btn-compact platform-soon">
             <i className="ph ph-apple-logo" aria-hidden="true" />
@@ -68,7 +60,7 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
         </div>
 
         <div className="mono meta-line">
-          <span>v{channelInfo.version}</span>
+          <span>v{latest.version}</span>
           <span className="sep">·</span>
           <span>{t('hero.released', { date: releasedOn })}</span>
           <span className="sep">·</span>
@@ -84,20 +76,6 @@ export default function DownloadHero({ release }: { release: ReleaseState }) {
           </span>
           <DownloadNetworkDisclosure />
         </div>
-
-        <details className="advanced">
-          <summary>
-            <i className="ph ph-caret-down" style={{ verticalAlign: -2 }} aria-hidden="true" />{' '}
-            {t('hero.advanced')}
-          </summary>
-          <div className="advanced-body">
-            <p>{t('hero.advancedBody')}</p>
-            <div className="download-soon">
-              <i className="ph ph-clock" aria-hidden="true" />
-              {t('hero.advancedSoon')}
-            </div>
-          </div>
-        </details>
 
         <WorkspaceMock />
       </div>

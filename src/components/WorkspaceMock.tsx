@@ -8,10 +8,10 @@
 
 import { useTranslation } from 'react-i18next'
 
+/** The six primary views, in the product's own order; Settings sits at the foot. */
 const RAIL = [
-  { icon: 'ph ph-gauge', label: 'Overview' },
   { icon: 'ph-fill ph-chats-circle', label: 'Workspace', active: true },
-  { icon: 'ph ph-tree-structure', label: 'Mission' },
+  { icon: 'ph ph-gauge', label: 'Overview' },
   { icon: 'ph ph-list-checks', label: 'Requirements' },
   { icon: 'ph ph-git-branch', label: 'Git' },
   { icon: 'ph ph-books', label: 'Library' },
@@ -39,19 +39,19 @@ const TRANSCRIPT = [
     time: '14:02:14',
     who: 'intent',
     colour: 'var(--rt-info-500)',
-    text: 'Classified as refactor — orchestrator instructions tailored for behaviour-preserving change.',
+    text: 'Classified as refactor — the coordinator keeps the public interface as a constraint.',
   },
   {
     time: '14:02:31',
     who: 'orchestrator',
     colour: 'var(--rt-accent-400)',
-    text: 'Decomposed into 6 subtasks. Analysis first (codebase-analyst ∥ librarian), then architecture, then implementation fan-out with tester gating each merge.',
+    text: 'Todo list of 7. Analysis first (codebase-analyst ∥ librarian), then the interface, then two coding agents in parallel, each change checked before the next item.',
   },
   {
     time: '14:11:02',
     who: 'coding-agent-1',
     colour: 'var(--rt-run)',
-    text: 'Converting src/api/session.py — 6 of 9 handlers now async; wrapping blocking IO in asyncio.to_thread.',
+    text: 'Converting src/api/session.ts — 6 of 9 handlers now async; blocking file reads moved to fs/promises.',
   },
 ]
 
@@ -79,7 +79,7 @@ export default function WorkspaceMock() {
           <div style={{ flex: 1 }} />
           <span className="tag tag-run">
             <span className="status-dot is-pulsing" style={{ background: 'var(--rt-run)' }} />
-            mission running · 26m
+            run · iteration 7 · 26m
           </span>
           <span className="tag tag-neutral mono" style={{ fontSize: 10 }}>
             612,480 tok
@@ -113,7 +113,7 @@ export default function WorkspaceMock() {
                 <span className="status-dot" style={{ background: 'var(--rt-run)' }} />
                 auth-flow-refactor
               </div>
-              <div className="mono mock-worktree-branch">rotaris/auth-refactor ↑4</div>
+              <div className="mono mock-worktree-branch">rotaris/auth-refactor · 6 checkpoints</div>
             </div>
 
             <hr className="rt-fade-rule" style={{ margin: '12px 0' }} />
@@ -222,6 +222,10 @@ export default function WorkspaceMock() {
                     <i className="ph ph-cpu" aria-hidden="true" />
                     copilot/gpt-5
                   </span>
+                  <span className="tag tag-outline">
+                    <i className="ph ph-shield-check" aria-hidden="true" />
+                    ask
+                  </span>
                   <div style={{ flex: 1 }} />
                   <span className="btn btn-primary btn-compact" style={{ fontSize: 10.5 }}>
                     Send
@@ -265,7 +269,7 @@ export default function WorkspaceMock() {
                   stroke="var(--rt-run)"
                   strokeWidth="6"
                   strokeLinecap="round"
-                  strokeDasharray="138.3 194.8"
+                  strokeDasharray="101.3 194.8"
                   transform="rotate(-90 38 38)"
                 />
                 <text
@@ -275,7 +279,7 @@ export default function WorkspaceMock() {
                   fill="var(--rt-text)"
                   style={{ fontFamily: 'var(--rt-font-mono)', fontSize: 14, fontWeight: 600 }}
                 >
-                  71%
+                  52%
                 </text>
                 <text
                   x="38"
@@ -284,11 +288,11 @@ export default function WorkspaceMock() {
                   fill="var(--rt-text-tertiary)"
                   style={{ fontFamily: 'var(--rt-font-mono)', fontSize: 7.5 }}
                 >
-                  91.3k / 128k
+                  66.6k / 128k
                 </text>
               </svg>
             </div>
-            <div className="mock-context-caption">context window · compresses at 80%</div>
+            <div className="mock-context-caption">context window · compresses at 60%</div>
 
             <div className="mock-inspector-label">Reasoning strength</div>
             <div className="seg">
@@ -304,7 +308,7 @@ export default function WorkspaceMock() {
             </div>
             <div className="mono mock-tools">
               <span className="mock-tool is-granted">write_file ✓</span>
-              <span className="mock-tool is-granted">shell ✓</span>
+              <span className="mock-tool is-granted">terminal ✓</span>
               <span className="mock-tool">haet_edit</span>
               <span className="mock-tool">grep</span>
             </div>

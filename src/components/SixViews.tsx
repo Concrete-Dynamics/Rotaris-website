@@ -10,19 +10,14 @@ interface ViewCard {
 
 const VIEWS: ViewCard[] = [
   {
-    key: 'overview',
-    icon: 'ph ph-gauge',
-    stats: [{ key: 'live', dot: 'var(--rt-run)' }, { key: 'tokens' }, { key: 'premium' }],
-  },
-  {
     key: 'workspace',
     icon: 'ph ph-chats-circle',
-    stats: [{ key: 'transcript' }, { key: 'agentTree' }, { key: 'inspector' }],
+    stats: [{ key: 'transcript' }, { key: 'composer' }, { key: 'inspector' }],
   },
   {
-    key: 'mission',
-    icon: 'ph ph-tree-structure',
-    stats: [{ key: 'tasks' }, { key: 'blocked', dot: 'var(--rt-wait)' }, { key: 'depth' }],
+    key: 'overview',
+    icon: 'ph ph-gauge',
+    stats: [{ key: 'live', dot: 'var(--rt-run)' }, { key: 'tokens' }, { key: 'toolCalls' }],
   },
   {
     key: 'requirements',
@@ -36,12 +31,17 @@ const VIEWS: ViewCard[] = [
   {
     key: 'git',
     icon: 'ph ph-git-branch',
-    stats: [{ key: 'worktrees' }, { key: 'ahead' }, { key: 'diff' }],
+    stats: [{ key: 'worktrees' }, { key: 'checkpoints' }, { key: 'diff' }],
   },
   {
     key: 'library',
     icon: 'ph ph-books',
-    stats: [{ key: 'prompts' }, { key: 'improvements' }, { key: 'artifacts' }],
+    stats: [{ key: 'artifacts' }, { key: 'prompts' }, { key: 'improvements' }],
+  },
+  {
+    key: 'settings',
+    icon: 'ph ph-gear',
+    stats: [{ key: 'slots' }, { key: 'mode', dot: 'var(--rt-wait)' }, { key: 'mcp' }],
   },
 ]
 

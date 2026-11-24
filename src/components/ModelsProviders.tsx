@@ -1,18 +1,20 @@
 import { useTranslation } from 'react-i18next'
 
-/** Persona and model names are identifiers; only the reasoning level reads as prose. */
+/** Slot and model names are identifiers; only the reasoning level reads as prose. */
 const ROUTING = [
-  { persona: 'orchestrator', model: 'copilot/gpt-5', reasoning: 'high' },
-  { persona: 'architect', model: 'claude-opus-4', reasoning: 'high' },
-  { persona: 'coding-agent', model: 'copilot/gpt-5', reasoning: 'medium' },
-  { persona: 'tester', model: 'claude-sonnet-4', reasoning: 'medium' },
-  { persona: 'verifier', model: 'claude-opus-4', reasoning: 'high' },
+  { slot: 'large_model', model: 'claude-code/opus', reasoning: 'high' },
+  { slot: 'medium_model', model: 'copilot/gpt-5', reasoning: 'medium' },
+  { slot: 'small_model', model: 'codex/gpt-5-mini', reasoning: 'medium' },
+  { slot: 'fallback_model', model: 'local/qwen3-coder', reasoning: 'medium' },
 ]
 
+/** Provider names are the catalogue's own; only the status reads as prose. */
 const PROVIDERS = [
+  { name: 'Rotaris Cloud', dot: 'var(--rt-ok)', meta: 'cloud' },
+  { name: 'Claude Code', dot: 'var(--rt-ok)', meta: 'claudeCode' },
   { name: 'GitHub Copilot', dot: 'var(--rt-ok)', meta: 'copilot' },
-  { name: 'Anthropic', dot: 'var(--rt-ok)', meta: 'anthropic' },
-  { name: 'OpenAI Codex', dot: 'var(--rt-warn)', meta: 'openai' },
+  { name: 'OpenAI Codex', dot: 'var(--rt-warn)', meta: 'codex' },
+  { name: 'OpenAI-compatible', dot: 'var(--rt-ok)', meta: 'local' },
 ]
 
 export default function ModelsProviders() {
@@ -32,15 +34,15 @@ export default function ModelsProviders() {
               <table className="table" aria-label={t('models.tableLabel')}>
                 <thead>
                   <tr>
-                    <th className="table-pad-first">{t('models.table.persona')}</th>
+                    <th className="table-pad-first">{t('models.table.slot')}</th>
                     <th>{t('models.table.model')}</th>
                     <th className="table-pad-last">{t('models.table.reasoning')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {ROUTING.map((row) => (
-                    <tr key={row.persona}>
-                      <td className="table-pad-first">{row.persona}</td>
+                    <tr key={row.slot}>
+                      <td className="table-pad-first">{row.slot}</td>
                       <td className="mono" style={{ fontSize: 11.5 }}>
                         {row.model}
                       </td>

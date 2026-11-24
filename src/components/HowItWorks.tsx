@@ -7,10 +7,10 @@ const PIPELINE = [
   { key: 'delegate', colour: 'var(--rt-text)' },
   { key: 'run', colour: 'var(--rt-run)' },
   { key: 'verify', colour: 'var(--rt-wait)' },
-  { key: 'accept', colour: 'var(--rt-accent-300)' },
+  { key: 'review', colour: 'var(--rt-accent-300)' },
 ]
 
-const STEPS = ['classify', 'plan', 'delegate', 'run', 'verify', 'accept']
+const STEPS = ['classify', 'plan', 'delegate', 'run', 'verify', 'review']
 
 export default function HowItWorks() {
   const { t } = useTranslation('home')

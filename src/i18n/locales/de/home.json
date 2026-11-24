@@ -2,8 +2,8 @@
   "platforms": {
     "windows-x64": {
       "label": "Für Windows herunterladen",
-      "sub": "x64 · Installer (.exe)",
-      "minOs": "Windows 10 1809 oder neuer"
+      "sub": "x64 · Installer oder portabel (.exe)",
+      "minOs": "Windows 10 oder neuer"
     },
     "macos": {
       "label": "macOS-Build folgt in Kürze",
@@ -13,226 +13,218 @@
     },
     "linux-x64": {
       "label": "Für Linux herunterladen",
-      "sub": "x64 · AppImage · deb · rpm",
-      "minOs": "glibc 2.31+"
+      "sub": "x86_64 · AppImage · deb",
+      "minOs": "getestet unter Ubuntu 24.04"
     }
   },
-  "channel": {
-    "label": "Release-Kanal",
-    "stable": "Stabil",
-    "preview": "Vorschau"
-  },
   "hero": {
-    "eyebrow": "Jenseits des Terminals. Hinein in die Ära agentischer Softwareentwicklung.",
+    "eyebrow": "Die Aufgabe abgeben. Das Sagen behalten.",
     "title": "Rotaris herunterladen",
-    "sub": "Agentisches Programmieren ist der Kommandozeile entwachsen. Rotaris gibt der Entwicklung mit mehreren Agenten die Oberfläche, die sie verdient.",
+    "sub": "Eine Desktop-App, die eine Programmieraufgabe in deinem Projekt bis zum Ergebnis trägt — mit einem Team von KI-Agenten, das du beobachten, lenken und stoppen kannst.",
     "macosSoon": "macOS-Build folgt in Kürze",
     "watchRepo": "Repository beobachten, um das macOS-Release mitzubekommen",
-    "previewWarning": "Vorschau-Builds können instabil sein. Sie nutzen eine eigene Konfiguration und lassen sich auf GitHub melden. Du kannst jederzeit zu Stabil zurückwechseln.",
+    "prerelease": "Release Candidate. Die Programmdateien sind nicht codesigniert, Windows SmartScreen fragt daher vor dem ersten Start nach. Der eingebaute Updater prüft das signierte Prüfsummen-Manifest, bevor er etwas herunterlädt.",
     "alsoAvailable": "Ebenfalls verfügbar für",
     "windows": "Windows",
+    "windowsFormats": "Installer · portabel",
     "linux": "Linux",
     "macos": "macOS",
     "macosTag": "folgt in Kürze",
     "released": "veröffentlicht am {{date}}",
-    "mitLicensed": "MIT-lizenziert",
     "releaseNotes": "Release Notes",
     "checksums": "SHA-256-Prüfsummen",
-    "signed": "signiert",
-    "advanced": "Erweiterte Installation",
-    "advancedBody": "Installation nur als CLI oder als Python-Paket, für den Betrieb ohne Oberfläche oder in Skripten. Die Desktop-Anwendung oben bringt alles mit — Python wird dafür nicht benötigt.",
-    "advancedSoon": "Folgt in Kürze",
+    "signed": "signiertes Manifest",
     "mock": {
-      "label": "Der Rotaris-Arbeitsbereich während eines laufenden Durchlaufs: Agentenbaum, Live-Transkript und der Inspektor für einen laufenden Coding-Agenten",
-      "context": "Kontextfenster zu 71 Prozent gefüllt"
+      "label": "Der Rotaris-Arbeitsbereich während eines Laufs: Agentenbaum, Live-Transkript, Eingabefeld und der Inspektor für einen laufenden Coding-Agenten",
+      "context": "Kontextfenster zu 52 Prozent gefüllt"
     }
   },
   "product": {
-    "kicker": "Steuerungsebene für agentisches Programmieren",
-    "title": "Die Steuerungsebene für agentische Softwareentwicklung",
-    "lede": "Rotaris übersetzt einen übergeordneten Auftrag in koordinierte Arbeit über Planung, Umsetzung, Tests, Dokumentation, Git und Verifikation hinweg. Du siehst, was jeder Agent gerade tut, greifst bei Bedarf ein und prüfst die Belege, bevor du das Ergebnis annimmst.",
-    "closing": "Du bekommst ein einsehbares Softwareentwicklungsteam, bei dem jeder Spezialist bei der Arbeit sichtbar bleibt.",
+    "kicker": "Was Rotaris ist",
+    "title": "Ein Team von Coding-Agenten, auf deinem Rechner, nach deinen Regeln",
+    "lede": "Du beschreibst eine Aufgabe. Rotaris klassifiziert sie und übergibt sie einem Koordinator, der an Spezialisten delegiert — einen Analysten, einen Architekten, Coding-Agenten, einen Tester und weitere. Der Lauf arbeitet eine Todo-Liste Punkt für Punkt ab und prüft, was er geändert hat, bevor er entscheidet, was als Nächstes kommt.",
+    "closing": "Du siehst jeden Agenten bei der Arbeit, jeder Werkzeugaufruf passiert eine Berechtigung, die du festlegst, und jeder Lauf lässt sich zurücknehmen.",
     "pillars": {
       "orchestration": {
         "title": "Orchestrierung",
-        "body": "Spezialisierte Agenten — Architekt, Entwickler, Tester, Verifizierer — koordiniert wie ein Entwicklungsteam."
+        "body": "Ein Koordinator, der an 13 eingebaute Spezialistenrollen delegiert — parallel, wo die Arbeit es erlaubt."
       },
       "control": {
         "title": "Kontrolle",
-        "body": "Arbeit an jedem Punkt des Laufs einsehen, anhalten, umlenken, freigeben oder abbrechen."
+        "body": "Einen Agenten lenken, eine Folgeanweisung einreihen, die Todo-Liste bearbeiten, das Modell wechseln, pausieren oder abbrechen — ohne Neustart."
       },
-      "verification": {
-        "title": "Verifikation",
-        "body": "Ob etwas fertig ist, entscheiden Anforderungen, Tests und ausdrückliche Freigaben."
+      "permissions": {
+        "title": "Berechtigungen",
+        "body": "Jeder Werkzeugaufruf wird vor der Ausführung an einer Stelle zu Erlauben, Fragen oder Verweigern aufgelöst und landet im Prüfprotokoll."
       },
-      "traceability": {
-        "title": "Nachvollziehbarkeit",
-        "body": "Anforderungen, Umsetzung, Tests, Aktionen der Agenten und Artefakte bleiben miteinander verknüpft."
+      "recovery": {
+        "title": "Wiederherstellung",
+        "body": "Ein Checkpoint nach jeder Iteration, die deinen Arbeitsbaum geändert hat, und jede Sitzung bleibt auf deinem Rechner."
       }
     }
   },
   "howItWorks": {
     "kicker": "So funktioniert es",
-    "title": "Vom ersten Wort bis zur Abnahme",
+    "title": "Von einem Satz zu einem Ergebnis, das du prüfen kannst",
     "pipeline": {
       "classify": "Klassifizieren",
       "plan": "Planen",
       "delegate": "Delegieren",
       "run": "Ausführen",
       "verify": "Verifizieren",
-      "accept": "Annehmen"
+      "review": "Prüfen"
     },
     "youControl": "Du bestimmst:",
     "steps": {
       "classify": {
-        "title": "Sag, was fertig bedeutet",
-        "body": "Ein klarer Auftrag genügt. Ein kleiner Intent-Klassifizierer liest ihn zuerst und wählt die Orchestrierungsform, der Lauf startet also von deiner Absicht.",
-        "control": "was „fertig“ bedeutet"
+        "title": "Sag, was erledigt werden soll",
+        "body": "Tippe die Aufgabe ins Eingabefeld und starte den Lauf. Rotaris klassifiziert zuerst die Absicht, damit der Koordinator weiß, um welche Art Arbeit es geht.",
+        "control": "die Aufgabe und den Berechtigungsmodus"
       },
       "plan": {
-        "title": "Ein Koordinator von Natur aus",
-        "body": "Der Orchestrator zerlegt den Auftrag in eine Todo-Liste und übergibt jedes Stück einem Spezialisten. Er plant, delegiert und prüft, während seine Schreibwerkzeuge zurückgehalten bleiben. Du beaufsichtigst den Lauf, während er sich entfaltet.",
-        "control": "jederzeit anhalten oder steuern"
+        "title": "Ein Koordinator, kein Einzelkämpfer",
+        "body": "Der Orchestrator führt eine Todo-Liste und übergibt jeden Arbeitsschritt einem Spezialisten. Solange er koordiniert, bearbeitet er selbst keine Dateien und führt keine Befehle aus.",
+        "control": "die Todo-Liste, auch mitten im Lauf"
       },
       "delegate": {
-        "title": "Der richtige Spezialist für jedes Stück",
-        "body": "Analyst, Architekt, Coding-Agenten, Tester, Librarian — jede Persona bringt ihr eigenes Modell und Werkzeug für das Stück mit, für das sie gebaut ist. Der Requirements Engineer greift nur ein, wenn der Umfang mehrdeutig ist.",
-        "control": "Modellzuordnung je Rolle"
+        "title": "Der richtige Spezialist für jeden Schritt",
+        "body": "Codebase-Analyst, Architekt, Planer, Coding-Agent, Tester, Docs-Writer, Refactorer, Verifizierer und weitere — jede Rolle bringt ihre eigenen Anweisungen und die ihr gewährten Werkzeuge mit.",
+        "control": "welches Modell welchen Slot belegt"
       },
       "run": {
-        "title": "Parallel, wo es geht — begrenzt, wo es muss",
-        "body": "Unabhängige Stücke laufen nebeneinander, abhängige warten auf ihren Einsatz. Grenzen für Tiefe, Verzweigung und Iterationen sowie ein Circuit Breaker gegen entlaufene Schleifen halten jeden Lauf im Griff.",
-        "control": "Werkzeugaufrufe freigeben, abbrechen"
+        "title": "Parallel, wo es geht — nachgefragt, wo es muss",
+        "body": "Unabhängige Schritte laufen nebeneinander. Jeder Werkzeugaufruf trifft zuerst auf die Berechtigungsprüfung; was der Modus erfragt, wartet auf deine Antwort.",
+        "control": "Freigaben, Lenken, Pause, Abbruch"
       },
       "verify": {
-        "title": "Eine Stufe, die sich nicht einwickeln lässt",
-        "body": "Jede codeändernde Iteration lässt die eigenen Prüfungen deines Repositories laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit. Danach bewertet ein schreibgeschützter Verifizierer das Ergebnis gegen deinen ursprünglichen Auftrag, gestützt auf die Belege, die diese Prüfungen erzeugt haben.",
-        "control": "nichts — die Stufe läuft von selbst"
+        "title": "Geprüft, bevor es weitergeht",
+        "body": "Jede Iteration, die den Arbeitsbaum geändert hat, wird mit deterministischen Prüfungen verifiziert und mit einem Checkpoint abgeschlossen. Gescheiterte Arbeit wird mit den Belegen erneut eingereiht.",
+        "control": "eine Prüfung überspringen, wenn es sein muss"
       },
-      "accept": {
-        "title": "Deine Unterschrift, ganz am Ende",
-        "body": "Die Abschlussübersicht zeigt, was lief, was bestand und was noch offen ist. Lies die Belege, dann nimm an — oder gib es zurück.",
-        "control": "die letzte Abnahme"
+      "review": {
+        "title": "Das letzte Wort hast du",
+        "body": "Der Lauf endet mit einem Stoppgrund und einem Status. Lies den Diff in der Git-Ansicht, behalte das Ergebnis — oder stelle einen beliebigen Checkpoint wieder her und versuche es erneut.",
+        "control": "was in deinem Arbeitsbaum bleibt"
       }
     }
   },
   "views": {
     "kicker": "Die Oberfläche",
-    "title": "Sechs Ansichten. Ein Arbeitsbereich.",
-    "lede": "Alles, was der Harness weiß — Sitzungen, Agenten, Anforderungen, Worktrees, Artefakte, Konfiguration — hat einen sichtbaren Ort.",
+    "title": "Sechs Ansichten. Eine Sitzung im Blick.",
+    "lede": "Die Sitzung, an der du arbeitest, verlässt nie den Bildschirm. Um sie herum hat alles, was Rotaris weiß — Agenten, Anforderungen, Worktrees, Artefakte, Konfiguration — einen sichtbaren Ort, und jede Ansicht und jede häufige Aktion hat ein Tastenkürzel.",
     "cards": {
-      "overview": {
-        "title": "Übersicht",
-        "body": "Sitzungen, Anbieterlimits, Token-Verbrauch und alles, was gerade läuft — auf einen Blick."
-      },
       "workspace": {
         "title": "Arbeitsbereich",
-        "body": "Das laufende Transkript, der Delegationsbaum und der Inspektor — hier sprichst du mit dem Orchestrator."
+        "body": "Das Live-Transkript aus Nachrichten, Reasoning, gruppierten Werkzeugaufrufen und Diffs; das Eingabefeld mit Slash-Befehlen und Bildanhängen; und der Inspektor für den Agenten, dem du folgst."
       },
-      "mission": {
-        "title": "Auftrag",
-        "body": "Die vollständige Aufgabenhierarchie: Abhängigkeiten, Modelle je Agent, Anzahl der Werkzeugaufrufe, verstrichene Zeit und Status."
+      "overview": {
+        "title": "Übersicht",
+        "body": "Der Delegationsbaum, was jeder Agent gerade tut und was er gekostet hat, Kontextverbrauch je Agent, Anbieterstatus und die Sitzungen des Arbeitsbereichs."
       },
       "requirements": {
         "title": "Anforderungen",
-        "body": "Ein Kanban-Board über die Auslieferungszustände mit einer Blockade-Leiste, nur-anzeigender Filterung sowie Detail-, Evidenz- und Graph-Fenstern. Es rendert die Projektion der Engine — alles Angezeigte trägt die Projektion mit."
+        "body": "Die Anforderungen deines Projekts als Karten mit dem Zustand der Belege dahinter. Ein Agent untersucht das Repository und schlägt ihre Form vor, und das Board startet die Läufe, die sie umsetzen."
       },
       "git": {
         "title": "Git",
-        "body": "Worktrees, Branch-Kontext, geänderte Dateien, Diffs und lokale Commits der Agenten — prüfbar, bevor irgendetwas den Rechner verlässt."
+        "body": "Sitzungs-Worktrees, geänderte Dateien und Diffs sowie der Checkpoint nach jeder Iteration — jeder davon wiederherstellbar."
       },
       "library": {
         "title": "Bibliothek",
-        "body": "Die Prompt-Ablage, Sitzungsartefakte und Verbesserungsvorschläge — das dauerhafte Wissen, das ein Auftrag erzeugt und verbraucht."
+        "body": "Die Artefakte, die Agenten veröffentlichen, deine gespeicherten Prompts und Verbesserungsvorschläge aus der Nachanalyse — geprüft und dann von einem Lauf mit Checkpoint angewendet."
+      },
+      "settings": {
+        "title": "Einstellungen",
+        "body": "Anbieter und Modell-Slots, der Berechtigungsmodus und seine Regeln, Werkzeuge, MCP-Server, Hooks und drei eingebaute Themes — darunter geschichtetes YAML, hier bearbeitet."
       }
     },
     "stats": {
+      "transcript": "Transkript",
+      "composer": "Eingabefeld",
+      "inspector": "Inspektor",
       "live": "3 aktiv",
       "tokens": "612k Tok",
-      "premium": "412/1.500 Premium",
-      "transcript": "Transkript",
-      "agentTree": "Agentenbaum",
-      "inspector": "Inspektor",
-      "tasks": "9 Aufgaben",
-      "blocked": "2 blockiert",
-      "depth": "Tiefe ≤ 3",
-      "worktrees": "3 Worktrees",
-      "ahead": "↑4",
-      "diff": "+214 −96",
+      "toolCalls": "184 Werkzeugaufrufe",
       "requirements": "6 Anforderungen",
       "coverage": "5 / 6 abgedeckt",
-      "evidence": "Evidenz-Ring",
+      "evidence": "Belegzustand",
+      "worktrees": "2 Worktrees",
+      "checkpoints": "7 Checkpoints",
+      "diff": "+214 −96",
+      "artifacts": "11 Artefakte",
       "prompts": "Prompt-Ablage",
-      "improvements": "3 Verbesserungen",
-      "artifacts": "11 Artefakte"
+      "improvements": "3 Vorschläge",
+      "slots": "5 Modell-Slots",
+      "mode": "Modus: ask",
+      "mcp": "2 MCP-Server"
     }
   },
   "orchestration": {
     "kicker": "Orchestrierung",
-    "title": "Ein ruhiges Zentrum. Spezialisten in Bewegung.",
-    "lede": "Dein Orchestrator plant und delegiert Arbeit an spezialisierte Agenten. Unabhängige Aufgaben laufen parallel, abhängige warten, und jedes Kind meldet strukturiert zurück, sodass der Orchestrator damit arbeiten kann.",
+    "title": "Ein stabiles Zentrum. Spezialisten in Bewegung.",
+    "lede": "Der Orchestrator plant und delegiert; 13 eingebaute Rollen erledigen die Arbeit. Jeder Unteragent bekommt einen Ausschnitt, arbeitet mit den Werkzeugen, die seine Rolle gewährt, und liefert einen Bericht, mit dem der Koordinator weiterarbeiten kann.",
     "points": {
       "parallelism": {
-        "lead": "Parallelität mit Blick auf Abhängigkeiten.",
-        "body": "Verzweigung, wo Aufgaben unabhängig sind, strikte Reihenfolge, wo sie voneinander abhängen."
+        "lead": "Parallel, wo die Arbeit unabhängig ist.",
+        "body": "Der Koordinator delegiert nebeneinander und wartet nur, wenn er ein Ergebnis braucht."
       },
       "coordinatorOnly": {
-        "lead": "Der Orchestrator bleibt ein Koordinator.",
-        "body": "Seine Schreibwerkzeuge sind standardmäßig entzogen; er plant und delegiert und greift nur bei wirklich trivialen Änderungen selbst ein."
+        "lead": "Der Orchestrator bleibt Koordinator.",
+        "body": "Solange er koordiniert, ändert er keine Dateien und führt keine Befehle aus; jeder Arbeitsschritt geht an einen Spezialisten."
       },
       "bounded": {
-        "lead": "Begrenzte Autonomie.",
-        "body": "Grenzen für Iterationen, Tiefe und Verzweigung sowie ein Circuit Breaker, der entlaufene Schleifen einfängt, begrenzen jeden Lauf."
+        "lead": "Begrenzt von Grund auf.",
+        "body": "Limits, Zeitüberschreitungen und ein verborgener Schleifenwächter sorgen dafür, dass kein Lauf mit hängender Arbeit oder hängenden Unteragenten endet."
       },
       "reports": {
-        "lead": "Strukturierte Berichte.",
-        "body": "Jeder Agent liefert Befunde, Änderungen und Belege in einem strukturierten Bericht."
+        "lead": "Berichte statt Hörensagen.",
+        "body": "Jeder Unteragent endet mit einem maschinenlesbaren Bericht als Artefakt, der seine letzte Antwort trägt."
       },
       "cancellation": {
-        "lead": "Abbrüche wirken nach unten.",
-        "body": "Stoppst du ein Elternteil, stoppt jeder Nachfahre sauber mit."
+        "lead": "Abbrüche setzen sich fort.",
+        "body": "Stoppst du einen übergeordneten Agenten, stoppen alle untergeordneten mit ihm — sauber."
       },
       "improvement": {
         "lead": "Jeder Lauf lehrt den nächsten.",
-        "body": "Nach einem Lauf schlägt ein Improvement Collector Korrekturen und Verbesserungen vor; wiederkehrende lokale Eigenheiten werden zum Persona-Gedächtnis des Arbeitsbereichs."
+        "body": "Eine Nachanalyse legt Verbesserungsvorschläge in der Bibliothek ab; du prüfst sie, und ein Lauf mit Checkpoint wendet die angenommenen an."
       }
     },
     "diagram": {
-      "alt": "Radiales Diagramm: der Orchestrator im Zentrum — dargestellt als kleines Netz, das die Delegationsintensität je Agent aufspannt — delegiert an sieben spezialisierte Agenten, die gleichmäßig im Ring angeordnet und je nach Status eingefärbt sind: erledigt, laufend oder wartend",
-      "center": "orchestrator",
+      "alt": "Radiales Diagramm: der Orchestrator in der Mitte — dargestellt als kleines Netz, das die Delegationsintensität je Agent aufspannt — delegiert an sieben Spezialistenagenten in einem gleichmäßigen Ring, jeweils nach Zustand eingefärbt: erledigt, läuft oder wartet",
+      "center": "Orchestrator",
       "centerSub": "plant · delegiert",
       "legend": {
-        "wait": "wartend",
-        "run": "laufend",
+        "wait": "wartet",
+        "run": "läuft",
         "done": "erledigt"
       }
     }
   },
   "verification": {
     "kicker": "Anforderungen & Verifikation",
-    "title": "Jede Änderung, nachvollzogen und geprüft",
-    "lede": "Anforderungen sind Dateien in deinem Repository mit einem Status — Entwurf, freigegeben, veraltet. Code verknüpft sich mit @traces, Tests mit @verifies, und eine Prüfung lässt den Build bei verwaistem Code oder abweichender Spezifikation fehlschlagen.",
+    "title": "Jede Änderung geprüft und nachverfolgt",
+    "lede": "Deine Anforderungen bleiben versionierte Dokumente in deinem eigenen Repository. Rotaris kompiliert sie zu Symbolen, auf die dein Code und deine Tests verweisen, und prüft, dass jede freigegebene Anforderung umgesetzt und abgedeckt ist — und dass nichts auseinandergelaufen ist.",
     "chain": {
       "requirement": "Anforderung",
-      "requirementBody": "Session-Handler müssen unter Last nicht blockierend arbeiten.",
-      "task": "Aufgabe",
+      "requirementBody": "Session-Handler dürfen unter Last nicht blockieren.",
+      "task": "Todo-Punkt",
       "taskBody": "Session-Handler auf async umstellen · coding-agent-1",
       "change": "Codeänderung",
       "test": "Test",
       "testBody": "38 bestanden · 0 fehlgeschlagen",
-      "verification": "Stufe",
+      "verification": "Prüfung",
       "verified": "verifiziert",
-      "verificationBody": "Prüfungen grün · Verifizierer: PASS"
+      "verificationBody": "Deterministische Prüfungen grün · Checkpoint gesetzt"
     },
     "gate": {
-      "title": "Fertig folgt den Prüfungen",
-      "body": "Eine Aufgabe gilt erst als fertig, wenn ihre Prüfungen gelaufen sind und der Prüfer sie bewertet hat. Jede codeändernde Iteration lässt deine eigenen Prüfungen laufen — Lint, Typprüfung, Tests, Nachvollziehbarkeit — und eine blockierende Prüfung, die fehlschlägt oder nie lief, blockiert den Abschluss. Danach bewertet ein schreibgeschützter Verifizierer, was die Prüfungen nicht sehen: Beantwortet die Arbeit deinen Auftrag? Stimmt die Todo-Liste mit dem Code auf der Platte überein? Hat sich etwas eingeschlichen?",
-      "traceability": "ReqToCode erzwingt die Verknüpfungen Anforderung→Code und Anforderung→Test, indem es den Anforderungsbestand kompiliert und den Build bei verwaistem Code oder abweichender Spezifikation fehlschlagen lässt — die Spur überlebt den Lauf."
+      "title": "Geprüft, bevor der Lauf weitergeht",
+      "body": "Jede Iteration, die den Arbeitsbaum geändert hat, wird mit deterministischen Prüfungen verifiziert, bevor der Lauf entscheidet, was als Nächstes kommt. Gescheiterte Arbeit wird mit den Belegen erneut eingereiht oder mit Begründung aufgegeben — nie stillschweigend als erledigt markiert. Eine Verifizierer-Rolle kann das Ergebnis gegen deinen ursprünglichen Auftrag bewerten.",
+      "traceability": "Das Anforderungs-Board liest dieselben Daten: Ein Agent untersucht dein Repository und schlägt vor, wie seine Anforderungen aufgebaut sind, berücksichtigt vorhandene Akzeptanzkriterien und Statusfelder und startet die Läufe, die sie umsetzen. Durch bloßes Ansehen des Boards wird nichts geschrieben."
     },
     "summary": {
-      "head": "Auftrag abgeschlossen",
+      "head": "Lauf abgeschlossen",
       "verified": "verifiziert",
-      "tasks": "Aufgaben",
+      "tasks": "Todo-Punkte",
       "tasksValue": "7 / 7 erledigt",
       "filesChanged": "Geänderte Dateien",
       "tests": "Tests",
@@ -240,205 +232,215 @@
       "testsFailed": "0 fehlgeschlagen",
       "requirements": "Anforderungen",
       "requirementsValue": "6 / 6 abgedeckt",
-      "git": "Git",
-      "gitValue": "4 Commits · rotaris/auth-refactor",
+      "checkpoint": "Checkpoint",
+      "checkpointValue": "Iteration 7 · wiederherstellbar",
       "warnings": "Warnungen",
-      "warningsValue": "1 offen",
-      "accept": "Ergebnis annehmen",
-      "reviewDiff": "Diff prüfen",
-      "viewEvidence": "Belege ansehen"
+      "warningsValue": "1 ungelöst",
+      "review": "Diff prüfen",
+      "restore": "Checkpoint wiederherstellen",
+      "report": "Bericht ansehen"
     }
   },
   "band": {
-    "lead": "Kostenlos und MIT-lizenziert.",
-    "note": "Kein Konto nötig — herunterladen und auf ein Repository richten."
+    "lead": "Kostenlos und Open Source unter GPL-3.0-only.",
+    "note": "Kein Konto nötig — herunterladen, Projektordner öffnen, eigenes Modell mitbringen."
   },
   "control": {
-    "kicker": "Kontrolle & Einblick",
+    "kicker": "Kontrolle & Beobachtbarkeit",
     "title": "Beaufsichtigte Autonomie, vollständig einsehbar",
-    "lede": "Status, Werkzeuge, verstrichene Zeit, Kontextfenster und Modellzuordnung jedes Agenten bleiben während des Laufs sichtbar — und für jede folgenreiche Aktion gibt es einen menschlichen Hebel.",
+    "lede": "Zustand, Werkzeug, verstrichene Zeit, Kontextfenster und Modell jedes Agenten bleiben sichtbar, solange der Lauf aktiv ist — und jede Steuerung wirkt mit angegebenem Zeitpunkt oder sagt dir, warum sie es nicht kann.",
     "activeNow": "Gerade aktiv",
-    "tableLabel": "Aktuell aktive Agenten",
+    "tableLabel": "Gerade aktive Agenten",
     "table": {
       "agent": "Agent",
       "tool": "Werkzeug",
       "detail": "Detail",
-      "elapsed": "Laufzeit"
+      "elapsed": "Verstrichen"
     },
     "details": {
       "orchestrator": "wartet auf coding-agent-1, tester",
-      "coder": "src/api/session.py · 4 Anker geprüft",
-      "tester": "pytest tests/unit -x -q · 38s",
-      "blocked": "blockiert · depends_on: coding-agent-1"
+      "coder": "src/api/session.ts · verankerte Bearbeitung",
+      "tester": "pnpm vitest run src/api · 38 s",
+      "blocked": "wartet auf Freigabe · pnpm add undici"
     },
-    "metersNote": "Kontextfenster · werden ab 80 % automatisch komprimiert",
+    "metersNote": "Kontextfenster · werden ab 60 % automatisch komprimiert, oder auf Wunsch",
     "human": {
       "kicker": "Menschliche Kontrolle",
-      "body": "Halte einen Lauf an, steuere einen Agenten mitten in der Aufgabe, ändere sein Modell oder seine Reasoning-Stärke, oder brich ab — der Abbruch wirkt bis zum letzten Nachfahren.",
-      "pause": "Lauf anhalten",
-      "steer": "Agent steuern",
+      "body": "Einen Agenten mitten in der Aufgabe lenken, eine Folgeanweisung einreihen, die Todo-Liste bearbeiten, Modell, Reasoning-Stufe oder Berechtigungsmodus wechseln, eine Kontextkomprimierung erzwingen, pausieren oder abbrechen — ein Abbruch setzt sich auf alle untergeordneten Agenten fort.",
+      "pause": "Lauf pausieren",
+      "steer": "Agent lenken",
+      "queue": "Folgeanweisung einreihen",
+      "todos": "Todos bearbeiten",
       "changeModel": "Modell wechseln",
       "cancel": "Lauf abbrechen"
     },
     "failure": {
       "kicker": "Wenn etwas fehlschlägt",
       "tag": "fehlgeschlagen",
-      "meta": "— tester · pytest Exit 1",
-      "body": "Fehler erscheinen als sichtbare Zustände, und der Orchestrator delegiert die Behebung erneut, mit den Belegen des Fehlschlags im Gepäck. Du kannst an jedem Schritt hineinsehen oder eingreifen.",
+      "meta": "— tester · vitest Exit 1",
+      "body": "Fehler erscheinen als sichtbare Zustände. Der Lauf reiht den Punkt mit den fehlschlagenden Belegen erneut ein, und Hinweise sagen, was schiefging und wie es weitergeht.",
       "rerunning": "läuft erneut"
     }
   },
   "models": {
     "kicker": "Modelle & Anbieter",
-    "title": "Das passende Modell für jede Rolle",
-    "lede": "Weise jeder Persona ein eigenes Modell zu, nach Fähigkeit, Kosten und Verfügbarkeit. Lege Vorgaben beim Start fest, übersteuere sie je Lauf, und weiche automatisch aus, wenn ein Anbieter nicht erreichbar ist.",
-    "routing": "Zuordnung je Persona",
-    "tableLabel": "Modellzuordnung je Persona",
+    "title": "Deine Modelle, deine Schlüssel",
+    "lede": "Einmal anmelden, und Rotaris erkennt, was ein Anbieter bietet, und belegt seine Modell-Slots — groß, mittel, klein, Zusammenfassung und Fallback — automatisch. Jeder Slot lässt sich ändern, und Modell und Reasoning-Stufe eines laufenden Laufs wechselst du ohne Neustart.",
+    "routing": "Modell-Slots",
+    "tableLabel": "Zugewiesenes Modell je Slot",
     "table": {
-      "persona": "Persona",
+      "slot": "Slot",
       "model": "Modell",
       "reasoning": "Reasoning"
     },
     "reasoningHigh": "hoch",
     "reasoningMedium": "mittel",
-    "overrides": "Übersteuerungen gelten je Instanz und greifen ab der nächsten Iteration.",
+    "overrides": "Die Reasoning-Stufen richten sich danach, was das gewählte Modell tatsächlich unterstützt.",
     "providers": "Anbieter",
     "providerMeta": {
+      "cloud": "angemeldet · empfohlen",
+      "claudeCode": "dein Abo · CLI erkannt",
       "copilot": "412 / 1.500 Premium-Anfragen",
-      "anthropic": "verbunden · 6 Modelle",
-      "openai": "63 % des Wochenlimits",
+      "codex": "63 % des Wochenlimits",
+      "local": "127.0.0.1:8001 · 3 Modelle",
       "deepseek": "Anmeldung abgelaufen"
     },
-    "reauthenticate": "Neu anmelden",
-    "note": "OAuth- und API-Key-Anbieter, lokale Modelle und jeder OpenAI-kompatible Endpunkt. Limits deines Abos siehst du, bevor du sie erreichst."
+    "reauthenticate": "Erneut anmelden",
+    "note": "Rotaris Cloud, GitHub Copilot, OpenAI Codex, dein Claude-Abo über Claude Code, DeepSeek und jeder OpenAI-kompatible Endpunkt — auch Modelle auf deinem eigenen Rechner. Kontingent und Guthaben bleiben sichtbar, bevor du an ein Limit stößt."
   },
   "security": {
     "kicker": "Sicherheit",
-    "title": "Agenten arbeiten innerhalb des Zauns",
-    "lede": "Jede Fähigkeit eines Agenten ist eingegrenzt, protokolliert und widerrufbar. Unsichere Ausnahmen sind ausdrücklich, und nur du kannst sie gewähren.",
+    "title": "Nichts läuft ungefragt",
+    "lede": "Ein Agent, den man in einem Repository allein lässt, kann einen ungewollten Befehl ausführen oder außerhalb des Projekts schreiben. Für jedes davon gibt es hier einen Mechanismus — und der Modus, den du wählst, ist der Modus, den der Lauf bekommt, nie stillschweigend herabgestuft.",
     "boundaries": {
-      "files": {
-        "title": "Dateizugriff nur im Arbeitsbereich",
-        "body": "Agenten lesen und schreiben ausschließlich innerhalb des gewählten Arbeitsbereichs, mit Schutz gegen Path Traversal."
+      "gate": {
+        "title": "Eine Berechtigungsprüfung",
+        "body": "Jeder Werkzeugaufruf wird vor der Ausführung zu Erlauben, Fragen oder Verweigern aufgelöst. Drei Modi — restricted, ask, autonomous — plus Startregeln, die rekursives Löschen, Rechteausweitung, Force-Pushes und das Veröffentlichen von Paketen verweigern."
       },
-      "shell": {
-        "title": "Kontrollierte Shell-Ausführung",
-        "body": "Shell-Befehle laufen unter der Richtlinie des Arbeitsbereichs; folgenreiche Aktionen können eine Freigabe verlangen."
+      "files": {
+        "title": "Pfadgrenze am Arbeitsbereich",
+        "body": "Dateiwerkzeuge sind auf den Arbeitsbereich begrenzt; ein Pfad außerhalb schlägt fehl, statt gelesen oder geschrieben zu werden."
+      },
+      "network": {
+        "title": "Netzwerkzugriff und Isolation",
+        "body": "Eine Egress-Richtlinie je Host für Abrufe und optional die Isolation von Terminalbefehlen auf Betriebssystemebene über bubblewrap unter Linux."
+      },
+      "hooks": {
+        "title": "Hooks bleiben inaktiv bis zur Freigabe",
+        "body": "Lifecycle-Hooks, die ein Repository mitbringt, tun nichts, bis du sie geprüft und freigegeben hast."
       },
       "secrets": {
-        "title": "Geheimnisse werden geschwärzt",
-        "body": "Bekannte Geheimnisse werden aus Transkripten, Berichten und allem geschwärzt, was an einen Anbieter geht."
-      },
-      "tokens": {
-        "title": "Abgeschottete Token-Ablage",
-        "body": "Zugangsdaten der Anbieter bleiben auf deinem Rechner unter ~/.local/share/rotaris/tokens/, in Dateien, die nur dein eigenes Benutzerkonto lesen kann (Modus 0600)."
-      },
-      "loops": {
-        "title": "Schleifenschutz",
-        "body": "Iterationsgrenzen und Circuit Breaking stoppen entlaufene Agenten, bevor sie Token verbrennen."
+        "title": "Protokolliert, Geheimnisse geschwärzt",
+        "body": "Jede Berechtigungsentscheidung landet im Prüfprotokoll der Sitzung, bekannte Geheimnisse geschwärzt. Anbieter-Zugangsdaten bleiben in lokalen Dateien, die nur dein Benutzerkonto lesen kann."
       },
       "cancel": {
-        "title": "Abbrechen, jederzeit",
-        "body": "Jeder Lauf, jeder Agent, jederzeit — der Abbruch wirkt durch den gesamten Delegationsbaum."
+        "title": "Abbruch, immer",
+        "body": "Jeder Lauf, jeder Agent, jederzeit — ein Abbruch setzt sich durch den ganzen Delegationsbaum fort."
       }
     },
     "where": {
       "kicker": "Was wo läuft",
-      "local": "Die Rotaris-Anwendung und die Orchestrierung laufen vollständig auf deinem Rechner. Dein Repository wird nie hochgeladen.",
-      "providers": "Nur die Prompts und der Codekontext, die eine Aufgabe braucht, gehen an die von dir eingerichteten Modellanbieter. Mit lokalen Modellen verlässt nichts den Rechner.",
-      "telemetry": "Keine Telemetrie und keine Nutzungsstatistiken. Sitzungen, Logs, der Antwort-Cache und die Git-Worktrees liegen in <0>.rotaris/</0> in deinem Arbeitsbereich, die Konfiguration in <1>~/.config/rotaris/</1>. Nichts davon erreicht uns.",
-      "update": "Die einzige Verbindung, die Rotaris von sich aus öffnet, ist die Update-Prüfung beim Start gegen GitHub. Dabei erfährt GitHub deine IP-Adresse und Angaben zum Client. Installationen aus dem Quellcode prüfen nie, und ein Update wird nur eingespielt, wenn der Download der veröffentlichten SHA-256-Prüfsumme entspricht."
+      "local": "Die Anwendung und jeder Lauf werden auf deinem Rechner ausgeführt. Dein Repository wird nie hochgeladen.",
+      "providers": "Nur die Prompts und der Codekontext, die eine Aufgabe braucht, gehen an den Modellanbieter, den du wählst — darunter Rotaris Cloud, wenn du dich dafür entscheidest. Mit einem lokalen Modell verlässt nichts den Rechner.",
+      "telemetry": "Keine Telemetrie und keine Nutzungsstatistiken. Sitzungen und Prüfprotokoll bleiben in einem lokalen Speicher, die Konfiguration des Arbeitsbereichs in <0>.rotaris/</0> in deinem Projekt, die globale Konfiguration in <1>~/.config/rotaris/</1>.",
+      "update": "Die einzige Verbindung, die Rotaris von sich aus aufbaut, ist die Update-Prüfung gegen das neueste Release auf GitHub; dabei erfährt GitHub deine IP-Adresse und Client-Angaben. Ein Update wird erst heruntergeladen, nachdem das signierte Prüfsummen-Manifest verifiziert wurde."
     },
-    "permissionsLink": "Berechtigungen, Werkzeuge und Datenflüsse in der Dokumentation",
+    "permissionsLink": "Berechtigungen, Modi und Regeln in der Dokumentation",
     "reportLink": "Sicherheitslücke melden"
   },
   "git": {
-    "kicker": "Git-Workflow",
-    "title": "Getrennte Worktrees, prüfbare Commits",
-    "lede": "Jede Sitzung arbeitet in einem eigenen Git-Worktree, sodass parallele Aufträge einander nie in die Quere kommen. Agenten committen lokal mit ausgewiesener Autorenschaft — du prüfst die Diffs und entscheidest, was den Rechner verlässt.",
+    "kicker": "Git & Checkpoints",
+    "title": "Nach jeder Iteration ein Weg zurück",
+    "lede": "Eine Sitzung kann in einem eigenen Git-Worktree arbeiten, damit sich parallele Sitzungen nie in die Quere kommen. Nach jeder Iteration, die den Arbeitsbaum geändert hat, setzt Rotaris einen Checkpoint — und jeden davon kannst du in der Git-Ansicht wiederherstellen.",
     "tags": {
+      "worktrees": "Sitzungs-Worktrees",
+      "checkpoints": "Checkpoints",
+      "restore": "Wiederherstellen",
       "changedFiles": "geänderte Dateien",
-      "branchContext": "Branch-Kontext",
-      "localCommits": "lokale Commits",
       "diffReview": "Diff-Prüfung",
-      "worktrees": "Worktrees",
+      "merge": "Zurückführen · geplant",
       "pullRequests": "Pull Requests · geplant"
     },
     "worktrees": "Worktrees",
     "worktreeMeta": {
-      "dirty": "rotaris/auth-refactor ↑4 · 3 geändert",
-      "docs": "rotaris/docs-pass ↑1 ↓2",
+      "dirty": "rotaris/auth-refactor · 3 geändert",
+      "docs": "rotaris/docs-pass · pausiert",
       "clean": "rotaris/config-v2 · sauber"
     },
-    "recentCommits": "Letzte Commits",
+    "checkpoints": "Checkpoints",
     "commits": {
       "async": "Session-Handler auf async umstellen",
-      "blockingIo": "Blockierendes IO in asyncio.to_thread kapseln",
+      "blockingIo": "Blockierende Lesezugriffe nach fs/promises verlagern",
       "fixtures": "Async-Fixtures zum Test-Harness hinzufügen",
       "interface": "Async-Schnittstelle für die Session-API entwerfen"
     },
-    "authorYou": "du"
+    "filesChanged_one": "{{count}} Datei",
+    "filesChanged_other": "{{count}} Dateien"
   },
   "openSource": {
     "kicker": "Open Source",
     "title": "Offen entwickelt",
-    "lede": "MIT-lizenziert, von der CI aus getaggten Commits gebaut, mit Prüfsummen veröffentlicht. Jede Aussage auf dieser Seite lässt sich im Code nachlesen.",
+    "lede": "Unter GPL-3.0-only veröffentlicht, per CI aus getaggten Commits gebaut und mit Prüfsummen und SBOM ausgeliefert. Der Quellcode bleibt offen, und weitergegebene Änderungen müssen unter denselben Copyleft-Bedingungen verfügbar bleiben.",
     "kpis": {
       "license": "Lizenz",
       "latestRelease": "neuestes Release",
       "platforms": "Plattformen · macOS folgt",
-      "checksums": "Prüfsummen je Artefakt",
-      "repo": "Repo"
+      "checksums": "Prüfsummen, signiertes Manifest",
+      "repo": "Repository"
     },
-    "note": "Alle Releases werden von der CI aus getaggten Commits gebaut und über GitHub Releases veröffentlicht. Frühere Versionen bleiben verfügbar, für Rollback und Reproduzierbarkeit."
+    "note": "Jedes Release wird per CI aus einem getaggten Commit gebaut und mit einer CycloneDX-SBOM je Plattform auf GitHub Releases veröffentlicht. Frühere Versionen bleiben verfügbar."
   },
   "faq": {
-    "kicker": "Häufige Fragen",
+    "kicker": "FAQ",
     "title": "Fragen, klar beantwortet",
     "items": {
       "what": {
         "q": "Was ist Rotaris?",
-        "a": "Eine Desktop-Anwendung, um ein Team spezialisierter Coding-Agenten zu betreiben und zu beaufsichtigen — ein Orchestrierungs-Harness mit Steuerungsebene, bei dem ein Koordinator plant und ein Team von Spezialisten die Arbeit übernimmt."
+        "a": "Eine Desktop-Anwendung, die eine Programmieraufgabe in deinem Projekt mit einem Team von KI-Agenten bis zum Ergebnis trägt: ein Koordinator, der plant und delegiert, und Spezialisten, die die Arbeit erledigen — alles sichtbar, durch Berechtigungen abgesichert und protokolliert."
       },
-      "python": {
-        "q": "Braucht Rotaris Python?",
-        "a": "Nein. Die Desktop-Anwendung kommt als eigenständiger Build mit gebündelter Laufzeitumgebung. Python wird nur für die optionale CLI-Installation unter „Erweiterte Installation“ benötigt."
+      "status": {
+        "q": "Ist Rotaris einsatzbereit?",
+        "a": "Rotaris ist Vorabversion. Die aktuellen Builds sind Release Candidates für Windows x64 und Linux x86_64 und aktualisieren sich selbst über GitHub. Rechne mit Ecken und Kanten und melde sie auf GitHub."
       },
       "code": {
         "q": "Verlässt mein Code meinen Rechner?",
-        "a": "Anwendung und Engine laufen lokal, und dein Repository wird nie hochgeladen. An die von dir eingerichteten Modellanbieter gehen die Prompts und der Codekontext, den eine Aufgabe braucht — mit lokalen Modellen verlässt nichts den Rechner. Die einzige Verbindung, die Rotaris von sich aus aufbaut, ist die Update-Prüfung beim Start gegen GitHub."
+        "a": "Die Anwendung und ihre Läufe werden lokal ausgeführt, dein Repository wird nie hochgeladen. Die Prompts und der Codekontext, die eine Aufgabe braucht, gehen an den Modellanbieter, den du wählst — mit einem lokalen Modell verlässt nichts den Rechner. Die einzige Verbindung, die Rotaris von sich aus aufbaut, ist die Update-Prüfung gegen GitHub."
       },
       "providers": {
         "q": "Welche Modellanbieter kann ich nutzen?",
-        "a": "OAuth-Anbieter wie GitHub Copilot, API-Key-Anbieter wie Anthropic und OpenAI, lokale Modelle und jeden OpenAI-kompatiblen Endpunkt. Jede Persona kann ein anderes Modell verwenden."
+        "a": "Rotaris Cloud, GitHub Copilot, OpenAI Codex, DeepSeek, dein Claude-Abo über Claude Code und jeden OpenAI-kompatiblen Endpunkt, auch lokale Modelle. Rotaris erkennt die Modelle jedes Anbieters und belegt die Modell-Slots für dich."
       },
-      "concurrency": {
-        "q": "Können mehrere Agenten gleichzeitig arbeiten?",
-        "a": "Ja. Unabhängige Aufgaben laufen parallel, abhängige warten auf ihre Voraussetzungen. Grenzen für Verzweigung, Tiefe und Iterationen halten die Gleichzeitigkeit im Rahmen."
+      "subscription": {
+        "q": "Kann ich mein bestehendes Claude- oder Copilot-Abo nutzen?",
+        "a": "Ja. Ein Claude-Abo wird über das Claude-Code-Werkzeug genutzt, das du installiert und angemeldet hast — Rotaris erkennt es und fasst deine Claude-Zugangsdaten nie an. GitHub Copilot und OpenAI Codex melden sich über ihren eigenen Browser- oder Gerätecode-Ablauf an."
       },
-      "finished": {
-        "q": "Woran erkennt Rotaris, dass eine Aufgabe fertig ist?",
-        "a": "Ein Verifizierer prüft die fertige Arbeit gegen die Anforderungen und Tests des Auftrags, bevor die Aufgabe als erledigt gilt. Du siehst dir die Abschlussübersicht an und nimmst das Ergebnis an."
+      "permissions": {
+        "q": "Kann ein Agent einfach alles ausführen?",
+        "a": "Nein. Jeder Werkzeugaufruf passiert vor der Ausführung eine Berechtigungsprüfung — Erlauben, Fragen oder Verweigern — und jede Entscheidung wird protokolliert. Du wählst den Modus: restricted, ask (Standard) oder autonomous. Selbst autonomous behält die Verbotsregeln für rekursives Löschen, Rechteausweitung, Force-Pushes und das Veröffentlichen von Paketen."
+      },
+      "undo": {
+        "q": "Was, wenn ein Lauf Chaos anrichtet?",
+        "a": "Rotaris setzt nach jeder Iteration, die deinen Arbeitsbaum geändert hat, einen Checkpoint. Jeden davon stellst du in der Git-Ansicht wieder her. Sitzungen können außerdem in einem eigenen Worktree arbeiten, getrennt von deiner Arbeitskopie."
       },
       "cancel": {
-        "q": "Kann ich einen Lauf anhalten oder abbrechen?",
-        "a": "Jederzeit. Der Abbruch wirkt durch den Delegationsbaum: Hältst du ein Elternteil an, stoppen alle Nachfahren sauber mit."
+        "q": "Kann ich einen Lauf pausieren oder abbrechen?",
+        "a": "Jederzeit. Ein Abbruch setzt sich durch den Delegationsbaum fort, sodass das Stoppen eines übergeordneten Agenten alle untergeordneten sauber mitstoppt. Du kannst auch einen Agenten lenken, die Todo-Liste bearbeiten oder das Modell wechseln, ohne neu zu starten."
       },
       "cli": {
-        "q": "Gibt es eine Version für die Kommandozeile?",
-        "a": "Ja — eine Terminaloberfläche für den Betrieb ohne Fenster und in Skripten, installierbar über pip. Das Hauptprodukt ist die Desktop-Anwendung."
+        "q": "Gibt es eine Kommandozeilenversion?",
+        "a": "Nein. Rotaris ist ausschließlich eine grafische Desktop-Anwendung, gebaut für den Einsatz neben Editor und Terminal. Jede Ansicht und jede häufige Aktion hat ein Tastenkürzel, und das Eingabefeld versteht Slash-Befehle."
       },
       "security": {
         "q": "Wie melde ich ein Sicherheitsproblem?",
-        "a": "Über die Sicherheitsrichtlinie des Repositories auf GitHub — im Abschnitt Sicherheit stehen das Offenlegungsverfahren und was du an Reaktion erwarten kannst."
+        "a": "Über die Sicherheitsrichtlinie des Repositorys auf GitHub — im Abschnitt Sicherheit findest du den Meldeprozess und die zu erwartenden Reaktionszeiten."
       }
     }
   },
   "final": {
-    "title": "Bring deine Coding-Agenten unter Kontrolle.",
-    "sub": "Kostenlos, quelloffen, ohne Konto.",
+    "title": "Lass deine Coding-Agenten arbeiten — zu deinen Bedingungen.",
+    "sub": "Kostenlos, Open Source, kein Konto nötig.",
     "seeAll": "Alle Downloads ansehen",
     "readDocs": "Dokumentation lesen",
-    "meta": "Windows x64 · Linux AppImage / deb / rpm · macOS folgt in Kürze"
+    "meta": "Windows x64 Installer & portabel · Linux AppImage / deb · macOS folgt in Kürze"
   }
 }
