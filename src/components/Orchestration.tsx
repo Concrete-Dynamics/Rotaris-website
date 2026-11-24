@@ -89,10 +89,8 @@ export default function Orchestration() {
           }}
         >
           <svg
-            width="100%"
-            height="auto"
             viewBox="0 0 480 420"
-            style={{ maxWidth: 480 }}
+            style={{ width: '100%', height: 'auto', maxWidth: 480 }}
             role="img"
             aria-label={t('orchestration.diagram.alt')}
           >

@@ -105,12 +105,12 @@ d.ellipse([mx-rr, my-rr, mx+rr, my+rr], outline=RING + (230,), width=int(3*sc))
 # ── wordmark and copy ───────────────────────────────────────────────────────
 tx = ox + 108*sc + 46*S
 d.text((tx, 190*S), 'Rotaris', font=font(GROTESK, 104*S, 600), fill=TEXT)
-d.text((tx, 310*S), 'The agentic coding control plane',
+d.text((tx, 310*S), 'Watch, steer and stop your coding agents',
        font=font(MANROPE, 40*S, 500), fill=SECONDARY)
 
 d.line([96*S, 424*S, 1104*S, 424*S], fill=RING + (70,), width=S)
 d.text((96*S, 456*S),
-       'Run and supervise a team of specialized coding agents',
+       'A desktop app that carries a coding task to a result',
        font=font(MANROPE, 34*S, 400), fill=SECONDARY)
 d.text((96*S, 522*S), 'Free  ·  GPL-3.0-only  ·  no account  ·  Windows and Linux',
        font=font(MONO, 26*S, 400), fill=TERTIARY)
