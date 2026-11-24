@@ -2,8 +2,8 @@
   "meta": {
     "titleSuffix": "Rotaris",
     "home": {
-      "title": "Rotaris — Download the agentic coding control plane",
-      "description": "Run and supervise a team of specialized coding agents from one desktop workspace. Free and open source under GPL-3.0-only, no account required."
+      "title": "Rotaris — Coding agents you can watch, steer and stop",
+      "description": "A desktop app that carries a coding task to a result in your project, with a team of AI agents you can watch, steer and stop. Free and open source under GPL-3.0-only, no account required."
     },
     "notFound": {
       "title": "Page not found",
@@ -24,7 +24,7 @@
     "download": "Download"
   },
   "footer": {
-    "tagline": "Visible, controllable, and verifiable multi-agent software development.",
+    "tagline": "Coding agents that ask before they act, and every run can be taken back.",
     "columns": {
       "product": "Product",
       "documentation": "Documentation",
@@ -39,7 +39,7 @@
       "verification": "Verification",
       "control": "Control and observability",
       "models": "Models and providers",
-      "git": "Git workflow",
+      "git": "Git and checkpoints",
       "openSource": "Open source",
       "faq": "FAQ"
     },

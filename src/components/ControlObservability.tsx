@@ -22,7 +22,7 @@ const ACTIVE = [
     agent: 'tester',
     state: 'run',
     pulsing: true,
-    tool: 'shell',
+    tool: 'terminal',
     detail: 'tester',
     elapsed: '6m 03s',
   },
@@ -38,7 +38,7 @@ const ACTIVE = [
 
 const METERS = [
   { name: 'orchestrator', percent: 41, colour: 'var(--rt-run)', value: '52.4k / 128k' },
-  { name: 'coding-agent-1', percent: 71, colour: 'var(--rt-wait)', value: '91.3k / 128k' },
+  { name: 'coding-agent-1', percent: 52, colour: 'var(--rt-wait)', value: '66.6k / 128k' },
   { name: 'tester', percent: 18, colour: 'var(--rt-run)', value: '11.6k / 64k' },
 ]
 
@@ -128,6 +128,14 @@ export default function ControlObservability() {
                 <span className="btn btn-secondary btn-compact">
                   <i className="ph ph-chat-teardrop-text" aria-hidden="true" />
                   {t('control.human.steer')}
+                </span>
+                <span className="btn btn-secondary btn-compact">
+                  <i className="ph ph-queue" aria-hidden="true" />
+                  {t('control.human.queue')}
+                </span>
+                <span className="btn btn-secondary btn-compact">
+                  <i className="ph ph-list-checks" aria-hidden="true" />
+                  {t('control.human.todos')}
                 </span>
                 <span className="btn btn-warning btn-compact">
                   <i className="ph ph-cpu" aria-hidden="true" />

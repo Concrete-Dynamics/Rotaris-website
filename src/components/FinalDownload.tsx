@@ -4,7 +4,7 @@ import { usePlatformCopy, type ReleaseState } from '../hooks/useRelease'
 
 export default function FinalDownload({ release }: { release: ReleaseState }) {
   const { t } = useTranslation('home')
-  const { release: platform, channelInfo } = release
+  const { release: platform, latest } = release
   const copy = usePlatformCopy(release)
 
   return (
@@ -36,7 +36,7 @@ export default function FinalDownload({ release }: { release: ReleaseState }) {
           className="mono"
           style={{ fontSize: 11, color: 'var(--rt-text-tertiary)', marginTop: 18 }}
         >
-          v{channelInfo.version} · {t('final.meta')}
+          v{latest.version} · {t('final.meta')}
         </div>
       </div>
     </section>

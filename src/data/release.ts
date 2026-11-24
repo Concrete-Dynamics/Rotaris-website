@@ -10,7 +10,6 @@ import type { Locale } from '../i18n/config'
  */
 
 export type PlatformId = 'windows-x64' | 'macos' | 'linux-x64'
-export type Channel = 'stable' | 'preview'
 
 export interface PlatformRelease {
   /** Button label — changes with the detected platform (H-03). */
@@ -25,7 +24,7 @@ export interface PlatformRelease {
   soon?: boolean
 }
 
-export interface ChannelRelease {
+export interface LatestRelease {
   version: string
   /** ISO date. Rendered in the page's language, so it is not written out here. */
   releasedOn: string
@@ -41,7 +40,7 @@ export const SECURITY_POLICY_URL = `${REPO_URL}/security/policy`
  * default branch does not silently turn them into 404s.
  */
 export const LICENSE_URL = `${REPO_URL}/blob/HEAD/LICENSE`
-export const ARCHITECTURE_URL = `${REPO_URL}/blob/HEAD/docs/architecture.md`
+export const ARCHITECTURE_URL = `${REPO_URL}/blob/HEAD/docs/architecture/README.md`
 
 /**
  * The company behind Rotaris, addressed in the visitor's language. German is
@@ -67,10 +66,10 @@ export const README_ANCHORS = {
 export const PLATFORMS: Record<PlatformId, PlatformRelease> = {
   'windows-x64': {
     label: 'Download for Windows',
-    sub: 'x64 · installer (.exe)',
+    sub: 'x64 · installer or portable (.exe)',
     icon: 'ph ph-windows-logo',
-    size: '86 MB',
-    minOs: 'Windows 10 1809 or later',
+    size: '192 MB',
+    minOs: 'Windows 10 or later',
   },
   macos: {
     label: 'macOS build coming soon',
@@ -82,16 +81,17 @@ export const PLATFORMS: Record<PlatformId, PlatformRelease> = {
   },
   'linux-x64': {
     label: 'Download for Linux',
-    sub: 'x64 · AppImage · deb · rpm',
+    sub: 'x86_64 · AppImage · deb',
     icon: 'ph ph-linux-logo',
-    size: '99 MB',
-    minOs: 'glibc 2.31+',
+    size: '216 MB',
+    minOs: 'tested on Ubuntu 24.04',
   },
 }
 
-export const CHANNELS: Record<Channel, ChannelRelease> = {
-  stable: { version: '0.5.0', releasedOn: '2026-07-08' },
-  preview: { version: '0.6.0-beta.2', releasedOn: '2026-07-19' },
-}
+/**
+ * Rotaris publishes one release line: GitHub's latest release, which the
+ * in-app updater reads as well. It is a release candidate until v0.1.0.
+ */
+export const LATEST: LatestRelease = { version: '0.1.0rc9', releasedOn: '2026-11-24' }
 
 export const DEFAULT_PLATFORM: PlatformId = 'windows-x64'

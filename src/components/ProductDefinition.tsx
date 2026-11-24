@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 const PILLARS = [
   { key: 'orchestration', icon: 'ph ph-tree-structure' },
   { key: 'control', icon: 'ph ph-hand-palm' },
-  { key: 'verification', icon: 'ph ph-seal-check' },
-  { key: 'traceability', icon: 'ph ph-path' },
+  { key: 'permissions', icon: 'ph ph-shield-check' },
+  { key: 'recovery', icon: 'ph ph-clock-counter-clockwise' },
 ]
 
 export default function ProductDefinition() {

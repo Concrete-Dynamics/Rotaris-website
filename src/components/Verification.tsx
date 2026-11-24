@@ -19,7 +19,10 @@ export default function Verification() {
       label: t('verification.summary.requirements'),
       value: <>{t('verification.summary.requirementsValue')}</>,
     },
-    { label: t('verification.summary.git'), value: <>{t('verification.summary.gitValue')}</> },
+    {
+      label: t('verification.summary.checkpoint'),
+      value: <>{t('verification.summary.checkpointValue')}</>,
+    },
     {
       label: t('verification.summary.warnings'),
       value: (
@@ -56,16 +59,16 @@ export default function Verification() {
             <ChainArrow />
             <div className="card">
               <span className="card-kicker">{t('verification.chain.change')}</span>
-              <span className="mono chain-id">a3f19c2</span>
+              <span className="mono chain-id">iter 7</span>
               <p className="card-body mono">
-                src/api/session.py <span style={{ color: 'var(--rt-run)' }}>+214</span>{' '}
+                src/api/session.ts <span style={{ color: 'var(--rt-run)' }}>+214</span>{' '}
                 <span style={{ color: 'var(--rt-danger-300)' }}>−96</span>
               </p>
             </div>
             <ChainArrow />
             <div className="card">
               <span className="card-kicker">{t('verification.chain.test')}</span>
-              <span className="mono chain-id">test_session.py</span>
+              <span className="mono chain-id">session.test.ts</span>
               <p className="card-body mono">
                 <span style={{ color: 'var(--rt-run)' }}>✓</span>{' '}
                 {t('verification.chain.testBody')}
@@ -120,13 +123,13 @@ export default function Verification() {
             </div>
             <div className="summary-actions">
               <span className="btn btn-primary btn-compact">
-                {t('verification.summary.accept')}
+                {t('verification.summary.review')}
               </span>
               <span className="btn btn-secondary btn-compact">
-                {t('verification.summary.reviewDiff')}
+                {t('verification.summary.restore')}
               </span>
               <span className="btn btn-ghost btn-compact" style={{ marginLeft: 'auto' }}>
-                {t('verification.summary.viewEvidence')}
+                {t('verification.summary.report')}
               </span>
             </div>
           </div>

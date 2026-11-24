@@ -2,8 +2,8 @@
   "meta": {
     "titleSuffix": "Rotaris",
     "home": {
-      "title": "Rotaris — Die Steuerungsebene für agentische Softwareentwicklung",
-      "description": "Ein Team spezialisierter Coding-Agenten aus einem Desktop-Arbeitsbereich steuern und überwachen. Kostenlos und Open Source unter GPL-3.0-only, ohne Konto."
+      "title": "Rotaris — Coding-Agenten, die du beobachten, lenken und stoppen kannst",
+      "description": "Eine Desktop-App, die eine Programmieraufgabe in deinem Projekt bis zum Ergebnis trägt — mit einem Team von KI-Agenten, das du beobachten, lenken und stoppen kannst. Kostenlos und Open Source unter GPL-3.0-only, ohne Konto."
     },
     "notFound": {
       "title": "Seite nicht gefunden",
@@ -24,7 +24,7 @@
     "download": "Herunterladen"
   },
   "footer": {
-    "tagline": "Sichtbare, steuerbare und überprüfbare Softwareentwicklung mit mehreren Agenten.",
+    "tagline": "Coding-Agenten, die fragen, bevor sie handeln — und jeder Lauf lässt sich zurücknehmen.",
     "columns": {
       "product": "Produkt",
       "documentation": "Dokumentation",
@@ -39,7 +39,7 @@
       "verification": "Verifikation",
       "control": "Kontrolle und Einblick",
       "models": "Modelle und Anbieter",
-      "git": "Git-Workflow",
+      "git": "Git und Checkpoints",
       "openSource": "Open Source",
       "faq": "Häufige Fragen"
     },

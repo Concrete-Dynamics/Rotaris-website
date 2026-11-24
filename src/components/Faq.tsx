@@ -2,11 +2,12 @@ import { useTranslation } from 'react-i18next'
 
 const QUESTIONS = [
   'what',
-  'python',
+  'status',
   'code',
   'providers',
-  'concurrency',
-  'finished',
+  'subscription',
+  'permissions',
+  'undo',
   'cancel',
   'cli',
   'security',

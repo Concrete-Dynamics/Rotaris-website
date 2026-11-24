@@ -2,11 +2,11 @@ import { Trans, useTranslation } from 'react-i18next'
 import { README_ANCHORS, SECURITY_POLICY_URL } from '../data/release'
 
 const BOUNDARIES = [
+  { key: 'gate', icon: 'ph ph-shield-check' },
   { key: 'files', icon: 'ph ph-folder-lock' },
-  { key: 'shell', icon: 'ph ph-terminal' },
+  { key: 'network', icon: 'ph ph-globe-hemisphere-west' },
+  { key: 'hooks', icon: 'ph ph-plugs' },
   { key: 'secrets', icon: 'ph ph-eye-slash' },
-  { key: 'tokens', icon: 'ph ph-key' },
-  { key: 'loops', icon: 'ph ph-arrows-counter-clockwise' },
   { key: 'cancel', icon: 'ph ph-hand-palm' },
 ]
 

@@ -1,39 +1,21 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import {
-  CHANNELS,
-  PLATFORMS,
-  type Channel,
-  type ChannelRelease,
-  type PlatformId,
-  type PlatformRelease,
-} from '../data/release'
+import { LATEST, PLATFORMS, type LatestRelease, type PlatformId, type PlatformRelease } from '../data/release'
 import { useDetectedPlatform } from './useDetectedPlatform'
 
 export interface ReleaseState {
   platform: PlatformId
   release: PlatformRelease
-  channel: Channel
-  channelInfo: ChannelRelease
-  isPreview: boolean
-  setChannel: (channel: Channel) => void
+  latest: LatestRelease
 }
 
-/** Resolves the detected platform and the selected channel into one release. */
+/** Resolves the detected platform into the latest release for it. */
 export function useRelease(): ReleaseState {
   const platform = useDetectedPlatform()
-  const [channel, setChannel] = useState<Channel>('stable')
 
   return useMemo(
-    () => ({
-      platform,
-      release: PLATFORMS[platform],
-      channel,
-      channelInfo: CHANNELS[channel],
-      isPreview: channel === 'preview',
-      setChannel,
-    }),
-    [platform, channel],
+    () => ({ platform, release: PLATFORMS[platform], latest: LATEST }),
+    [platform],
   )
 }
 

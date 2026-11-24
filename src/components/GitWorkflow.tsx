@@ -7,20 +7,15 @@ const WORKTREES = [
   { name: 'config-v2', state: 'done', active: false, meta: 'clean' },
 ]
 
-const COMMITS = [
-  { sha: 'a3f19c2', key: 'async', author: 'you', elapsed: '14m' },
-  { sha: '9e0b7f1', key: 'blockingIo', author: 'coding-agent-1', elapsed: '22m' },
-  { sha: '5c2d8aa', key: 'fixtures', author: 'coding-agent-1', elapsed: '1h' },
-  { sha: '0f7b3e4', key: 'interface', author: 'architect', elapsed: '2h' },
+/** One checkpoint per iteration that changed the tree; the newest first. */
+const CHECKPOINTS = [
+  { id: 'iter 7', key: 'async', files: 4, elapsed: '14m' },
+  { id: 'iter 5', key: 'blockingIo', files: 3, elapsed: '22m' },
+  { id: 'iter 3', key: 'fixtures', files: 2, elapsed: '41m' },
+  { id: 'iter 2', key: 'interface', files: 1, elapsed: '52m' },
 ]
 
-const TAGS = [
-  'changedFiles',
-  'branchContext',
-  'localCommits',
-  'diffReview',
-  'worktrees',
-] as const
+const TAGS = ['worktrees', 'checkpoints', 'restore', 'changedFiles', 'diffReview'] as const
 
 export default function GitWorkflow() {
   const { t } = useTranslation('home')
@@ -41,6 +36,7 @@ export default function GitWorkflow() {
                 {t(`git.tags.${tag}`)}
               </span>
             ))}
+            <span className="tag tag-outline dim">{t('git.tags.merge')}</span>
             <span className="tag tag-outline dim">{t('git.tags.pullRequests')}</span>
           </div>
         </div>
@@ -61,15 +57,15 @@ export default function GitWorkflow() {
           </div>
 
           <div className="card-kicker" style={{ padding: '14px 20px 8px' }}>
-            {t('git.recentCommits')}
+            {t('git.checkpoints')}
           </div>
           <div className="mono commit-list">
-            {COMMITS.map((commit) => (
-              <div className="commit-row" key={commit.sha}>
-                <span className="commit-sha">{commit.sha}</span>
-                <span className="commit-subject">{t(`git.commits.${commit.key}`)}</span>
+            {CHECKPOINTS.map((checkpoint) => (
+              <div className="commit-row" key={checkpoint.id}>
+                <span className="commit-sha">{checkpoint.id}</span>
+                <span className="commit-subject">{t(`git.commits.${checkpoint.key}`)}</span>
                 <span className="commit-author">
-                  {commit.author === 'you' ? t('git.authorYou') : commit.author} · {commit.elapsed}
+                  {t('git.filesChanged', { count: checkpoint.files })} · {checkpoint.elapsed}
                 </span>
               </div>
             ))}
